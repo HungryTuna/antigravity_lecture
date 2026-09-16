@@ -200,6 +200,7 @@ footer ul{margin:8px 0 0;padding-left:16px}
       <li><a href="#ch4"><span class="n">04</span><span class="t">MCP 연결 (Stitch)</span></a></li>
       <li><a href="#ch5"><span class="n">05</span><span class="t">Gemini API 키</span></a></li>
       <li><a href="#ch6"><span class="n">06</span><span class="t">실습 · 기도문 앱</span></a></li>
+      <li><a href="#summary"><span class="n">07</span><span class="t">전체 요약</span></a></li>
     </ol>
   </nav>
 
@@ -1220,6 +1221,36 @@ Tailwind CSS 사용 시, 임의의 값(arbitrary values)보다는 설정된 테�
           <li>배포가 끝나면 발급된 주소로 접속해 기도문이 실제로 생성되는지 확인하세요.</li>
         </ul>
       </div>
+    </div>
+    <a class="top-link" href="#top">↑ 맨 위로</a>
+  </section>
+
+  <!-- ================= SUMMARY ================= -->
+  <section id="summary">
+    <div class="sec-head">
+      <span class="chip chip-solid">07</span>
+      <h2>전체 요약 — 한 페이지로 정리</h2>
+    </div>
+    <p class="lede">규칙으로 기준을 세우고, 스킬로 방법을 주고, MCP · API 로 바깥 도구를 연결한 뒤, 프롬프트로 앱을 완성합니다.</p>
+
+    <div class="rows block">
+      <div class="row"><span class="idx">01</span><div><div class="ttl">안티그래비티란?</div><div class="desc">파일 · 터미널 · 브라우저를 직접 다루는 구글의 에이전트 IDE. 규칙(GEMINI.md) · 스킬(SKILL.md) · MCP 세 층을 구분한다</div></div></div>
+      <div class="row"><span class="idx">02</span><div><div class="ttl">설치 및 기본 설정</div><div class="desc">antigravity.google/download → 구글 로그인 → 새 프로젝트 → <code class="i">~/.gemini/GEMINI.md</code> 에 전역 규칙 작성</div></div></div>
+      <div class="row"><span class="idx">03</span><div><div class="ttl">Skill.sh 스킬 설정</div><div class="desc"><code class="i">npx skills add …</code> 한 줄로 설치 → 재시작 후 새 대화에서 사용. 전역은 <code class="i">~/.gemini/</code>, 지역은 <code class="i">.agents/skills/</code> (지역이 우선)</div></div></div>
+      <div class="row"><span class="idx">04</span><div><div class="ttl">MCP 연결 (Stitch)</div><div class="desc">Stitch 설정에서 API 키 발급 → 에이전트 매니저 → MCP Servers 에서 Stitch 설치 후 키 입력</div></div></div>
+      <div class="row"><span class="idx">05</span><div><div class="ttl">Gemini API 키</div><div class="desc">aistudio.google.com/apikey 에서 발급. 키는 <code class="i">.env</code> + <code class="i">.gitignore</code>, 호출은 서버에서만</div></div></div>
+      <div class="row"><span class="idx">06</span><div><div class="ttl">실습 · 기도문 앱</div><div class="desc">PRD 작성 → grill-me 로 상세화 → Stitch 디자인 · 개발 → API 키 연동 → GitHub 업로드 → Cloudflare 배포</div></div></div>
+    </div>
+
+    <div class="grid g3 block">
+      <div class="card"><span class="num">KEY 01</span><h4>지시가 곧 코드</h4><p>코드를 쓰는 대신 에이전트에게 정확하게 지시하고, 결과를 확인합니다</p></div>
+      <div class="card"><span class="num">KEY 02</span><h4>한 번 정하면 계속 쓴다</h4><p>규칙과 스킬을 만들어 두면 매번 같은 품질의 결과가 나옵니다</p></div>
+      <div class="card"><span class="num">KEY 03</span><h4>키는 서버 안에만</h4><p>API 키를 화면 코드나 Git 에 올리지 않는 것이 가장 중요합니다</p></div>
+    </div>
+
+    <div class="note accent">
+      <span class="tag tag-accent">다음 단계</span>
+      <p>기도문 앱의 프롬프트만 바꾸면 일기 요약기 · 편지 작성기 등 나만의 앱을 같은 흐름으로 만들 수 있습니다.</p>
     </div>
     <a class="top-link" href="#top">↑ 맨 위로</a>
   </section>
