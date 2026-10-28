@@ -1,461 +1,1216 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>안티그래비티 초보자 교육자료</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#f8f6f8; --card:#ffffff; --line:#d9d9d9; --line-soft:#e8e4e8;
-  --ink:#1d161d; --sub:#574e57; --accent:#6a2f8d; --accent-tint:#f2ecf6; --solid:#2a232a;
-  --r:2px;
-  --sans:'Inter Tight','Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
-  --mono:'JetBrains Mono','D2Coding','Consolas',monospace;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.62;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
-a{color:var(--accent);text-decoration:none}
-h1,h2,h3,h4{font-family:var(--sans);letter-spacing:-0.025em;margin:0;font-weight:700;line-height:1.24}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>안티그래비티 초보자 교육자료</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8f6f8;
+      --card: #ffffff;
+      --line: #d9d9d9;
+      --line-soft: #e8e4e8;
+      --ink: #1d161d;
+      --sub: #574e57;
+      --accent: #6a2f8d;
+      --accent-tint: #f2ecf6;
+      --solid: #2a232a;
+      --r: 2px;
+      --sans: 'Inter Tight', 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+      --mono: 'JetBrains Mono', 'D2Coding', 'Consolas', monospace;
+    }
 
-/* ---------- label / tag ---------- */
-.tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--sub)}
-.tag-accent{color:var(--accent)}
-.chip{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;
-  border:1px solid var(--line);background:var(--card);color:var(--sub);padding:3px 8px;border-radius:var(--r)}
-.chip-accent{border-color:var(--accent);color:var(--accent);background:var(--accent-tint)}
-.chip-solid{background:var(--solid);border-color:var(--solid);color:#fff}
+    * {
+      box-sizing: border-box
+    }
 
-/* ---------- shell ---------- */
-.shell{max-width:1360px;margin:0 auto;display:block}
-.main{padding:0 16px 80px;max-width:940px;margin:0 auto}
-@media(min-width:1080px){
-  .shell{display:grid;grid-template-columns:268px minmax(0,1fr);gap:0;align-items:start}
-  .main{padding:0 40px 120px;margin:0;max-width:none}
-}
+    html {
+      scroll-behavior: smooth
+    }
 
-/* ---------- topbar (mobile) ---------- */
-.topbar{position:sticky;top:0;z-index:30;background:var(--card);border-bottom:1px solid var(--line);
-  display:flex;align-items:center;justify-content:space-between;padding:10px 16px;gap:10px}
-.topbar b{font-size:13px;letter-spacing:-.02em}
-.topbar .tag{display:block}
-.navbtn{font-family:var(--mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;
-  border:1px solid var(--line);background:var(--bg);color:var(--ink);padding:7px 10px;border-radius:var(--r);cursor:pointer}
-@media(min-width:1080px){.topbar{display:none}}
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.62;
+      -webkit-font-smoothing: antialiased
+    }
 
-/* ---------- sidebar ---------- */
-.side{background:var(--card);border-right:1px solid var(--line);padding:18px 14px 40px}
-.side[hidden]{display:none}
-.side .brand{display:none}
-.side ol{list-style:none;margin:0;padding:0}
-.side li{border-bottom:1px solid var(--line-soft)}
-.side li:last-child{border-bottom:0}
-.side a{display:grid;grid-template-columns:34px 1fr;gap:8px;align-items:baseline;padding:9px 6px;color:var(--ink)}
-.side a:hover{background:var(--accent-tint)}
-.side a .n{font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;color:var(--sub)}
-.side a .t{font-size:13.5px;font-weight:500;letter-spacing:-.02em}
-.side a.on{background:var(--accent-tint)}
-.side a.on .n,.side a.on .t{color:var(--accent)}
-@media(min-width:1080px){
-  .side{display:block!important;position:sticky;top:0;height:100vh;overflow-y:auto;padding-top:26px}
-  .side .brand{display:block;margin-bottom:16px;padding:0 6px 14px;border-bottom:1px solid var(--line)}
-  .side .brand b{display:block;font-size:14px;letter-spacing:-.025em}
-}
+    img {
+      max-width: 100%;
+      display: block
+    }
 
-/* ---------- hero ---------- */
-.hero{border-bottom:1px solid var(--line);background:var(--card);margin:0 -16px 0;padding:34px 16px 30px}
-@media(min-width:1080px){.hero{margin:0 -40px;padding:56px 40px 48px}}
-.hero-grid{display:grid;gap:26px;align-items:center}
-@media(min-width:800px){.hero-grid{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:36px}}
-.hero h1{font-size:30px;letter-spacing:-.035em;margin:12px 0 14px}
-@media(min-width:800px){.hero h1{font-size:44px}}
-.hero p{color:var(--sub);margin:0 0 18px;font-size:15px}
-.hero .meta{display:flex;flex-wrap:wrap;gap:6px}
-.hero figure{margin:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--bg)}
+    a {
+      color: var(--accent);
+      text-decoration: none
+    }
 
-/* ---------- sections ---------- */
-section{padding:34px 0 8px;border-bottom:1px solid var(--line);scroll-margin-top:60px}
-section:last-of-type{border-bottom:0}
-.sec-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px}
-.sec-head h2{font-size:23px;letter-spacing:-.03em}
-@media(min-width:800px){.sec-head h2{font-size:28px}}
-.lede{color:var(--sub);margin:0 0 20px;max-width:72ch}
-.block{margin:0 0 20px}
-.block h3{font-size:17.5px;margin:0 0 4px}
-.block > .tag{display:block;margin-bottom:5px}
-.block p.sub{color:var(--sub);margin:0 0 12px}
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: var(--sans);
+      letter-spacing: -0.025em;
+      margin: 0;
+      font-weight: 700;
+      line-height: 1.24
+    }
 
-/* ---------- cards / grid ---------- */
-.grid{display:grid;gap:10px}
-.g2{grid-template-columns:1fr}
-.g3{grid-template-columns:1fr}
-.g4{grid-template-columns:1fr 1fr}
-@media(min-width:680px){
-  .g2{grid-template-columns:1fr 1fr}
-  .g3{grid-template-columns:repeat(3,1fr)}
-  .g4{grid-template-columns:repeat(4,1fr)}
-}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px}
-.card h4{font-size:15px;margin:6px 0 4px;letter-spacing:-.02em}
-.card p{margin:0;color:var(--sub);font-size:13.5px;line-height:1.55}
-.card .num{font-family:var(--mono);font-size:11px;letter-spacing:.07em;color:var(--accent)}
+    /* ---------- label / tag ---------- */
+    .tag {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--sub)
+    }
 
-/* numbered step rows (table-like) */
-.rows{background:var(--card);border:1px solid var(--line);border-radius:var(--r)}
-.row{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;padding:12px 14px;border-bottom:1px solid var(--line-soft);align-items:start}
-.row:last-child{border-bottom:0}
-.row .idx{font-family:var(--mono);font-size:11px;letter-spacing:.07em;color:var(--accent);padding-top:3px}
-.row .ttl{font-weight:600;font-size:14.5px;letter-spacing:-.015em}
-.row .desc{color:var(--sub);font-size:13.5px;margin-top:2px}
-.row .side-note{font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;color:var(--sub);text-transform:uppercase}
-.row.with-note{grid-template-columns:44px minmax(0,1fr) auto}
+    .tag-accent {
+      color: var(--accent)
+    }
 
-/* compare */
-.cmp{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px}
-.cmp h4{font-size:14.5px;margin:0 0 2px}
-.cmp .tag{display:block;margin-bottom:9px}
-.cmp ul{margin:0;padding-left:16px;color:var(--sub);font-size:13.5px}
-.cmp li{margin-bottom:4px}
-.cmp li:last-child{margin-bottom:0}
-.cmp.neg{border-left:1px solid var(--line)}
-.cmp.pos h4{color:var(--accent)}
+    .chip {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--sub);
+      padding: 3px 8px;
+      border-radius: var(--r)
+    }
 
-/* callout */
-.note{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:13px 14px;margin:0 0 14px}
-.note .tag{display:block;margin-bottom:4px}
-.note p{margin:0;font-size:14px;color:var(--ink)}
-.note.accent{background:var(--accent-tint);border-color:#d8c7e5}
-.note.accent p{color:var(--solid)}
+    .chip-accent {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-tint)
+    }
 
-/* code / prompt */
-.code{background:var(--solid);border:1px solid var(--solid);border-radius:var(--r);color:#efe9ef;
-  font-family:var(--mono);font-size:12.5px;line-height:1.72;padding:14px;overflow-x:auto;white-space:pre;margin:0 0 12px;letter-spacing:.01em}
-.code.wrap{white-space:pre-wrap}
-.prompt-head{display:flex;align-items:center;justify-content:space-between;gap:10px;
-  background:var(--card);border:1px solid var(--line);border-bottom:0;border-radius:var(--r) var(--r) 0 0;padding:8px 12px}
-.prompt-head + .code{border-radius:0 0 var(--r) var(--r);border-top:0}
-.copy{font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;border:1px solid var(--line);
-  background:var(--bg);color:var(--sub);padding:5px 9px;border-radius:var(--r);cursor:pointer}
-.copy:hover{border-color:var(--accent);color:var(--accent)}
-kbd,code.i{font-family:var(--mono);font-size:12.5px;background:var(--accent-tint);border:1px solid #e0d2ea;
-  border-radius:var(--r);padding:1px 5px;color:var(--accent);letter-spacing:.01em}
+    .chip-solid {
+      background: var(--solid);
+      border-color: var(--solid);
+      color: #fff
+    }
 
-/* table */
-.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--card);margin:0 0 14px}
-table{border-collapse:collapse;width:100%;min-width:560px;font-size:13.5px}
-th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line-soft);vertical-align:top}
-thead th{font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--sub);background:var(--bg)}
-tbody th{font-weight:600;color:var(--ink);white-space:nowrap}
-tr:last-child th,tr:last-child td{border-bottom:0}
-td code{font-family:var(--mono);font-size:12.5px}
+    /* ---------- shell ---------- */
+    .shell {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: block
+    }
 
-/* figure */
-figure.shot{margin:0 0 14px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);overflow:hidden}
-figure.shot img{width:100%}
-figure.shot figcaption{font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;
-  color:var(--sub);padding:8px 12px;border-top:1px solid var(--line)}
-.shots{display:grid;gap:10px;margin-bottom:14px}
-@media(min-width:680px){.shots.two{grid-template-columns:1fr 1fr}}
-.shots figure{margin:0}
+    .main {
+      padding: 0 16px 80px;
+      max-width: 940px;
+      margin: 0 auto
+    }
 
-/* step header for ch6 */
-.step{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;margin:0 0 14px}
-.step > .hd{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}
-.step h3{font-size:17px}
-.step .goal{color:var(--sub);margin:0 0 12px;font-size:14px}
-.step .check{border-top:1px solid var(--line-soft);margin-top:12px;padding-top:11px}
-.step .check .tag{display:block;margin-bottom:4px}
-.step .check ul{margin:0;padding-left:16px;color:var(--sub);font-size:13.5px}
+    @media(min-width:1080px) {
+      .shell {
+        display: grid;
+        grid-template-columns: 268px minmax(0, 1fr);
+        gap: 0;
+        align-items: start
+      }
 
-footer{padding:26px 0 60px;color:var(--sub);font-size:12.5px}
-footer ul{margin:8px 0 0;padding-left:16px}
-.top-link{display:inline-block;margin-top:14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase}
-</style>
+      .main {
+        padding: 0 40px 120px;
+        margin: 0;
+        max-width: none
+      }
+    }
+
+    /* ---------- topbar (mobile) ---------- */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: var(--card);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      gap: 10px
+    }
+
+    .topbar b {
+      font-size: 13px;
+      letter-spacing: -.02em
+    }
+
+    .topbar .tag {
+      display: block
+    }
+
+    .navbtn {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      border: 1px solid var(--line);
+      background: var(--bg);
+      color: var(--ink);
+      padding: 7px 10px;
+      border-radius: var(--r);
+      cursor: pointer
+    }
+
+    @media(min-width:1080px) {
+      .topbar {
+        display: none
+      }
+    }
+
+    /* ---------- sidebar ---------- */
+    .side {
+      background: var(--card);
+      border-right: 1px solid var(--line);
+      padding: 18px 14px 40px
+    }
+
+    .side[hidden] {
+      display: none
+    }
+
+    .side .brand {
+      display: none
+    }
+
+    .side ol {
+      list-style: none;
+      margin: 0;
+      padding: 0
+    }
+
+    .side li {
+      border-bottom: 1px solid var(--line-soft)
+    }
+
+    .side li:last-child {
+      border-bottom: 0
+    }
+
+    .side a {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 8px;
+      align-items: baseline;
+      padding: 9px 6px;
+      color: var(--ink)
+    }
+
+    .side a:hover {
+      background: var(--accent-tint)
+    }
+
+    .side a .n {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: .07em;
+      color: var(--sub)
+    }
+
+    .side a .t {
+      font-size: 13.5px;
+      font-weight: 500;
+      letter-spacing: -.02em
+    }
+
+    .side a.on {
+      background: var(--accent-tint)
+    }
+
+    .side a.on .n,
+    .side a.on .t {
+      color: var(--accent)
+    }
+
+    @media(min-width:1080px) {
+      .side {
+        display: block !important;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow-y: auto;
+        padding-top: 26px
+      }
+
+      .side .brand {
+        display: block;
+        margin-bottom: 16px;
+        padding: 0 6px 14px;
+        border-bottom: 1px solid var(--line)
+      }
+
+      .side .brand b {
+        display: block;
+        font-size: 14px;
+        letter-spacing: -.025em
+      }
+    }
+
+    /* ---------- hero ---------- */
+    .hero {
+      border-bottom: 1px solid var(--line);
+      background: var(--card);
+      margin: 0 -16px 0;
+      padding: 34px 16px 30px
+    }
+
+    @media(min-width:1080px) {
+      .hero {
+        margin: 0 -40px;
+        padding: 56px 40px 48px
+      }
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 26px;
+      align-items: center
+    }
+
+    @media(min-width:800px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+        gap: 36px
+      }
+    }
+
+    .hero h1 {
+      font-size: 30px;
+      letter-spacing: -.035em;
+      margin: 12px 0 14px
+    }
+
+    @media(min-width:800px) {
+      .hero h1 {
+        font-size: 44px
+      }
+    }
+
+    .hero p {
+      color: var(--sub);
+      margin: 0 0 18px;
+      font-size: 15px
+    }
+
+    .hero .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px
+    }
+
+    .hero figure {
+      margin: 0;
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      overflow: hidden;
+      background: var(--bg)
+    }
+
+    /* ---------- sections ---------- */
+    section {
+      padding: 34px 0 8px;
+      border-bottom: 1px solid var(--line);
+      scroll-margin-top: 60px
+    }
+
+    section:last-of-type {
+      border-bottom: 0
+    }
+
+    .sec-head {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 6px
+    }
+
+    .sec-head h2 {
+      font-size: 23px;
+      letter-spacing: -.03em
+    }
+
+    @media(min-width:800px) {
+      .sec-head h2 {
+        font-size: 28px
+      }
+    }
+
+    .lede {
+      color: var(--sub);
+      margin: 0 0 20px;
+      max-width: 72ch
+    }
+
+    .block {
+      margin: 0 0 20px
+    }
+
+    .block h3 {
+      font-size: 17.5px;
+      margin: 0 0 4px
+    }
+
+    .block>.tag {
+      display: block;
+      margin-bottom: 5px
+    }
+
+    .block p.sub {
+      color: var(--sub);
+      margin: 0 0 12px
+    }
+
+    /* ---------- cards / grid ---------- */
+    .grid {
+      display: grid;
+      gap: 10px
+    }
+
+    .g2 {
+      grid-template-columns: 1fr
+    }
+
+    .g3 {
+      grid-template-columns: 1fr
+    }
+
+    .g4 {
+      grid-template-columns: 1fr 1fr
+    }
+
+    @media(min-width:680px) {
+      .g2 {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .g3 {
+        grid-template-columns: repeat(3, 1fr)
+      }
+
+      .g4 {
+        grid-template-columns: repeat(4, 1fr)
+      }
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      padding: 14px
+    }
+
+    .card h4 {
+      font-size: 15px;
+      margin: 6px 0 4px;
+      letter-spacing: -.02em
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--sub);
+      font-size: 13.5px;
+      line-height: 1.55
+    }
+
+    .card .num {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .07em;
+      color: var(--accent)
+    }
+
+    /* numbered step rows (table-like) */
+    .rows {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--r)
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr);
+      gap: 12px;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line-soft);
+      align-items: start
+    }
+
+    .row:last-child {
+      border-bottom: 0
+    }
+
+    .row .idx {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .07em;
+      color: var(--accent);
+      padding-top: 3px
+    }
+
+    .row .ttl {
+      font-weight: 600;
+      font-size: 14.5px;
+      letter-spacing: -.015em
+    }
+
+    .row .desc {
+      color: var(--sub);
+      font-size: 13.5px;
+      margin-top: 2px
+    }
+
+    .row .side-note {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: .07em;
+      color: var(--sub);
+      text-transform: uppercase
+    }
+
+    .row.with-note {
+      grid-template-columns: 44px minmax(0, 1fr) auto
+    }
+
+    /* compare */
+    .cmp {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      padding: 14px
+    }
+
+    .cmp h4 {
+      font-size: 14.5px;
+      margin: 0 0 2px
+    }
+
+    .cmp .tag {
+      display: block;
+      margin-bottom: 9px
+    }
+
+    .cmp ul {
+      margin: 0;
+      padding-left: 16px;
+      color: var(--sub);
+      font-size: 13.5px
+    }
+
+    .cmp li {
+      margin-bottom: 4px
+    }
+
+    .cmp li:last-child {
+      margin-bottom: 0
+    }
+
+    .cmp.neg {
+      border-left: 1px solid var(--line)
+    }
+
+    .cmp.pos h4 {
+      color: var(--accent)
+    }
+
+    /* callout */
+    .note {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      padding: 13px 14px;
+      margin: 0 0 14px
+    }
+
+    .note .tag {
+      display: block;
+      margin-bottom: 4px
+    }
+
+    .note p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--ink)
+    }
+
+    .note.accent {
+      background: var(--accent-tint);
+      border-color: #d8c7e5
+    }
+
+    .note.accent p {
+      color: var(--solid)
+    }
+
+    /* code / prompt */
+    .code {
+      background: var(--solid);
+      border: 1px solid var(--solid);
+      border-radius: var(--r);
+      color: #efe9ef;
+      font-family: var(--mono);
+      font-size: 12.5px;
+      line-height: 1.72;
+      padding: 14px;
+      overflow-x: auto;
+      white-space: pre;
+      margin: 0 0 12px;
+      letter-spacing: .01em
+    }
+
+    .code.wrap {
+      white-space: pre-wrap
+    }
+
+    .prompt-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-bottom: 0;
+      border-radius: var(--r) var(--r) 0 0;
+      padding: 8px 12px
+    }
+
+    .prompt-head+.code {
+      border-radius: 0 0 var(--r) var(--r);
+      border-top: 0
+    }
+
+    .copy {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      border: 1px solid var(--line);
+      background: var(--bg);
+      color: var(--sub);
+      padding: 5px 9px;
+      border-radius: var(--r);
+      cursor: pointer
+    }
+
+    .copy:hover {
+      border-color: var(--accent);
+      color: var(--accent)
+    }
+
+    kbd,
+    code.i {
+      font-family: var(--mono);
+      font-size: 12.5px;
+      background: var(--accent-tint);
+      border: 1px solid #e0d2ea;
+      border-radius: var(--r);
+      padding: 1px 5px;
+      color: var(--accent);
+      letter-spacing: .01em
+    }
+
+    /* table */
+    .tablewrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      background: var(--card);
+      margin: 0 0 14px
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 560px;
+      font-size: 13.5px
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line-soft);
+      vertical-align: top
+    }
+
+    thead th {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--sub);
+      background: var(--bg)
+    }
+
+    tbody th {
+      font-weight: 600;
+      color: var(--ink);
+      white-space: nowrap
+    }
+
+    tr:last-child th,
+    tr:last-child td {
+      border-bottom: 0
+    }
+
+    td code {
+      font-family: var(--mono);
+      font-size: 12.5px
+    }
+
+    /* figure */
+    figure.shot {
+      margin: 0 0 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      background: var(--card);
+      overflow: hidden
+    }
+
+    figure.shot img {
+      width: 100%
+    }
+
+    figure.shot figcaption {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--sub);
+      padding: 8px 12px;
+      border-top: 1px solid var(--line)
+    }
+
+    .shots {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 14px
+    }
+
+    @media(min-width:680px) {
+      .shots.two {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    .shots figure {
+      margin: 0
+    }
+
+    /* step header for ch6 */
+    .step {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      padding: 16px;
+      margin: 0 0 14px
+    }
+
+    .step>.hd {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 8px
+    }
+
+    .step h3 {
+      font-size: 17px
+    }
+
+    .step .goal {
+      color: var(--sub);
+      margin: 0 0 12px;
+      font-size: 14px
+    }
+
+    .step .check {
+      border-top: 1px solid var(--line-soft);
+      margin-top: 12px;
+      padding-top: 11px
+    }
+
+    .step .check .tag {
+      display: block;
+      margin-bottom: 4px
+    }
+
+    .step .check ul {
+      margin: 0;
+      padding-left: 16px;
+      color: var(--sub);
+      font-size: 13.5px
+    }
+
+    footer {
+      padding: 26px 0 60px;
+      color: var(--sub);
+      font-size: 12.5px
+    }
+
+    footer ul {
+      margin: 8px 0 0;
+      padding-left: 16px
+    }
+
+    .top-link {
+      display: inline-block;
+      margin-top: 14px;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: .07em;
+      text-transform: uppercase
+    }
+
+    /* ---------- hero video in-frame player ---------- */
+    .hero-media {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      overflow: hidden;
+      background: #0f0b12;
+      margin: 0
+    }
+
+    .hero-media-cover {
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+      display: block;
+      outline-offset: 2px
+    }
+
+    .hero-media-cover img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform .3s ease, filter .3s ease
+    }
+
+    .hero-media-cover:hover img {
+      transform: scale(1.02);
+      filter: brightness(.92)
+    }
+
+    .hero-play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: rgba(29, 22, 29, 0.22);
+      transition: background .25s ease
+    }
+
+    .hero-media-cover:hover .hero-play-overlay {
+      background: rgba(29, 22, 29, 0.38)
+    }
+
+    .play-icon-badge {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      transition: transform .25s cubic-bezier(.34, 1.56, .64, 1), background .25s ease
+    }
+
+    .play-icon-badge svg {
+      margin-left: 3px
+    }
+
+    .hero-media-cover:hover .play-icon-badge {
+      transform: scale(1.12);
+      background: #ffffff
+    }
+
+    .hero-video-box {
+      display: none;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      aspect-ratio: 4/3
+    }
+
+    .hero-video-box video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block
+    }
+
+    .hero-media.is-playing .hero-media-cover {
+      display: none
+    }
+
+    .hero-media.is-playing .hero-video-box {
+      display: block
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="topbar">
-  <div>
-    <span class="tag">Google Antigravity</span>
-    <b>안티그래비티 초보자 교육자료</b>
-  </div>
-  <button class="navbtn" id="navbtn" aria-expanded="false" aria-controls="side">목차</button>
-</div>
-
-<div class="shell">
-  <nav class="side" id="side" hidden>
-    <div class="brand">
-      <span class="tag tag-accent">Curriculum · 2026</span>
+  <div class="topbar">
+    <div>
+      <span class="tag">Google Antigravity</span>
       <b>안티그래비티 초보자 교육자료</b>
     </div>
-    <ol>
-      <li><a href="#overview"><span class="n">00</span><span class="t">교육 목표 · 커리큘럼</span></a></li>
-      <li><a href="#ch1"><span class="n">01</span><span class="t">안티그래비티란?</span></a></li>
-      <li><a href="#ch2"><span class="n">02</span><span class="t">설치 및 기본 설정</span></a></li>
-      <li><a href="#ch3"><span class="n">03</span><span class="t">Skill.sh 스킬 설정</span></a></li>
-      <li><a href="#ch4"><span class="n">04</span><span class="t">MCP 연결 (Stitch)</span></a></li>
-      <li><a href="#ch5"><span class="n">05</span><span class="t">Gemini API 키</span></a></li>
-      <li><a href="#ch6"><span class="n">06</span><span class="t">실습 · 기도문 앱</span></a></li>
-      <li><a href="#summary"><span class="n">07</span><span class="t">전체 요약</span></a></li>
-    </ol>
-  </nav>
+    <button class="navbtn" id="navbtn" aria-expanded="false" aria-controls="side">목차</button>
+  </div>
 
-  <main class="main">
+  <div class="shell">
+    <nav class="side" id="side" hidden>
+      <div class="brand">
+        <span class="tag tag-accent">Curriculum · 2026</span>
+        <b>안티그래비티 초보자 교육자료</b>
+      </div>
+      <ol>
+        <li><a href="#overview"><span class="n">00</span><span class="t">교육 목표 · 커리큘럼</span></a></li>
+        <li><a href="#ch1"><span class="n">01</span><span class="t">안티그래비티란?</span></a></li>
+        <li><a href="#ch2"><span class="n">02</span><span class="t">설치 및 기본 설정</span></a></li>
+        <li><a href="#ch3"><span class="n">03</span><span class="t">Skill.sh 스킬 설정</span></a></li>
+        <li><a href="#ch4"><span class="n">04</span><span class="t">MCP 연결 (Stitch)</span></a></li>
+        <li><a href="#ch5"><span class="n">05</span><span class="t">Gemini API 키</span></a></li>
+        <li><a href="#ch6"><span class="n">06</span><span class="t">실습 · 기도문 앱</span></a></li>
+        <li><a href="#summary"><span class="n">07</span><span class="t">전체 요약</span></a></li>
+      </ol>
+    </nav>
 
-  <!-- ================= HERO ================= -->
-  <header class="hero" id="top">
-    <div class="hero-grid">
-      <div>
-        <span class="chip chip-accent">2026 Edition</span>
-        <h1>안티그래비티<br>초보자 교육자료</h1>
-        <p>Google Antigravity · Skills · MCP(Stitch) · Gemini API<br>코드를 몰라도 따라 할 수 있습니다.</p>
-        <div class="meta">
-          <span class="chip">대상 · 개발 경험 없음</span>
-          <span class="chip">준비물 · 노트북 + 구글 계정</span>
-          <span class="chip">6개 장 · 실습 포함</span>
+    <main class="main">
+
+      <!-- ================= HERO ================= -->
+      <header class="hero" id="top">
+        <div class="hero-grid">
+          <div>
+            <span class="chip chip-accent">2026 Edition</span>
+            <h1>안티그래비티<br>초보자 교육자료</h1>
+            <p>Google Antigravity · Skills · MCP(Stitch) · Gemini API<br>코드를 몰라도 따라 할 수 있습니다.</p>
+            <div class="meta">
+              <span class="chip">대상 · 개발 경험 없음</span>
+              <span class="chip">준비물 · 노트북 + 구글 계정</span>
+              <span class="chip">6개 장 · 실습 포함</span>
+            </div>
+          </div>
+          <figure class="hero-media" id="heroMediaFrame">
+            <div class="hero-media-cover" id="heroCover" role="button" tabindex="0"
+              aria-label="안티그래비티 소개 동영상 재생 (클릭하여 시청)">
+              <img src="assets/image1.png" alt="안티그래비티 표지 이미지 — 개미 연구소의 반중력 장치">
+              <div class="hero-play-overlay">
+                <div class="play-icon-badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="hero-video-box" id="heroVideoBox">
+              <video id="heroVideo" controls preload="auto" playsinline>
+                <source src="assets/Antigravity_technology_presentat%E2%80%A6_2bb0a6e4.mp4" type="video/mp4">
+                <source src="assets/Antigravity_technology_presentat…_2bb0a6e4.mp4" type="video/mp4">
+                브라우저가 동영상 재생을 지원하지 않습니다.
+              </video>
+            </div>
+          </figure>
         </div>
-      </div>
-      <figure>
-        <img src="assets/image1.png" alt="안티그래비티 표지 이미지 — 개미 연구소의 반중력 장치">
-      </figure>
-    </div>
-  </header>
+      </header>
 
-  <!-- ================= 00 OVERVIEW ================= -->
-  <section id="overview">
-    <div class="sec-head">
-      <span class="chip chip-solid">00</span>
-      <h2>이 교육이 끝나면 이렇게 됩니다</h2>
-    </div>
-    <p class="lede">코드를 직접 쓰지 않습니다. 에이전트에게 정확하게 지시하는 법을 배웁니다.</p>
-
-    <div class="grid g3 block">
-      <div class="card">
-        <span class="num">A</span>
-        <h4>말로 앱을 만든다</h4>
-        <p>화면 디자인부터 배포까지 한국어 지시만으로 진행</p>
-      </div>
-      <div class="card">
-        <span class="num">B</span>
-        <h4>AI에게 규칙을 준다</h4>
-        <p>GEMINI.md · Skill 로 매번 같은 품질의 결과</p>
-      </div>
-      <div class="card">
-        <span class="num">C</span>
-        <h4>외부 도구를 붙인다</h4>
-        <p>MCP로 Stitch · Gemini API를 에이전트 손에 쥐여주기</p>
-      </div>
-    </div>
-
-    <div class="note accent">
-      <span class="tag tag-accent">최종 결과물</span>
-      <p>「현재 상황」과 「기도 제목」을 입력하면 기도문을 자동으로 만들어 주는 웹 프로그램</p>
-    </div>
-    <div class="note">
-      <span class="tag">역할 분담</span>
-      <p>여러분이 하는 일 — 프롬프트를 순서대로 붙여넣기 · 에이전트가 하는 일 — 나머지 전부</p>
-    </div>
-
-    <div class="block">
-      <span class="tag">Curriculum</span>
-      <h3>전체 커리큘럼</h3>
-      <p class="sub">앞에서 만든 것을 뒤에서 계속 씁니다. 순서대로 따라오세요.</p>
-      <div class="rows">
-        <div class="row"><span class="idx">01</span><div><div class="ttl">안티그래비티란?</div><div class="desc">뜻 · 에이전트 개념 · GEMINI.md · Skill</div></div></div>
-        <div class="row"><span class="idx">02</span><div><div class="ttl">설치 및 기본 설정</div><div class="desc">다운로드 · 로그인 · 첫 프로젝트 만들기 · 첫 규칙 작성</div></div></div>
-        <div class="row"><span class="idx">03</span><div><div class="ttl">Skill.sh 스킬 설정</div><div class="desc">전역 · 지역 설치 · 스킬 검색과 사용</div></div></div>
-        <div class="row"><span class="idx">04</span><div><div class="ttl">MCP 연결 (Stitch)</div><div class="desc">MCP 개념 · API 키 · 디자인 도구 연동</div></div></div>
-        <div class="row"><span class="idx">05</span><div><div class="ttl">Gemini API 키</div><div class="desc">AI Studio 키 발급 · 보안 3원칙</div></div></div>
-        <div class="row"><span class="idx">06</span><div><div class="ttl">실습 · 기도문 앱</div><div class="desc">STEP 1~9 프롬프트로 웹 프로그램 완성</div></div></div>
-      </div>
-      <p class="sub" style="margin-top:10px">1~2장은 개념과 설치, 3~5장은 도구 연결, 6장은 앞의 모든 것을 합치는 실습입니다.</p>
-    </div>
-  </section>
-
-  <!-- ================= CH 1 ================= -->
-  <section id="ch1">
-    <div class="sec-head">
-      <span class="chip chip-solid">01</span>
-      <h2>안티그래비티란?</h2>
-    </div>
-    <p class="lede">개념부터 잡고 갑니다 — 용어 4개만 이해하면 됩니다.</p>
-    <div class="rows block">
-      <div class="row"><span class="idx">1.1</span><div><div class="ttl">안티그래비티의 뜻과 기존 개발 도구와의 차이</div></div></div>
-      <div class="row"><span class="idx">1.2</span><div><div class="ttl">에이전트(Agent) — 챗봇과 무엇이 다른가</div></div></div>
-      <div class="row"><span class="idx">1.3</span><div><div class="ttl">GEMINI.md — AI에게 규칙을 주는 파일</div></div></div>
-      <div class="row"><span class="idx">1.4</span><div><div class="ttl">Skill — AI에게 업무 매뉴얼을 주는 폴더</div></div></div>
-    </div>
-
-    <div class="block">
-      <span class="tag">1.1 · Background</span>
-      <h3>먼저, 무엇이 달라졌나</h3>
-      <p class="sub">AI 개발 도구는 3세대를 거쳐 왔습니다. 안티그래비티는 3세대입니다.</p>
-      <div class="grid g3">
-        <div class="card">
-          <span class="num">1세대 · 2021~</span>
-          <h4>자동완성</h4>
-          <p>내가 코드를 치면 AI가 다음 줄을 추천</p>
+      <!-- ================= 00 OVERVIEW ================= -->
+      <section id="overview">
+        <div class="sec-head">
+          <span class="chip chip-solid">00</span>
+          <h2>이 교육이 끝나면 이렇게 됩니다</h2>
         </div>
-        <div class="card">
-          <span class="num">2세대 · 2022.11~</span>
-          <h4>대화형</h4>
-          <p>챗봇에게 물어보고 답을 복사해서 붙여넣기</p>
-        </div>
-        <div class="card">
-          <span class="num">3세대 · 2024~</span>
-          <h4>에이전트</h4>
-          <p>목표만 주면 계획 · 실행 · 검증까지 스스로 수행</p>
-        </div>
-      </div>
-      <div class="note accent" style="margin-top:12px">
-        <span class="tag tag-accent">핵심 변화</span>
-        <p>1·2세대는 「코드를 쓰는 사람」이 필요했지만, 3세대는 「무엇을 원하는지 설명하는 사람」이 필요합니다.</p>
-      </div>
-      <p class="sub">그래서 비개발자도 결과물을 만들 수 있게 되었습니다. 대신 「잘 설명하는 능력」이 실력이 됩니다.</p>
-    </div>
+        <p class="lede">코드를 직접 쓰지 않습니다. 에이전트에게 정확하게 지시하는 법을 배웁니다.</p>
 
-    <div class="block">
-      <span class="tag">1.1 · Definition</span>
-      <h3>안티그래비티(Antigravity)란?</h3>
-      <p class="sub">구글이 만든 ‘에이전트 우선(agent-first)’ 개발 도구입니다.</p>
-      <div class="grid g2">
-        <div class="cmp">
-          <span class="tag">이름의 뜻</span>
-          <h4>anti + gravity = 반(反)중력</h4>
-          <p style="margin:6px 0 0;color:var(--sub);font-size:13.5px">개발을 무겁게 눌러온 중력 — 반복 작업, 환경 설정, 문법 외우기 — 에서 사람을 띄워 올린다는 뜻입니다.</p>
+        <div class="grid g3 block">
+          <div class="card">
+            <span class="num">A</span>
+            <h4>말로 앱을 만든다</h4>
+            <p>화면 디자인부터 배포까지 한국어 지시만으로 진행</p>
+          </div>
+          <div class="card">
+            <span class="num">B</span>
+            <h4>AI에게 규칙을 준다</h4>
+            <p>GEMINI.md · Skill 로 매번 같은 품질의 결과</p>
+          </div>
+          <div class="card">
+            <span class="num">C</span>
+            <h4>외부 도구를 붙인다</h4>
+            <p>MCP로 Stitch · Gemini API를 에이전트 손에 쥐여주기</p>
+          </div>
         </div>
-        <div class="cmp">
-          <span class="tag">기존 도구와의 차이</span>
-          <ul>
-            <li><b>기존 IDE</b> — 사람이 코드를 쓰고 AI가 거든다</li>
-            <li><b>안티그래비티</b> — 에이전트가 일하고 사람이 지휘한다</li>
-          </ul>
-        </div>
-      </div>
-      <div class="rows" style="margin-top:10px">
-        <div class="row"><span class="idx">✓</span><div><div class="ttl">가장 저렴합니다</div><div class="desc">Claude · Codex 등 다른 에이전트 도구에 비해 비용 부담이 가장 적습니다</div></div></div>
-        <div class="row"><span class="idx">✓</span><div><div class="ttl">구글 Gemini 모델이 내장되어 있습니다</div><div class="desc">별도의 API 키 없이도 에이전트가 동작합니다</div></div></div>
-        <div class="row"><span class="idx">✓</span><div><div class="ttl">VS Code와 화면이 거의 같습니다</div><div class="desc">널리 쓰이는 편집기를 기반으로 만들어 자료 · 확장 기능이 호환됩니다</div></div></div>
-      </div>
-      <p class="sub" style="margin-top:8px"><span class="tag">출처</span> Google Antigravity 공식 문서 (antigravity.google/docs)</p>
-    </div>
 
-    <div class="block">
-      <span class="tag">1.2 · Agent</span>
-      <h3>에이전트(Agent)란 무엇인가</h3>
-      <p class="sub">한 줄 정의 — 스스로 계획을 세우고 도구를 써서 일을 끝까지 해내는 AI 일꾼</p>
-      <div class="note accent">
-        <p>챗봇은 「말」을 돌려주고, 에이전트는 「결과물」을 돌려줍니다.</p>
-      </div>
-      <div class="grid g3">
-        <div class="card"><span class="num">TOOL 01</span><h4>파일</h4><p>폴더를 읽고, 파일을 만들고 고칩니다</p></div>
-        <div class="card"><span class="num">TOOL 02</span><h4>터미널</h4><p>설치 · 실행 명령을 직접 입력합니다</p></div>
-        <div class="card"><span class="num">TOOL 03</span><h4>브라우저</h4><p>만든 화면을 직접 열어보고 캡처합니다</p></div>
-      </div>
-      <div class="note" style="margin-top:12px">
-        <span class="tag">쉽게 이해하는 비유 · 신입 직원 한 명을 채용한 것과 같습니다</span>
-        <p>회사 규정집을 준다 → <code class="i">GEMINI.md</code> &nbsp;·&nbsp; 업무 매뉴얼을 준다 → <code class="i">Skill</code> &nbsp;·&nbsp; 외부 시스템 열쇠를 준다 → <code class="i">MCP</code></p>
-      </div>
-      <p class="sub">에이전트 · GEMINI.md · Skill · MCP — 이 4가지가 이번 교육에서 배울 전부입니다. 하나씩 채워 넣으면 에이전트의 결과물이 좋아집니다.</p>
-    </div>
+        <div class="note accent">
+          <span class="tag tag-accent">최종 결과물</span>
+          <p>「현재 상황」과 「기도 제목」을 입력하면 기도문을 자동으로 만들어 주는 웹 프로그램</p>
+        </div>
 
-    <div class="block">
-      <span class="tag">1.2 · Screens</span>
-      <h3>안티그래비티의 두 가지 화면</h3>
-      <p class="sub">에디터 뷰에서 결과물을 보고, 에이전트 매니저에서 일을 시킵니다.</p>
-      <div class="grid g2">
-        <div class="cmp">
-          <span class="tag">Editor View</span>
-          <h4>에디터 뷰</h4>
-          <ul>
-            <li>파일과 코드를 직접 보는 화면</li>
-            <li>VS Code를 써봤다면 그대로 익숙함</li>
-            <li>에이전트가 만든 결과를 확인 · 수정</li>
-          </ul>
+        <div class="block">
+          <span class="tag">Curriculum</span>
+          <h3>전체 커리큘럼</h3>
+          <p class="sub">앞에서 만든 것을 뒤에서 계속 씁니다. 순서대로 따라오세요.</p>
+          <div class="rows">
+            <div class="row"><span class="idx">01</span>
+              <div>
+                <div class="ttl">안티그래비티란?</div>
+                <div class="desc">뜻 · 에이전트 개념 · GEMINI.md · Skill</div>
+              </div>
+            </div>
+            <div class="row"><span class="idx">02</span>
+              <div>
+                <div class="ttl">설치 및 기본 설정</div>
+                <div class="desc">다운로드 · 로그인 · 첫 프로젝트 만들기 · 첫 규칙 작성</div>
+              </div>
+            </div>
+            <div class="row"><span class="idx">03</span>
+              <div>
+                <div class="ttl">Skill.sh 스킬 설정</div>
+                <div class="desc">전역 · 지역 설치 · 스킬 검색과 사용</div>
+              </div>
+            </div>
+            <div class="row"><span class="idx">04</span>
+              <div>
+                <div class="ttl">MCP 연결 (Stitch)</div>
+                <div class="desc">MCP 개념 · API 키 · 디자인 도구 연동</div>
+              </div>
+            </div>
+            <div class="row"><span class="idx">05</span>
+              <div>
+                <div class="ttl">Gemini API 키</div>
+                <div class="desc">AI Studio 키 발급 · 보안 3원칙</div>
+              </div>
+            </div>
+            <div class="row"><span class="idx">06</span>
+              <div>
+                <div class="ttl">실습 · 기도문 앱</div>
+                <div class="desc">STEP 1~9 프롬프트로 웹 프로그램 완성</div>
+              </div>
+            </div>
+          </div>
+          <p class="sub" style="margin-top:10px">1~2장은 개념과 설치, 3~5장은 도구 연결, 6장은 앞의 모든 것을 합치는 실습입니다.</p>
         </div>
-        <div class="cmp">
-          <span class="tag">Agent Manager</span>
-          <h4>에이전트 매니저</h4>
-          <ul>
-            <li>여러 에이전트에게 동시에 일을 시키는 관제탑</li>
-            <li>진행 상황 · 계획 · 보고서를 한눈에</li>
-            <li>MCP 서버 설정도 여기에서</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+      </section>
 
-    <div class="block">
-      <span class="tag">1.3 · GEMINI.md</span>
-      <h3>GEMINI.md 를 설정해야 하는 이유</h3>
-      <p class="sub">에이전트가 매 대화마다 자동으로 읽는 「우리 프로젝트 규정집」입니다.</p>
-      <div class="grid g2">
-        <div class="cmp neg">
-          <span class="tag">설정하지 않으면</span>
-          <ul>
-            <li>매번 같은 설명을 처음부터 반복</li>
-            <li>물어보지도 않고 낯선 기술을 골라서 씀</li>
-            <li>영어로 길게 설명해 무슨 말인지 모름</li>
-            <li>새 대화를 열면 어제 정한 것을 다 잊음</li>
-            <li>확인도 없이 파일을 지우거나 덮어씀</li>
-          </ul>
+      <!-- ================= CH 1 ================= -->
+      <section id="ch1">
+        <div class="sec-head">
+          <span class="chip chip-solid">01</span>
+          <h2>안티그래비티란?</h2>
+          <br><br>
         </div>
-        <div class="cmp pos">
-          <span class="tag tag-accent">설정해두면</span>
-          <ul>
-            <li>말하지 않아도 우리 규칙대로 움직임</li>
-            <li>정해둔 기술 스택만 사용</li>
-            <li>항상 한국어로, 비개발자 눈높이로 설명</li>
-            <li>새 대화에서도 규칙이 그대로 유지</li>
-            <li>위험한 작업 전에 반드시 확인을 받음</li>
-          </ul>
+        <div class="block">
+          <span class="tag">1.0 · Background</span>
+          <h3>먼저, 무엇이 달라졌나</h3>
+          <p class="sub">AI 개발 도구는 3세대를 거쳐 왔습니다. 안티그래비티는 3세대입니다.</p>
+          <div class="grid g3">
+            <div class="card">
+              <span class="num">1세대 · 2021~</span>
+              <h4>자동완성</h4>
+              <p>내가 코드를 치면 AI가 다음 줄을 추천</p>
+            </div>
+            <div class="card">
+              <span class="num">2세대 · 2022.11~</span>
+              <h4>대화형</h4>
+              <p>챗봇에게 물어보고 답을 복사해서 붙여넣기</p>
+            </div>
+            <div class="card">
+              <span class="num">3세대 · 2024~</span>
+              <h4>에이전트</h4>
+              <p>목표만 주면 계획 · 실행 · 검증까지 스스로 수행</p>
+            </div>
+          </div>
+          <div class="note accent" style="margin-top:12px">
+            <span class="tag tag-accent">핵심 변화</span>
+            <p>1·2세대는 「코드를 쓰는 사람」이 필요했지만, 3세대는 「무엇을 원하는지 설명하는 사람」이 필요합니다.</p>
+          </div>
+          <p class="sub">그래서 비개발자도 결과물을 만들 수 있게 되었습니다. 대신 「여러 시스템을 잘 연결 하는 능력」이 실력이 됩니다.</p>
         </div>
-      </div>
-      <div class="note accent" style="margin-top:12px">
-        <span class="tag tag-accent">한 문장 요약</span>
-        <p>프롬프트는 「이번 한 번만」, GEMINI.md 는 「앞으로 계속」 적용되는 지시입니다.</p>
-      </div>
-    </div>
 
-    <div class="block">
-      <span class="tag">1.3 · Location</span>
-      <h3>규칙 파일은 어디에 두는가</h3>
-      <p class="sub">적용 범위에 따라 두 곳으로 나뉩니다. 둘 다 있으면 프로젝트 규칙이 더 구체적으로 작동합니다.</p>
-      <div class="grid g2">
-        <div class="cmp">
-          <span class="tag">전역 규칙 · 내 컴퓨터 전체</span>
-          <h4><code class="i">~/.gemini/GEMINI.md</code></h4>
-          <p style="margin:6px 0 0;color:var(--sub);font-size:13.5px">모든 프로젝트에 공통으로 적용 (말투, 언어, 기본 태도)</p>
+        <div class="block">
+          <span class="tag">1.1 · Definition</span>
+          <h3>안티그래비티(Antigravity)란?</h3>
+          <p class="sub">구글이 만든 ‘에이전트 우선(agent-first)’ 개발 도구입니다.</p>
+          <div class="grid g2">
+            <div class="cmp">
+              <span class="tag">이름의 뜻</span>
+              <h4>anti + gravity = 반(反)중력</h4>
+              <p style="margin:6px 0 0;color:var(--sub);font-size:13.5px">개발을 무겁게 눌러온 중력 — 반복 작업, 환경 설정, 문법 외우기 — 에서 사람을
+                띄워 올린다는 뜻입니다.</p>
+            </div>
+            <div class="cmp">
+              <span class="tag">기존 도구와의 차이</span>
+              <ul>
+                <li><b>기존 IDE</b> — 사람이 코드를 쓰고 AI가 거든다</li>
+                <li><b>안티그래비티</b> — 에이전트가 일하고 사람이 지휘한다</li>
+              </ul>
+            </div>
+          </div>
+          <div class="rows" style="margin-top:10px">
+            <div class="row"><span class="idx">✓</span>
+              <div>
+                <div class="ttl">가장 저렴합니다</div>
+                <div class="desc">Claude · Codex 등 다른 에이전트 도구에 비해 비용 부담이 가장 적습니다</div>
+              </div>
+            </div>
+            <div class="row"><span class="idx">✓</span>
+              <div>
+                <div class="ttl">나노 바나나, 구글 Flow 등의 여러 도구 사용가능</div>
+                <div class="desc">별도의 결제 없이 공짜로 사용가능 합니다</div>
+              </div>
+            </div>
+            <div class="row"><span class="idx">✓</span>
+              <div>
+                <div class="ttl">VS Code와 화면이 거의 같습니다</div>
+                <div class="desc">널리 쓰이는 편집기를 기반으로 만들어 자료 · 확장 기능이 호환됩니다</div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="cmp">
-          <span class="tag">프로젝트 규칙 · 이 폴더에서만</span>
-          <h4><code class="i">&lt;프로젝트&gt;/.agents/rules/</code></h4>
-          <p style="margin:6px 0 0;color:var(--sub);font-size:13.5px">이 프로젝트의 기술 스택 · 규칙 (팀과 공유 가능)</p>
-        </div>
-      </div>
-      <p class="sub" style="margin-top:10px">규칙 파일 1개는 12,000자까지 쓸 수 있습니다. 길게 쓰기보다 짧고 분명하게 쓰는 편이 더 잘 지켜집니다.</p>
-    </div>
 
-    <div class="block">
-      <span class="tag">1.4 · Skill</span>
-      <h3>스킬(Skill)이란 무엇인가</h3>
-      <p class="sub">특정 업무를 「어떻게 하는지」 적어둔 작업 매뉴얼 폴더입니다.</p>
-      <div class="grid g2">
-        <div>
-          <div class="prompt-head"><span class="tag">스킬 폴더의 구조</span></div>
-          <pre class="code">my-skill/
+        <div class="block">
+          <span class="tag">1.2 · Agent</span>
+          <h3>에이전트(Agent)란 무엇인가</h3>
+          <p class="sub">한 줄 정의 — 스스로 계획을 세우고 도구를 써서 일을 끝까지 해내는 AI 일꾼</p>
+          <div class="note accent">
+            <p>챗봇은 「말」을 돌려주고, 에이전트는 「결과물」을 돌려줍니다.</p>
+          </div>
+          <div class="grid g3">
+            <div class="card"><span class="num">TOOL 01</span>
+              <h4>파일</h4>
+              <p>폴더를 읽고, 파일을 만들고 고칩니다</p>
+            </div>
+            <div class="card"><span class="num">TOOL 02</span>
+              <h4>터미널</h4>
+              <p>설치 · 실행 명령을 직접 입력합니다</p>
+            </div>
+            <div class="card"><span class="num">TOOL 03</span>
+              <h4>브라우저</h4>
+              <p>만든 화면을 직접 열어보고 캡처합니다</p>
+            </div>
+          </div>
+          <div class="note" style="margin-top:12px">
+            <span class="tag">쉽게 이해하는 비유 · 신입 직원 한 명을 채용한 것과 같습니다</span>
+            <p>회사 규정집을 준다 → <code class="i">GEMINI.md</code> &nbsp;·&nbsp; 업무 매뉴얼을 준다 → <code class="i">Skill</code>
+              &nbsp;·&nbsp; 외부 시스템 열쇠를 준다 → <code class="i">MCP</code></p>
+          </div>
+          <p class="sub">에이전트 · GEMINI.md · Skill · MCP — 이 4가지가 이번 교육에서 배울 전부입니다. 하나씩 채워 넣으면 에이전트의 결과물이 좋아집니다.</p>
+        </div>
+
+        <div class="block">
+          <span class="tag">1.2 · Screens</span>
+          <h3>안티그래비티의 두 가지 화면</h3>
+          <p class="sub">에디터 뷰에서 결과물을 보고, 에이전트 매니저에서 일을 시킵니다.</p>
+          <div class="grid g2">
+            <div class="cmp">
+              <span class="tag">Editor View</span>
+              <h4>에디터 뷰</h4>
+              <ul>
+                <li>파일과 코드를 직접 보는 화면</li>
+                <li>VS Code를 써봤다면 그대로 익숙함</li>
+                <li>에이전트가 만든 결과를 확인 · 수정</li>
+              </ul>
+            </div>
+            <div class="cmp">
+              <span class="tag">Agent Manager</span>
+              <h4>에이전트 매니저</h4>
+              <ul>
+                <li>여러 에이전트에게 동시에 일을 시키는 관제탑</li>
+                <li>진행 상황 · 계획 · 보고서를 한눈에</li>
+                <li>MCP 서버 설정도 여기에서</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="block">
+          <span class="tag">1.3 · GEMINI.md</span>
+          <h3>GEMINI.md 를 설정해야 하는 이유</h3>
+          <p class="sub">에이전트가 매 대화마다 자동으로 읽는 「우리 프로젝트 규정집」입니다.</p>
+          <div class="grid g2">
+            <div class="cmp neg">
+              <span class="tag">설정하지 않으면</span>
+              <ul>
+                <li>매번 같은 설명을 처음부터 반복</li>
+                <li>물어보지도 않고 낯선 기술을 골라서 씀</li>
+                <li>영어로 길게 설명해 무슨 말인지 모름</li>
+                <li>새 대화를 열면 어제 정한 것을 다 잊음</li>
+                <li>확인도 없이 파일을 지우거나 덮어씀</li>
+              </ul>
+            </div>
+            <div class="cmp pos">
+              <span class="tag tag-accent">설정해두면</span>
+              <ul>
+                <li>말하지 않아도 우리 규칙대로 움직임</li>
+                <li>정해둔 기술 스택만 사용</li>
+                <li>항상 한국어로, 비개발자 눈높이로 설명</li>
+                <li>새 대화에서도 규칙이 그대로 유지</li>
+                <li>위험한 작업 전에 반드시 확인을 받음</li>
+              </ul>
+            </div>
+          </div>
+          <div class="note accent" style="margin-top:12px">
+            <span class="tag tag-accent">한 문장 요약</span>
+            <p>프롬프트는 「이번 한 번만」, GEMINI.md 는 「앞으로 계속」 적용되는 지시입니다.</p>
+          </div>
+        </div>
+
+        <div class="block">
+          <span class="tag">1.3 · Location</span>
+          <h3>규칙 파일은 어디에 두는가</h3>
+          <p class="sub">적용 범위에 따라 두 곳으로 나뉩니다. 둘 다 있으면 프로젝트 규칙이 더 구체적으로 작동합니다.</p>
+          <div class="grid g2">
+            <div class="cmp">
+              <span class="tag">전역 규칙 · 내 컴퓨터 전체</span>
+              <h4><code class="i">~/.gemini/GEMINI.md</code></h4>
+              <p style="margin:6px 0 0;color:var(--sub);font-size:13.5px">모든 프로젝트에 공통으로 적용 (말투, 언어, 기본 태도)</p>
+            </div>
+            <div class="cmp">
+              <span class="tag">프로젝트 규칙 · 이 폴더에서만</span>
+              <h4><code class="i">&lt;프로젝트&gt;/.agents/rules/</code></h4>
+              <p style="margin:6px 0 0;color:var(--sub);font-size:13.5px">이 프로젝트의 기술 스택 · 규칙 (팀과 공유 가능)</p>
+            </div>
+          </div>
+          <p class="sub" style="margin-top:10px">규칙 파일 1개는 12,000자까지 쓸 수 있습니다. 길게 쓰기보다 짧고 분명하게 쓰는 편이 더 잘 지켜집니다.</p>
+        </div>
+
+        <div class="block">
+          <span class="tag">1.4 · Skill</span>
+          <h3>스킬(Skill)이란 무엇인가</h3>
+          <p class="sub">특정 업무를 「어떻게 하는지」 적어둔 작업 매뉴얼 폴더입니다.</p>
+          <div class="grid g2">
+            <div>
+              <div class="prompt-head"><span class="tag">스킬 폴더의 구조</span></div>
+              <pre class="code">my-skill/
   SKILL.md      ← 필수. 작업 방법을 적은 문서
   scripts/      ← 선택. 반복 작업용 스크립트
   examples/     ← 선택. 참고 예시
   resources/    ← 선택. 템플릿 · 이미지</pre>
-        </div>
-        <div>
-          <div class="prompt-head"><span class="tag">SKILL.md 첫 부분 예시</span></div>
-          <pre class="code">---
+            </div>
+            <div>
+              <div class="prompt-head"><span class="tag">SKILL.md 첫 부분 예시</span></div>
+              <pre class="code">---
 name: brainstorming
 description: 막연한 아이디어를 질문으로
   구조화된 설계로 바꿀 때 사용
@@ -463,142 +1218,244 @@ description: 막연한 아이디어를 질문으로
 
 # 진행 방법
 1. 사용자에게 목적을 되묻는다 ...</pre>
+            </div>
+          </div>
+          <div class="grid g3" style="margin-top:4px">
+            <div class="card"><span class="num">STEP 01</span>
+              <h4>발견</h4>
+              <p>대화를 시작할 때 어떤 스킬이 있는지 목록만 훑어봅니다</p>
+            </div>
+            <div class="card"><span class="num">STEP 02</span>
+              <h4>활성화</h4>
+              <p>지금 작업에 맞는 스킬을 골라 내용을 전부 읽습니다</p>
+            </div>
+            <div class="card"><span class="num">STEP 03</span>
+              <h4>실행</h4>
+              <p>매뉴얼에 적힌 순서대로 작업을 수행합니다</p>
+            </div>
+          </div>
+          <div class="note" style="margin-top:12px">
+            <span class="tag">알아두면 좋은 점</span>
+            <p>스킬은 열린 표준입니다. 한 번 만든 스킬을 클로드 · 커서 등 다른 AI 도구에서도 그대로 쓸 수 있습니다. 또 반드시 “이 스킬을 써”라고 지시하지 않아도 에이전트가 상황을 보고 알아서
+              고릅니다.</p>
+          </div>
         </div>
-      </div>
-      <div class="grid g3" style="margin-top:4px">
-        <div class="card"><span class="num">STEP 01</span><h4>발견</h4><p>대화를 시작할 때 어떤 스킬이 있는지 목록만 훑어봅니다</p></div>
-        <div class="card"><span class="num">STEP 02</span><h4>활성화</h4><p>지금 작업에 맞는 스킬을 골라 내용을 전부 읽습니다</p></div>
-        <div class="card"><span class="num">STEP 03</span><h4>실행</h4><p>매뉴얼에 적힌 순서대로 작업을 수행합니다</p></div>
-      </div>
-      <div class="note" style="margin-top:12px">
-        <span class="tag">알아두면 좋은 점</span>
-        <p>스킬은 열린 표준입니다. 한 번 만든 스킬을 클로드 · 커서 등 다른 AI 도구에서도 그대로 쓸 수 있습니다. 또 반드시 “이 스킬을 써”라고 지시하지 않아도 에이전트가 상황을 보고 알아서 고릅니다.</p>
-      </div>
-    </div>
 
-    <div class="block">
-      <span class="tag">1.5 · Summary</span>
-      <h3>정리 — 규칙 · 스킬 · MCP는 어떻게 다른가</h3>
-      <p class="sub">세 가지를 헷갈리지 않는 것이 1장의 목표입니다.</p>
-      <div class="tablewrap">
-        <table>
-          <thead><tr><th></th><th>규칙 (GEMINI.md)</th><th>스킬 (SKILL.md)</th><th>MCP</th></tr></thead>
-          <tbody>
-            <tr><th>무엇인가</th><td>항상 지켜야 할 원칙</td><td>특정 작업의 수행 방법</td><td>외부 서비스 연결 통로</td></tr>
-            <tr><th>비유하면</th><td>사내 규정집</td><td>업무 매뉴얼</td><td>외부 시스템 열쇠</td></tr>
-            <tr><th>언제 쓰이나</th><td>모든 대화에 자동 적용</td><td>관련 작업일 때만</td><td>외부 데이터가 필요할 때</td></tr>
-            <tr><th>예시</th><td>“항상 한국어로 설명”</td><td><code>/grill-me</code></td><td>Stitch · GitHub · Supabase</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="note accent">
-        <p>셋은 경쟁 관계가 아니라 겹쳐 쌓는 층입니다. 규칙 위에 스킬을 얹고, 그 위에 MCP로 바깥 세상을 연결합니다.</p>
-      </div>
-    </div>
-    <a class="top-link" href="#top">↑ 맨 위로</a>
-  </section>
+        <div class="block">
+          <span class="tag">1.5 · Summary</span>
+          <h3>정리 — 규칙 · 스킬 · MCP는 어떻게 다른가</h3>
+          <p class="sub">세 가지를 헷갈리지 않는 것이 1장의 목표입니다.</p>
+          <div class="tablewrap">
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>규칙 (GEMINI.md)</th>
+                  <th>스킬 (SKILL.md)</th>
+                  <th>MCP</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>무엇인가</th>
+                  <td>항상 지켜야 할 원칙</td>
+                  <td>특정 작업의 수행 방법</td>
+                  <td>외부 서비스 연결 통로</td>
+                </tr>
+                <tr>
+                  <th>비유하면</th>
+                  <td>사내 규정집</td>
+                  <td>업무 매뉴얼</td>
+                  <td>외부 시스템 열쇠</td>
+                </tr>
+                <tr>
+                  <th>언제 쓰이나</th>
+                  <td>모든 대화에 자동 적용</td>
+                  <td>관련 작업일 때만</td>
+                  <td>외부 데이터가 필요할 때</td>
+                </tr>
+                <tr>
+                  <th>예시</th>
+                  <td>“항상 한국어로 설명”</td>
+                  <td><code>/grill-me</code></td>
+                  <td>Stitch · GitHub · Supabase</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="note accent">
+            <p>셋은 경쟁 관계가 아니라 겹쳐 쌓는 층입니다. 규칙 위에 스킬을 얹고, 그 위에 MCP로 바깥 세상을 연결합니다.</p>
+          </div>
+        </div>
+        <a class="top-link" href="#top">↑ 맨 위로</a>
+      </section>
 
-  <!-- ================= CH 2 ================= -->
-  <section id="ch2">
-    <div class="sec-head">
-      <span class="chip chip-solid">02</span>
-      <h2>안티그래비티 IDE 설치 및 기본 설정</h2>
-    </div>
-    <p class="lede">15분이면 끝납니다. 설치 → 로그인 → 첫 프로젝트 → 첫 규칙.</p>
-    <div class="rows block">
-      <div class="row"><span class="idx">2.1</span><div><div class="ttl">다운로드 · 설치 · 구글 계정 로그인</div></div></div>
-      <div class="row"><span class="idx">2.2</span><div><div class="ttl">첫 프로젝트(작업 폴더) 만들기</div></div></div>
-      <div class="row"><span class="idx">2.3</span><div><div class="ttl">첫 명령 내려보기</div></div></div>
-      <div class="row"><span class="idx">2-1</span><div><div class="ttl">실습 · 나의 첫 GEMINI.md 작성 (전역 규칙)</div></div></div>
-      <div class="row"><span class="idx">2-2</span><div><div class="ttl">실습 · 일하는 방식 규칙 추가하기</div></div></div>
-    </div>
+      <!-- ================= CH 2 ================= -->
+      <section id="ch2">
+        <div class="sec-head">
+          <span class="chip chip-solid">02</span>
+          <h2>안티그래비티 IDE 설치 및 기본 설정</h2>
+        </div>
+        <p class="lede">15분이면 끝납니다. 설치 → 로그인 → 첫 프로젝트 → 첫 규칙.</p>
+        <div class="rows block">
+          <div class="row"><span class="idx">2.1</span>
+            <div>
+              <div class="ttl">다운로드 · 설치 · 구글 계정 로그인</div>
+            </div>
+          </div>
+          <div class="row"><span class="idx">2.2</span>
+            <div>
+              <div class="ttl">첫 프로젝트(작업 폴더) 만들기</div>
+            </div>
+          </div>
+          <div class="row"><span class="idx">2.3</span>
+            <div>
+              <div class="ttl">첫 명령 내려보기</div>
+            </div>
+          </div>
+          <div class="row"><span class="idx">2-1</span>
+            <div>
+              <div class="ttl">실습 · 나의 첫 GEMINI.md 작성 (전역 규칙)</div>
+            </div>
+          </div>
+          <div class="row"><span class="idx">2-2</span>
+            <div>
+              <div class="ttl">실습 · 일하는 방식 규칙 추가하기</div>
+            </div>
+          </div>
+        </div>
 
-    <div class="block">
-      <span class="tag">2.1 · Install</span>
-      <h3>설치하기 — 4단계</h3>
-      <p class="sub">공식 사이트에서 내려받아 설치합니다. 다른 경로로 받지 마세요.</p>
-      <div class="grid g4">
-        <div class="card"><span class="num">01</span><h4>다운로드</h4><p>antigravity.google/download 접속</p></div>
-        <div class="card"><span class="num">02</span><h4>설치 실행</h4><p>내 운영체제에 맞는 파일 실행</p></div>
-        <div class="card"><span class="num">03</span><h4>구글 로그인</h4><p>첫 실행 시 구글 계정으로 로그인</p></div>
-        <div class="card"><span class="num">04</span><h4>설정 가져오기</h4><p>VS Code 사용자라면 설정을 그대로 이전</p></div>
-      </div>
-    </div>
+        <div class="block">
+          <span class="tag">2.1 · Install</span>
+          <h3>설치하기 — 4단계</h3>
+          <p class="sub">공식 사이트에서 내려받아 설치합니다. 다른 경로로 받지 마세요.</p>
+          <div class="grid g4">
+            <div class="card"><span class="num">01</span>
+              <h4>다운로드</h4>
+              <p>antigravity.google/download 접속</p>
+            </div>
+            <div class="card"><span class="num">02</span>
+              <h4>설치 실행</h4>
+              <p>내 운영체제에 맞는 파일 실행</p>
+            </div>
+            <div class="card"><span class="num">03</span>
+              <h4>구글 로그인</h4>
+              <p>첫 실행 시 구글 계정으로 로그인</p>
+            </div>
+            <div class="card"><span class="num">04</span>
+              <h4>설정 가져오기</h4>
+              <p>VS Code 사용자라면 설정을 그대로 이전</p>
+            </div>
+          </div>
+        </div>
 
-    <div class="block">
-      <span class="tag">2.2 · Project</span>
-      <h3>첫 프로젝트 만들기</h3>
-      <p class="sub">프로젝트 = 에이전트가 들어갈 수 있는 「울타리」입니다. 이 안의 파일만 읽고 씁니다.</p>
-      <div class="rows">
-        <div class="row"><span class="idx">01</span><div><div class="ttl">왼쪽 사이드바에서 「＋」가 붙은 폴더 아이콘 클릭</div></div></div>
-        <div class="row"><span class="idx">02</span><div><div class="ttl">New Project (새 프로젝트) 선택</div></div></div>
-        <div class="row"><span class="idx">03</span><div><div class="ttl">작업할 로컬 폴더 또는 Git 저장소를 추가</div><div class="desc">폴더를 여러 개 넣으면 에이전트가 그 전부를 함께 봅니다</div></div></div>
-        <div class="row"><span class="idx">04</span><div><div class="ttl">생성 완료 — 필요하면 프로젝트 전용 설정을 지정</div><div class="desc">이 프로젝트에만 적용될 규칙을 여기서 정할 수 있습니다</div></div></div>
-      </div>
-      <div class="note accent" style="margin-top:12px">
-        <span class="tag tag-accent">실습용 폴더 만들기</span>
-        <p>바탕화면에 폴더를 하나 만들고 이름을 <code class="i">prayer-app</code> 으로 지어 주세요.</p>
-      </div>
-      <div class="note">
-        <span class="tag">주의</span>
-        <p>바탕화면 전체나 「문서」 폴더 전체를 프로젝트로 잡지 마세요. 에이전트가 건드릴 수 있는 범위가 너무 넓어집니다.</p>
-      </div>
-      <p class="sub"><span class="tag">실행 모드</span> Local Mode = 지금 폴더에서 바로 작업 &nbsp;/&nbsp; Worktree Mode = 복사본에서 안전하게 실험</p>
-    </div>
+        <div class="block">
+          <span class="tag">2.2 · Project</span>
+          <h3>첫 프로젝트 만들기</h3>
+          <p class="sub">프로젝트 = 에이전트가 들어갈 수 있는 「울타리」입니다. 이 안의 파일만 읽고 씁니다.</p>
+          <div class="rows">
+            <div class="row"><span class="idx">01</span>
+              <div>
+                <div class="ttl">왼쪽 사이드바에서 「＋」가 붙은 폴더 아이콘 클릭</div>
+              </div>
+            </div>
+            <div class="row"><span class="idx">02</span>
+              <div>
+                <div class="ttl">New Project (새 프로젝트) 선택</div>
+              </div>
+            </div>
+            <div class="row"><span class="idx">03</span>
+              <div>
+                <div class="ttl">작업할 로컬 폴더 또는 Git 저장소를 추가</div>
+                <div class="desc">폴더를 여러 개 넣으면 에이전트가 그 전부를 함께 봅니다</div>
+              </div>
+            </div>
+            <div class="row"><span class="idx">04</span>
+              <div>
+                <div class="ttl">생성 완료 — 필요하면 프로젝트 전용 설정을 지정</div>
+                <div class="desc">이 프로젝트에만 적용될 규칙을 여기서 정할 수 있습니다</div>
+              </div>
+            </div>
+          </div>
+          <div class="note accent" style="margin-top:12px">
+            <span class="tag tag-accent">실습용 폴더 만들기</span>
+            <p>바탕화면에 폴더를 하나 만들고 이름을 <code class="i">prayer-app</code> 으로 지어 주세요.</p>
+          </div>
+          <div class="note">
+            <span class="tag">주의</span>
+            <p>바탕화면 전체나 「문서」 폴더 전체를 프로젝트로 잡지 마세요. 에이전트가 건드릴 수 있는 범위가 너무 넓어집니다.</p>
+          </div>
+          <p class="sub"><span class="tag">실행 모드</span> Local Mode = 지금 폴더에서 바로 작업 &nbsp;/&nbsp; Worktree Mode = 복사본에서
+            안전하게 실험</p>
+        </div>
 
-    <div class="block">
-      <span class="tag">2.3 · First Command</span>
-      <h3>첫 명령을 내려봅시다</h3>
-      <p class="sub">에이전트가 파일 · 터미널 · 브라우저를 실제로 쓰는지 눈으로 확인하는 단계입니다.</p>
-      <div class="prompt-head">
-        <span class="tag tag-accent">▸ 입력창에 그대로 붙여넣기</span>
-        <button class="copy" data-copy>Copy</button>
-      </div>
-      <pre class="code wrap">이 폴더에 hello.html 파일을 만들어줘.
+        <div class="block">
+          <span class="tag">2.3 · First Command</span>
+          <h3>첫 명령을 내려봅시다</h3>
+          <p class="sub">에이전트가 파일 · 터미널 · 브라우저를 실제로 쓰는지 눈으로 확인하는 단계입니다.</p>
+          <div class="prompt-head">
+            <span class="tag tag-accent">▸ 입력창에 그대로 붙여넣기</span>
+            <button class="copy" data-copy>Copy</button>
+          </div>
+          <pre class="code wrap">이 폴더에 hello.html 파일을 만들어줘.
 화면 가운데에 "안티그래비티 첫 실습" 이라고 크게 보이게 해줘.
 다 만들면 브라우저로 직접 열어서 화면을 캡처해 보여줘.</pre>
-      <div class="grid g3">
-        <div class="card"><span class="num">관찰 01</span><h4>계획을 먼저 보여준다</h4><p>무엇을 할지 목록으로 정리해 제시합니다</p></div>
-        <div class="card"><span class="num">관찰 02</span><h4>파일을 직접 만든다</h4><p>왼쪽 탐색기에 hello.html 이 생깁니다</p></div>
-        <div class="card"><span class="num">관찰 03</span><h4>브라우저를 연다</h4><p>직접 열어보고 캡처를 첨부합니다</p></div>
-      </div>
-      <div class="note" style="margin-top:12px">
-        <span class="tag">잘 안 될 때</span>
-        <p>“왜 실패했는지 한국어로 설명하고 다시 시도해줘” 라고 그대로 답하면 됩니다.</p>
-      </div>
-    </div>
+          <div class="grid g3">
+            <div class="card"><span class="num">관찰 01</span>
+              <h4>계획을 먼저 보여준다</h4>
+              <p>무엇을 할지 목록으로 정리해 제시합니다</p>
+            </div>
+            <div class="card"><span class="num">관찰 02</span>
+              <h4>파일을 직접 만든다</h4>
+              <p>왼쪽 탐색기에 hello.html 이 생깁니다</p>
+            </div>
+            <div class="card"><span class="num">관찰 03</span>
+              <h4>브라우저를 연다</h4>
+              <p>직접 열어보고 캡처를 첨부합니다</p>
+            </div>
+          </div>
+          <div class="note" style="margin-top:12px">
+            <span class="tag">잘 안 될 때</span>
+            <p>“왜 실패했는지 한국어로 설명하고 다시 시도해줘” 라고 그대로 답하면 됩니다.</p>
+          </div>
+        </div>
 
-    <div class="step">
-      <div class="hd"><span class="chip chip-accent">실습 2-1</span><h3>나의 첫 GEMINI.md 만들기</h3></div>
-      <p class="goal"><b>목표</b> — 앞으로 모든 대화에 자동 적용될 전역 규칙을 만듭니다.</p>
-      <div class="prompt-head">
-        <span class="tag tag-accent">▸ 에이전트 입력창에 그대로 붙여넣기</span>
-        <button class="copy" data-copy>Copy</button>
-      </div>
-      <pre class="code wrap">모든 대답은 한국어로 해주세요.
+        <div class="step">
+          <div class="hd"><span class="chip chip-accent">실습 2-1</span>
+            <h3>나의 첫 GEMINI.md 만들기</h3>
+          </div>
+          <p class="goal"><b>목표</b> — 앞으로 모든 대화에 자동 적용될 전역 규칙을 만듭니다.</p>
+          <div class="prompt-head">
+            <span class="tag tag-accent">▸ 에이전트 입력창에 그대로 붙여넣기</span>
+            <button class="copy" data-copy>Copy</button>
+          </div>
+          <pre class="code wrap">모든 대답은 한국어로 해주세요.
 모든 goal도 한국어로 나타내주세요.
 모든 작업 과정도 한국어로 나타내주세요.
 코드를 수행하기 전에는 반드시 관련 파일을 먼저 읽고 문맥을 파악하세요.
 사용자의 질문에 대해 단순히 답변만 하지 말고, 필요한 경우 더 나은 대안을 적극적으로 제시하세요.
 새로운 패키지 설치 시, 사용 가능한 최신 안정버전을 우선 고려해 주세요.</pre>
-      <div class="check">
-        <span class="tag">확인 포인트</span>
-        <ul>
-          <li>파일 경로가 <code class="i">~/.gemini/GEMINI.md</code> 로 안내되면 성공입니다.</li>
-          <li>새 대화를 하나 열고 “지금 적용 중인 규칙을 알려줘” 라고 물어 확인해 보세요.</li>
-          <li>규칙을 바꾸고 싶을 땐 이 파일을 고쳐 달라고 말하면 됩니다.</li>
-        </ul>
-      </div>
-    </div>
+          <div class="check">
+            <span class="tag">확인 포인트</span>
+            <ul>
+              <li>파일 경로가 <code class="i">~/.gemini/GEMINI.md</code> 로 안내되면 성공입니다.</li>
+              <li>새 대화를 하나 열고 “지금 적용 중인 규칙을 알려줘” 라고 물어 확인해 보세요.</li>
+              <li>규칙을 바꾸고 싶을 땐 이 파일을 고쳐 달라고 말하면 됩니다.</li>
+            </ul>
+          </div>
+        </div>
 
-    <div class="step">
-      <div class="hd"><span class="chip chip-accent">실습 2-2</span><h3>일하는 방식까지 규칙으로 정한다</h3></div>
-      <p class="goal"><b>목표</b> — 2-1의 「말투 규칙」에 더해, 에이전트가 <b>어떤 순서와 태도로 일할지</b>를 전역 규칙에 추가합니다. (계획 먼저 · 막히면 질문 · 설명은 간결하게)</p>
-      <div class="prompt-head">
-        <span class="tag tag-accent">▸ 에이전트 입력창에 그대로 붙여넣기</span>
-        <button class="copy" data-copy>Copy</button>
-      </div>
-      <pre class="code wrap">새로운 패키지 설치 시, 사용 가능한 최신 안정버전을 우선 고려해 주세요.
+        <div class="step">
+          <div class="hd"><span class="chip chip-accent">실습 2-2</span>
+            <h3>일하는 방식까지 규칙으로 정한다</h3>
+          </div>
+          <p class="goal"><b>목표</b> — 2-1의 「말투 규칙」에 더해, 에이전트가 <b>어떤 순서와 태도로 일할지</b>를 전역 규칙에 추가합니다. (계획 먼저 · 막히면 질문 · 설명은
+            간결하게)</p>
+          <div class="prompt-head">
+            <span class="tag tag-accent">▸ 에이전트 입력창에 그대로 붙여넣기</span>
+            <button class="copy" data-copy>Copy</button>
+          </div>
+          <pre class="code wrap">새로운 패키지 설치 시, 사용 가능한 최신 안정버전을 우선 고려해 주세요.
 Thought Process(추론 과정)는 핵심만 간결하게 작성하고, 이미 확인된 사실을 반복해서 되뇌지 마세요.
 결과물에 대한 설명은 핵심 위주로 간략하게 작성해 주세요.
 동일한 문제로 3회 이상 실패하거나 막힐 경우, 계속 스스로 해결하지 말고 멈춰 서서 사용자에게 확인을 요청하세요.
@@ -609,124 +1466,163 @@ Tailwind CSS 사용 시, 임의의 값(arbitrary values)보다는 설정된 테�
 현재 작업 지시를 벗어나서 선제적인 유지보수, 업데이트 또는 불필요한 리팩토링을 수행하지 마세요. 명시적인 요청에만 집중하세요.
 작업은 항상 단계별로 실행하세요. 반드시 '계획 모드'로 시작하여 구현 계획을 작성하고, 내가 해당 계획을 명시적으로 승인하기 전까지는 코드를 작성하는 '구현 모드'로 진입하지 마세요.
 작업이 끝난 후 README.md 를 만들어 주세요 — 이 앱이 무엇인지, 설치 방법, 실행 방법</pre>
-      <div class="check">
-        <span class="tag">확인 포인트</span>
-        <ul>
-          <li><code class="i">~/.gemini/GEMINI.md</code> 를 열어 2-1의 규칙 아래에 이 내용이 이어 붙었는지 확인하세요.</li>
-          <li>새 대화에서 아무 작업이나 시켜 보세요. 코드를 바로 쓰지 않고 <b>계획을 먼저 보여주고 승인을 기다리면</b> 성공입니다.</li>
-          <li>규칙이 너무 많다고 느껴지면 줄여도 됩니다. 길게 쓰기보다 짧고 분명하게 쓰는 편이 더 잘 지켜집니다.</li>
-        </ul>
-      </div>
-    </div>
-    <a class="top-link" href="#top">↑ 맨 위로</a>
-  </section>
-
-  <!-- ================= CH 3 ================= -->
-  <section id="ch3">
-    <div class="sec-head">
-      <span class="chip chip-solid">03</span>
-      <h2>Skill.sh 를 통한 스킬 설정</h2>
-    </div>
-    <p class="lede">에이전트에게 검증된 업무 매뉴얼을 통째로 설치합니다.</p>
-    <div class="rows block">
-      <div class="row"><span class="idx">3.1</span><div><div class="ttl">skills.sh — 공개된 스킬이 모인 저장소</div></div></div>
-      <div class="row"><span class="idx">3.2</span><div><div class="ttl">설치 명령 한 줄과 전역 / 지역(프로젝트) 설정의 차이</div></div></div>
-      <div class="row"><span class="idx">3.3</span><div><div class="ttl">스킬 검색 · 설치 · 사용 예제 (canvas-design · slack-gif-creator)</div></div></div>
-      <div class="row"><span class="idx">3.4</span><div><div class="ttl">나만의 스킬 등록하기 (prd-writer) 와 <code class="i">/learn</code> 명령</div></div></div>
-    </div>
-
-    <div class="block">
-      <span class="tag">3.1 · Why</span>
-      <h3>왜 스킬을 따로 설치할까</h3>
-      <p class="sub">기본 에이전트는 똑똑하지만 「우리 일의 요령」은 모릅니다. 스킬이 그 요령을 채워 줍니다.</p>
-      <div class="grid g2">
-        <div class="cmp neg">
-          <span class="tag">스킬 없이</span>
-          <h4>“기도문 앱 만들어줘”</h4>
-          <p style="margin:6px 0 0;color:var(--sub);font-size:13.5px">→ 바로 코드를 쏟아냅니다. 내가 뭘 원했는지 정리되지 않은 채 결과부터 나옵니다.</p>
+          <div class="check">
+            <span class="tag">확인 포인트</span>
+            <ul>
+              <li><code class="i">~/.gemini/GEMINI.md</code> 를 열어 2-1의 규칙 아래에 이 내용이 이어 붙었는지 확인하세요.</li>
+              <li>새 대화에서 아무 작업이나 시켜 보세요. 코드를 바로 쓰지 않고 <b>계획을 먼저 보여주고 승인을 기다리면</b> 성공입니다.</li>
+              <li>규칙이 너무 많다고 느껴지면 줄여도 됩니다. 길게 쓰기보다 짧고 분명하게 쓰는 편이 더 잘 지켜집니다.</li>
+            </ul>
+          </div>
         </div>
-        <div class="cmp pos">
-          <span class="tag tag-accent">스킬 사용</span>
-          <h4>“/grill-me 기도문 앱”</h4>
-          <p style="margin:6px 0 0;color:var(--sub);font-size:13.5px">→ 먼저 질문을 던져 목적 · 사용자 · 화면을 정리한 뒤, 설계를 문서로 만들어 줍니다.</p>
+        <a class="top-link" href="#top">↑ 맨 위로</a>
+      </section>
+
+      <!-- ================= CH 3 ================= -->
+      <section id="ch3">
+        <div class="sec-head">
+          <span class="chip chip-solid">03</span>
+          <h2>Skill.sh 를 통한 스킬 설정</h2>
         </div>
-      </div>
-      <div class="note" style="margin-top:12px">
-        <span class="tag">skills.sh 란</span>
-        <p>여러 사람이 만들어 공개한 스킬을 한곳에 모아 둔 저장소이자 설치 도구입니다. 명령어 한 줄이면 내 안티그래비티에 스킬이 설치되고, 이후에는 <code class="i">/learn</code> 명령으로 검색 · 설치 · 삭제를 할 수 있습니다. 안티그래비티 외에 클로드 · 커서 · 코파일럿 등 15개 이상의 도구를 함께 지원합니다.</p>
-      </div>
-    </div>
-
-    <div class="block">
-      <span class="tag">3.2 · Install</span>
-      <h3>스킬 설치 — 명령 한 줄</h3>
-      <p class="sub">터미널에 아래 명령을 붙여넣고 Enter 를 누르세요.</p>
-      <div class="prompt-head">
-        <span class="tag">터미널</span>
-        <button class="copy" data-copy>Copy</button>
-      </div>
-      <pre class="code wrap">npx skills add https://github.com/anthropics/skills --skill canvas-design</pre>
-      <div class="grid g4">
-        <div class="card"><span class="num">01</span><h4>도구 탐지</h4><p>설치된 AI 도구를 자동으로 찾습니다</p></div>
-        <div class="card"><span class="num">02</span><h4>대상 선택</h4><p>목록에서 Antigravity를 선택합니다</p></div>
-        <div class="card"><span class="num">03</span><h4>스킬 설치</h4><p>선택한 스킬을 한 번에 설치</p></div>
-        <div class="card"><span class="num">04</span><h4>재시작</h4><p>IDE를 껐다 켜고 새 대화를 시작</p></div>
-      </div>
-      <div class="note accent" style="margin-top:12px">
-        <span class="tag tag-accent">반드시 기억할 것</span>
-        <p>설치가 끝나면 안티그래비티를 완전히 종료했다가 다시 켜고, 반드시 「새 대화」에서 사용해야 스킬이 인식됩니다.</p>
-      </div>
-    </div>
-
-    <div class="block">
-      <span class="tag">3.2 · Scope</span>
-      <h3>전역 설정 vs 지역(프로젝트) 설정</h3>
-      <p class="sub">같은 스킬을 어디에 두느냐에 따라 적용 범위가 달라집니다.</p>
-      <div class="grid g2">
-        <div class="cmp">
-          <span class="tag">전역 설정 · 내 컴퓨터의 모든 프로젝트</span>
-          <h4><code class="i">~/.gemini/config/skills/</code></h4>
-          <h4 style="margin-top:4px"><code class="i">~/.gemini/antigravity/skills/</code></h4>
-          <ul style="margin-top:8px">
-            <li>어떤 폴더를 열어도 항상 사용 가능</li>
-            <li>혼자 쓰는 범용 스킬에 적합</li>
-            <li>예: 브레인스토밍, 글쓰기, 코드 리뷰</li>
-          </ul>
+        <p class="lede">에이전트에게 검증된 업무 매뉴얼을 통째로 설치합니다.</p>
+        <div class="rows block">
+          <div class="row"><span class="idx">3.1</span>
+            <div>
+              <div class="ttl">skills.sh — 공개된 스킬이 모인 저장소</div>
+            </div>
+          </div>
+          <div class="row"><span class="idx">3.2</span>
+            <div>
+              <div class="ttl">설치 명령 한 줄과 전역 / 지역(프로젝트) 설정의 차이</div>
+            </div>
+          </div>
+          <div class="row"><span class="idx">3.3</span>
+            <div>
+              <div class="ttl">스킬 검색 · 설치 · 사용 예제 (canvas-design · slack-gif-creator)</div>
+            </div>
+          </div>
+          <div class="row"><span class="idx">3.4</span>
+            <div>
+              <div class="ttl">나만의 스킬 등록하기 (prd-writer) 와 <code class="i">/learn</code> 명령</div>
+            </div>
+          </div>
         </div>
-        <div class="cmp">
-          <span class="tag">지역 설정 · 이 프로젝트 폴더 안에서만</span>
-          <h4><code class="i">&lt;프로젝트&gt;/.agents/skills/</code></h4>
-          <p style="margin:4px 0 0;color:var(--sub);font-size:13px">(구버전 호환 : <code class="i">.agent/skills/</code>)</p>
-          <ul style="margin-top:8px">
-            <li>프로젝트 폴더와 함께 팀에 공유됨</li>
-            <li>이 프로젝트만의 규칙 · 절차에 적합</li>
-            <li>예: 우리 회사 문서 양식, 배포 절차</li>
-          </ul>
+
+        <div class="block">
+          <span class="tag">3.1 · Why</span>
+          <h3>왜 스킬을 따로 설치할까</h3>
+          <p class="sub">기본 에이전트는 똑똑하지만 「우리 일의 요령」은 모릅니다. 스킬이 그 요령을 채워 줍니다.</p>
+          <div class="grid g2">
+            <div class="cmp neg">
+              <span class="tag">스킬 없이</span>
+              <h4>“기도문 앱 만들어줘”</h4>
+              <p style="margin:6px 0 0;color:var(--sub);font-size:13.5px">→ 바로 코드를 쏟아냅니다. 내가 뭘 원했는지 정리되지 않은 채 결과부터 나옵니다.
+              </p>
+            </div>
+            <div class="cmp pos">
+              <span class="tag tag-accent">스킬 사용</span>
+              <h4>“/grill-me 기도문 앱”</h4>
+              <p style="margin:6px 0 0;color:var(--sub);font-size:13.5px">→ 먼저 질문을 던져 목적 · 사용자 · 화면을 정리한 뒤, 설계를 문서로 만들어
+                줍니다.</p>
+            </div>
+          </div>
+          <div class="note" style="margin-top:12px">
+            <span class="tag">skills.sh 란</span>
+            <p>여러 사람이 만들어 공개한 스킬을 한곳에 모아 둔 저장소이자 설치 도구입니다. 명령어 한 줄이면 내 안티그래비티에 스킬이 설치되고, 이후에는 <code
+                class="i">/learn</code> 명령으로 검색 · 설치 · 삭제를 할 수 있습니다. 안티그래비티 외에 클로드 · 커서 · 코파일럿 등 15개 이상의 도구를 함께 지원합니다.
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="note accent" style="margin-top:12px">
-        <span class="tag tag-accent">충돌하면?</span>
-        <p>이름이 같은 스킬이 양쪽에 있으면 「지역(프로젝트) 스킬」이 이깁니다. 프로젝트 사정이 더 구체적이기 때문입니다.</p>
-      </div>
-      <p class="sub">처음에는 전역으로 설치해 쓰다가, 팀과 공유할 스킬만 프로젝트로 옮기는 방식을 권합니다.</p>
-    </div>
 
-    <div class="block">
-      <span class="tag">3.3 · Example A</span>
-      <h3>스킬 검색 예제 — canvas-design</h3>
-      <p class="sub">원하는 스킬을 검색한 후, 상세 페이지의 설치 명령을 복사해서 사용합니다.</p>
-      <div class="shots">
-        <figure class="shot"><a href="assets/image2.png" target="_blank" rel="noopener"><img src="assets/image2.png" alt="skills.sh 에서 canvas 검색 결과 목록"></a><figcaption>01 · skills.sh 에서 ‘canvas’ 검색 — 클릭하면 원본 크기로 열립니다</figcaption></figure>
-        <figure class="shot"><a href="assets/image3.png" target="_blank" rel="noopener"><img src="assets/image3.png" alt="canvas-design 스킬 상세 페이지의 설치 명령"></a><figcaption>02 · 상세 페이지에서 설치 명령 복사 — 클릭하면 원본 크기로 열립니다</figcaption></figure>
-      </div>
+        <div class="block">
+          <span class="tag">3.2 · Install</span>
+          <h3>스킬 설치 — 명령 한 줄</h3>
+          <p class="sub">터미널에 아래 명령을 붙여넣고 Enter 를 누르세요.</p>
+          <div class="prompt-head">
+            <span class="tag">터미널</span>
+            <button class="copy" data-copy>Copy</button>
+          </div>
+          <pre class="code wrap">npx skills add https://github.com/anthropics/skills --skill canvas-design</pre>
+          <div class="grid g4">
+            <div class="card"><span class="num">01</span>
+              <h4>도구 탐지</h4>
+              <p>설치된 AI 도구를 자동으로 찾습니다</p>
+            </div>
+            <div class="card"><span class="num">02</span>
+              <h4>대상 선택</h4>
+              <p>목록에서 Antigravity를 선택합니다</p>
+            </div>
+            <div class="card"><span class="num">03</span>
+              <h4>스킬 설치</h4>
+              <p>선택한 스킬을 한 번에 설치</p>
+            </div>
+            <div class="card"><span class="num">04</span>
+              <h4>재시작</h4>
+              <p>IDE를 껐다 켜고 새 대화를 시작</p>
+            </div>
+          </div>
+          <div class="note accent" style="margin-top:12px">
+            <span class="tag tag-accent">반드시 기억할 것</span>
+            <p>설치가 끝나면 안티그래비티를 완전히 종료했다가 다시 켜고, 반드시 「새 대화」에서 사용해야 스킬이 인식됩니다.</p>
+          </div>
+        </div>
 
-      <h4 style="margin:18px 0 6px;font-size:15px">03 · 설치한 스킬을 대화하듯 사용하기</h4>
-      <p class="sub">스킬 이름을 부르고, 원하는 화면을 자세히 설명할수록 결과가 좋아집니다.</p>
-      <div class="prompt-head">
-        <span class="tag tag-accent">▸ 에이전트 입력창에 그대로 붙여넣기</span>
-        <button class="copy" data-copy>Copy</button>
-      </div>
-      <pre class="code wrap">[canvas-design](slashCommand;canvas-design)
+        <div class="block">
+          <span class="tag">3.2 · Scope</span>
+          <h3>전역 설정 vs 지역(프로젝트) 설정</h3>
+          <p class="sub">같은 스킬을 어디에 두느냐에 따라 적용 범위가 달라집니다.</p>
+          <div class="grid g2">
+            <div class="cmp">
+              <span class="tag">전역 설정 · 내 컴퓨터의 모든 프로젝트</span>
+              <h4><code class="i">~/.gemini/config/skills/</code></h4>
+              <h4 style="margin-top:4px"><code class="i">~/.gemini/antigravity/skills/</code></h4>
+              <ul style="margin-top:8px">
+                <li>어떤 폴더를 열어도 항상 사용 가능</li>
+                <li>혼자 쓰는 범용 스킬에 적합</li>
+                <li>예: 브레인스토밍, 글쓰기, 코드 리뷰</li>
+              </ul>
+            </div>
+            <div class="cmp">
+              <span class="tag">지역 설정 · 이 프로젝트 폴더 안에서만</span>
+              <h4><code class="i">&lt;프로젝트&gt;/.agents/skills/</code></h4>
+              <p style="margin:4px 0 0;color:var(--sub);font-size:13px">(구버전 호환 : <code class="i">.agent/skills/</code>)
+              </p>
+              <ul style="margin-top:8px">
+                <li>프로젝트 폴더와 함께 팀에 공유됨</li>
+                <li>이 프로젝트만의 규칙 · 절차에 적합</li>
+                <li>예: 우리 회사 문서 양식, 배포 절차</li>
+              </ul>
+            </div>
+          </div>
+          <div class="note accent" style="margin-top:12px">
+            <span class="tag tag-accent">충돌하면?</span>
+            <p>이름이 같은 스킬이 양쪽에 있으면 「지역(프로젝트) 스킬」이 이깁니다. 프로젝트 사정이 더 구체적이기 때문입니다.</p>
+          </div>
+          <p class="sub">처음에는 전역으로 설치해 쓰다가, 팀과 공유할 스킬만 프로젝트로 옮기는 방식을 권합니다.</p>
+        </div>
+
+        <div class="block">
+          <span class="tag">3.3 · Example A</span>
+          <h3>스킬 검색 예제 — canvas-design</h3>
+          <p class="sub">원하는 스킬을 검색한 후, 상세 페이지의 설치 명령을 복사해서 사용합니다.</p>
+          <div class="shots">
+            <figure class="shot"><a href="assets/image2.png" target="_blank" rel="noopener"><img src="assets/image2.png"
+                  alt="skills.sh 에서 canvas 검색 결과 목록"></a>
+              <figcaption>01 · skills.sh 에서 ‘canvas’ 검색 — 클릭하면 원본 크기로 열립니다</figcaption>
+            </figure>
+            <figure class="shot"><a href="assets/image3.png" target="_blank" rel="noopener"><img src="assets/image3.png"
+                  alt="canvas-design 스킬 상세 페이지의 설치 명령"></a>
+              <figcaption>02 · 상세 페이지에서 설치 명령 복사 — 클릭하면 원본 크기로 열립니다</figcaption>
+            </figure>
+          </div>
+
+          <h4 style="margin:18px 0 6px;font-size:15px">03 · 설치한 스킬을 대화하듯 사용하기</h4>
+          <p class="sub">스킬 이름을 부르고, 원하는 화면을 자세히 설명할수록 결과가 좋아집니다.</p>
+          <div class="prompt-head">
+            <span class="tag tag-accent">▸ 에이전트 입력창에 그대로 붙여넣기</span>
+            <button class="copy" data-copy>Copy</button>
+          </div>
+          <pre class="code wrap">[canvas-design](slashCommand;canvas-design)
 [Role &amp; Persona]
 당신은 세계적인 수준의 UI/UX 디자이너이자 수석 프론트엔드 엔지니어입니다.
 사용자 경험을 극대화하면서도 심미적으로 뛰어난 웹 인터페이스를 설계하고, 이를 실제 코드로 구현하기 좋은 구조로 기획하는 데 탁월한 능력을 가지고 있습니다.
@@ -755,30 +1651,39 @@ Tailwind CSS 사용 시, 임의의 값(arbitrary values)보다는 설정된 테�
 - 화면의 빈 공간을 단순한 여백이 아닌 '의도된 공간(White Space)'으로 활용하여 복잡한 개발 도구임에도 깔끔한 인상을 주어야 합니다.
 - 데이터 시각화 요소(예: 최근 프로젝트 기여도, 시간대별 생산성 패턴 등)를 스파크라인(Sparkline)이나 미니멀한 그래프 형태로 반드시 1개 이상 포함하여 전문성을 높여주세요.</pre>
 
-      <h4 style="margin:18px 0 6px;font-size:15px">이미지 생성 결과</h4>
-      <figure class="shot"><a href="assets/vibe_coding_dashboard.png" target="_blank" rel="noopener"><img src="assets/vibe_coding_dashboard.png" alt="canvas-design 스킬로 생성한 바이브 코딩 대시보드 디자인 시안"></a><figcaption>canvas-design 스킬이 생성한 대시보드 시안 — 클릭하면 원본 크기로 열립니다</figcaption></figure>
-    </div>
+          <h4 style="margin:18px 0 6px;font-size:15px">이미지 생성 결과</h4>
+          <figure class="shot"><a href="assets/vibe_coding_dashboard.png" target="_blank" rel="noopener"><img
+                src="assets/vibe_coding_dashboard.png" alt="canvas-design 스킬로 생성한 바이브 코딩 대시보드 디자인 시안"></a>
+            <figcaption>canvas-design 스킬이 생성한 대시보드 시안 — 클릭하면 원본 크기로 열립니다</figcaption>
+          </figure>
+        </div>
 
-    <div class="block">
-      <span class="tag">3.3 · Example B</span>
-      <h3>스킬 등록 후 사용 — slack-gif-creator</h3>
-      <p class="sub">설치 → 새 대화에서 한국어로 요청 → 결과물 생성까지의 흐름입니다.</p>
-      <div class="shots two">
-        <figure class="shot"><img src="assets/image5.png" alt="터미널에서 slack-gif-creator 스킬 설치"><figcaption>01 · 터미널에서 스킬 설치</figcaption></figure>
-        <figure class="shot"><img src="assets/image6.png" alt="에이전트가 SKILL.md 를 읽고 작업을 시작하는 화면"><figcaption>02 · 에이전트가 SKILL.md 를 읽고 작업 시작</figcaption></figure>
-      </div>
-      <figure class="shot" style="max-width:420px"><img src="assets/image7.gif" alt="스킬로 생성한 애니메이션 GIF 결과물"><figcaption>03 · 스킬을 사용하여 생성한 GIF 결과</figcaption></figure>
-    </div>
+        <div class="block">
+          <span class="tag">3.3 · Example B</span>
+          <h3>스킬 등록 후 사용 — slack-gif-creator</h3>
+          <p class="sub">설치 → 새 대화에서 한국어로 요청 → 결과물 생성까지의 흐름입니다.</p>
+          <div class="shots two">
+            <figure class="shot"><img src="assets/image5.png" alt="터미널에서 slack-gif-creator 스킬 설치">
+              <figcaption>01 · 터미널에서 스킬 설치</figcaption>
+            </figure>
+            <figure class="shot"><img src="assets/image6.png" alt="에이전트가 SKILL.md 를 읽고 작업을 시작하는 화면">
+              <figcaption>02 · 에이전트가 SKILL.md 를 읽고 작업 시작</figcaption>
+            </figure>
+          </div>
+          <figure class="shot" style="max-width:420px"><img src="assets/image7.gif" alt="스킬로 생성한 애니메이션 GIF 결과물">
+            <figcaption>03 · 스킬을 사용하여 생성한 GIF 결과</figcaption>
+          </figure>
+        </div>
 
-    <div class="block">
-      <span class="tag">3.4 · Custom Skill</span>
-      <h3>나만의 스킬 등록하기 — prd-writer</h3>
-      <p class="sub">요구사항 정의서(PRD)를 순서대로 물어보며 작성해 주는 스킬을 전역으로 등록합니다.</p>
-      <div class="prompt-head">
-        <span class="tag tag-accent">▸ 에이전트 입력창에 그대로 붙여넣기</span>
-        <button class="copy" data-copy>Copy</button>
-      </div>
-      <pre class="code wrap">아래의 내용을 전역 스킬로 등록해줘.  # skill명 : prd-writer
+        <div class="block">
+          <span class="tag">3.4 · Custom Skill</span>
+          <h3>나만의 스킬 등록하기 — prd-writer</h3>
+          <p class="sub">요구사항 정의서(PRD)를 순서대로 물어보며 작성해 주는 스킬을 전역으로 등록합니다.</p>
+          <div class="prompt-head">
+            <span class="tag tag-accent">▸ 에이전트 입력창에 그대로 붙여넣기</span>
+            <button class="copy" data-copy>Copy</button>
+          </div>
+          <pre class="code wrap">아래의 내용을 전역 스킬로 등록해줘.  # skill명 : prd-writer
 - 아래 -
 너는 전문 IT 서비스 기획자(PO)야.
 나는 PRD(요구사항 정의서)를 작성하려고 해.
@@ -802,161 +1707,247 @@ Tailwind CSS 사용 시, 임의의 값(arbitrary values)보다는 설정된 테�
 # 시작
 지금 바로 첫 번째 항목인 **프로젝트 개요**부터 시작해줘.
 앱 이름, 한 줄 설명, 서비스 유형(개인용/팀용 등), 난이도(초급/중급/고급)를 정하기 위한 질문을 해줘.</pre>
-      <div class="note">
-        <span class="tag">확인 포인트</span>
-        <p><code class="i">C:\Users\&lt;사용자&gt;\.gemini\config\skills\prd-writer</code> 폴더에 <code class="i">SKILL.md</code> 가 만들어져 있으면 성공입니다.</p>
-      </div>
-    </div>
-
-    <div class="block">
-      <span class="tag">3.4 · Commands</span>
-      <h3><code class="i">/learn</code> 명령어 한눈에 보기</h3>
-      <p class="sub">설치가 끝나면 에이전트 입력창에서 바로 쓸 수 있습니다.</p>
-      <div class="tablewrap">
-        <table>
-          <thead><tr><th>입력</th><th>하는 일</th></tr></thead>
-          <tbody>
-            <tr><th><code>/learn</code></th><td>지금 프로젝트를 보고 어울리는 스킬을 추천</td></tr>
-            <tr><th><code>/learn list</code></th><td>설치된 스킬 목록 보기</td></tr>
-            <tr><th><code>/learn update</code></th><td>설치된 스킬을 최신으로 갱신</td></tr>
-            <tr><th><code>/learn remove &lt;이름&gt;</code></th><td>스킬 삭제</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="sub">설치된 스킬은 이름 앞에 「/」를 붙여 부르거나, 그냥 한국어로 설명만 해도 에이전트가 알아서 골라 씁니다.</p>
-    </div>
-    <a class="top-link" href="#top">↑ 맨 위로</a>
-  </section>
-
-  <!-- ================= CH 4 ================= -->
-  <section id="ch4">
-    <div class="sec-head">
-      <span class="chip chip-solid">04</span>
-      <h2>MCP 연결 — Stitch 연동하기</h2>
-    </div>
-    <p class="lede">에이전트에게 바깥 세상의 도구를 쥐여 줍니다.</p>
-    <div class="rows block">
-      <div class="row"><span class="idx">4.1</span><div><div class="ttl">MCP(Model Context Protocol)가 무엇인지</div></div></div>
-      <div class="row"><span class="idx">4.2</span><div><div class="ttl">구글 Stitch — 말로 화면을 디자인하는 도구</div></div></div>
-      <div class="row"><span class="idx">4.3</span><div><div class="ttl">Stitch API 키 발급과 안티그래비티 연결</div></div></div>
-      <div class="row"><span class="idx">4.4</span><div><div class="ttl">연결 확인과 수동 설정 파일(mcp_config.json)</div></div></div>
-    </div>
-
-    <div class="block">
-      <span class="tag">4.1 · MCP</span>
-      <h3>MCP 란 무엇인가</h3>
-      <p class="sub">Model Context Protocol — AI와 외부 서비스를 잇는 「표준 규격」입니다.</p>
-      <div class="note accent"><p>MCP는 AI 도구 세계의 USB-C 단자라고 생각하면 쉽습니다.</p></div>
-      <div class="grid g2">
-        <div class="cmp neg">
-          <span class="tag">MCP 없이</span>
-          <ul>
-            <li>서비스마다 연결 방식이 제각각</li>
-            <li>에이전트는 내 구글 드라이브 · 디자인 파일을 볼 수 없음</li>
-            <li>사람이 자료를 복사해서 붙여 넣어 줘야 함</li>
-          </ul>
+          <div class="note">
+            <span class="tag">확인 포인트</span>
+            <p><code class="i">C:\Users\&lt;사용자&gt;\.gemini\config\skills\prd-writer</code> 폴더에 <code
+                class="i">SKILL.md</code> 가 만들어져 있으면 성공입니다.</p>
+          </div>
         </div>
-        <div class="cmp pos">
-          <span class="tag tag-accent">MCP 연결 후</span>
-          <ul>
-            <li>한 가지 방식으로 여러 서비스를 연결</li>
-            <li>에이전트가 외부 도구를 직접 호출 · 조회</li>
-            <li>“내 Stitch 프로젝트 목록 보여줘” 가 바로 동작</li>
-          </ul>
-        </div>
-      </div>
-      <p class="sub" style="margin-top:10px">안티그래비티에는 MCP 서버 목록(스토어)이 내장되어 있어, 유명한 서비스는 클릭 몇 번으로 연결됩니다.</p>
-    </div>
 
-    <div class="block">
-      <span class="tag">4.2 · Stitch</span>
-      <h3>구글 Stitch 란</h3>
-      <p class="sub">말로 설명하면 앱 · 웹 화면 디자인을 만들어 주는 구글의 AI 디자인 도구입니다.</p>
-      <div class="rows">
-        <div class="row"><span class="idx">01</span><div><div class="ttl">글로 설명하면 화면이 나옵니다</div><div class="desc">“차분한 아이보리 배경의 기도문 생성기 화면” → 실제 디자인 시안 생성</div></div></div>
-        <div class="row"><span class="idx">02</span><div><div class="ttl">디자인을 코드로 넘길 수 있습니다</div><div class="desc">MCP로 연결하면 안티그래비티가 디자인을 직접 읽어 HTML · CSS로 변환</div></div></div>
-        <div class="row"><span class="idx">03</span><div><div class="ttl">디자인 감각이 없어도 됩니다</div><div class="desc">색 · 간격 · 글자 크기를 스스로 정해 주므로 결과물이 아마추어처럼 보이지 않습니다</div></div></div>
-      </div>
-      <div class="note accent" style="margin-top:12px">
-        <span class="tag tag-accent">이번 실습에서의 역할</span>
-        <p>Stitch가 「기도문 생성기」 화면을 디자인 → 안티그래비티가 그 디자인을 코드로 옮김 → 우리는 지시만 합니다.</p>
-      </div>
-    </div>
-
-    <div class="block">
-      <span class="tag">4.3 · API Key</span>
-      <h3>① Stitch API 키 발급받기</h3>
-      <p class="sub">안티그래비티가 내 Stitch 계정에 접근하려면 열쇠(API 키)가 필요합니다.</p>
-      <div class="rows">
-        <div class="row"><span class="idx">01</span><div><div class="ttl">Stitch 에 구글 계정으로 로그인</div></div></div>
-        <div class="row"><span class="idx">02</span><div><div class="ttl">오른쪽 위 프로필 사진 클릭</div></div></div>
-        <div class="row"><span class="idx">03</span><div><div class="ttl">드롭다운에서 「Stitch 설정」 선택</div></div></div>
-        <div class="row"><span class="idx">04</span><div><div class="ttl">API Keys 항목으로 이동 후 키 생성 버튼 클릭</div></div></div>
-        <div class="row"><span class="idx">05</span><div><div class="ttl">생성된 키를 즉시 복사해 안전한 곳에 보관</div><div class="desc">창을 닫으면 다시 볼 수 없습니다. 메모장에 잠시 붙여 두세요</div></div></div>
-      </div>
-      <div class="grid g2" style="margin-top:12px">
-        <div class="cmp">
-          <span class="tag">API 키를 다루는 원칙</span>
-          <ul>
-            <li>카카오톡 · 메일로 보내지 않기</li>
-            <li>화면 공유 · 녹화 중 노출 주의</li>
-            <li>노출됐다면 즉시 삭제 후 재발급</li>
-          </ul>
+        <div class="block">
+          <span class="tag">3.4 · Commands</span>
+          <h3><code class="i">/learn</code> 명령어 한눈에 보기</h3>
+          <p class="sub">설치가 끝나면 에이전트 입력창에서 바로 쓸 수 있습니다.</p>
+          <div class="tablewrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>입력</th>
+                  <th>하는 일</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th><code>/learn</code></th>
+                  <td>지금 프로젝트를 보고 어울리는 스킬을 추천</td>
+                </tr>
+                <tr>
+                  <th><code>/learn list</code></th>
+                  <td>설치된 스킬 목록 보기</td>
+                </tr>
+                <tr>
+                  <th><code>/learn update</code></th>
+                  <td>설치된 스킬을 최신으로 갱신</td>
+                </tr>
+                <tr>
+                  <th><code>/learn remove &lt;이름&gt;</code></th>
+                  <td>스킬 삭제</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="sub">설치된 스킬은 이름 앞에 「/」를 붙여 부르거나, 그냥 한국어로 설명만 해도 에이전트가 알아서 골라 씁니다.</p>
         </div>
-        <div class="cmp">
-          <span class="tag">먼저 디자인을 하나 만들어 두면 좋습니다</span>
-          <p style="margin:0;color:var(--sub);font-size:13.5px">Stitch 화면에서 아무 디자인이나 하나 만들어 두면, 연결 확인 단계에서 목록이 비어 보이지 않아 확인이 쉽습니다.</p>
-        </div>
-      </div>
-      <p class="sub" style="margin-top:8px"><span class="tag">출처</span> Google Codelabs — Design-to-Code with Antigravity and Stitch MCP</p>
-    </div>
+        <a class="top-link" href="#top">↑ 맨 위로</a>
+      </section>
 
-    <div class="block">
-      <span class="tag">4.3 · Connect</span>
-      <h3>② 안티그래비티에 Stitch 연결하기</h3>
-      <p class="sub">에이전트 매니저의 MCP 서버 목록에서 클릭 몇 번이면 끝납니다.</p>
-      <div class="grid g4">
-        <div class="card"><span class="num">01</span><h4>매니저 열기</h4><p><kbd>⌘ + E</kbd> / <kbd>Ctrl + E</kbd> 에이전트 매니저로 이동</p></div>
-        <div class="card"><span class="num">02</span><h4>MCP 서버</h4><p>우측 패널 상단 … 클릭 → MCP Servers 선택</p></div>
-        <div class="card"><span class="num">03</span><h4>Stitch 설치</h4><p>목록에서 Stitch 검색 → Install 클릭</p></div>
-        <div class="card"><span class="num">04</span><h4>키 붙여넣기</h4><p>앞에서 복사한 API 키 입력</p></div>
-      </div>
-      <h3 style="margin-top:18px;font-size:16px">③ 연결이 잘 됐는지 확인하기</h3>
-      <div class="prompt-head" style="margin-top:8px">
-        <span class="tag tag-accent">▸ 에이전트에게 물어보기</span>
-        <button class="copy" data-copy>Copy</button>
-      </div>
-      <pre class="code wrap">List my Stitch projects.
+      <!-- ================= CH 4 ================= -->
+      <section id="ch4">
+        <div class="sec-head">
+          <span class="chip chip-solid">04</span>
+          <h2>MCP 연결 — Stitch 연동하기</h2>
+        </div>
+        <p class="lede">에이전트에게 바깥 세상의 도구를 쥐여 줍니다.</p>
+        <div class="rows block">
+          <div class="row"><span class="idx">4.1</span>
+            <div>
+              <div class="ttl">MCP(Model Context Protocol)가 무엇인지</div>
+            </div>
+          </div>
+          <div class="row"><span class="idx">4.2</span>
+            <div>
+              <div class="ttl">구글 Stitch — 말로 화면을 디자인하는 도구</div>
+            </div>
+          </div>
+          <div class="row"><span class="idx">4.3</span>
+            <div>
+              <div class="ttl">Stitch API 키 발급과 안티그래비티 연결</div>
+            </div>
+          </div>
+          <div class="row"><span class="idx">4.4</span>
+            <div>
+              <div class="ttl">연결 확인과 수동 설정 파일(mcp_config.json)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="block">
+          <span class="tag">4.1 · MCP</span>
+          <h3>MCP 란 무엇인가</h3>
+          <p class="sub">Model Context Protocol — AI와 외부 서비스를 잇는 「표준 규격」입니다.</p>
+          <div class="note accent">
+            <p>MCP는 AI 도구 세계의 USB-C 단자라고 생각하면 쉽습니다.</p>
+          </div>
+          <div class="grid g2">
+            <div class="cmp neg">
+              <span class="tag">MCP 없이</span>
+              <ul>
+                <li>서비스마다 연결 방식이 제각각</li>
+                <li>에이전트는 내 구글 드라이브 · 디자인 파일을 볼 수 없음</li>
+                <li>사람이 자료를 복사해서 붙여 넣어 줘야 함</li>
+              </ul>
+            </div>
+            <div class="cmp pos">
+              <span class="tag tag-accent">MCP 연결 후</span>
+              <ul>
+                <li>한 가지 방식으로 여러 서비스를 연결</li>
+                <li>에이전트가 외부 도구를 직접 호출 · 조회</li>
+                <li>“내 Stitch 프로젝트 목록 보여줘” 가 바로 동작</li>
+              </ul>
+            </div>
+          </div>
+          <p class="sub" style="margin-top:10px">안티그래비티에는 MCP 서버 목록(스토어)이 내장되어 있어, 유명한 서비스는 클릭 몇 번으로 연결됩니다.</p>
+        </div>
+
+        <div class="block">
+          <span class="tag">4.2 · Stitch</span>
+          <h3>구글 Stitch 란</h3>
+          <p class="sub">말로 설명하면 앱 · 웹 화면 디자인을 만들어 주는 구글의 AI 디자인 도구입니다.</p>
+          <div class="rows">
+            <div class="row"><span class="idx">01</span>
+              <div>
+                <div class="ttl">글로 설명하면 화면이 나옵니다</div>
+                <div class="desc">“차분한 아이보리 배경의 기도문 생성기 화면” → 실제 디자인 시안 생성</div>
+              </div>
+            </div>
+            <div class="row"><span class="idx">02</span>
+              <div>
+                <div class="ttl">디자인을 코드로 넘길 수 있습니다</div>
+                <div class="desc">MCP로 연결하면 안티그래비티가 디자인을 직접 읽어 HTML · CSS로 변환</div>
+              </div>
+            </div>
+            <div class="row"><span class="idx">03</span>
+              <div>
+                <div class="ttl">디자인 감각이 없어도 됩니다</div>
+                <div class="desc">색 · 간격 · 글자 크기를 스스로 정해 주므로 결과물이 아마추어처럼 보이지 않습니다</div>
+              </div>
+            </div>
+          </div>
+          <div class="note accent" style="margin-top:12px">
+            <span class="tag tag-accent">이번 실습에서의 역할</span>
+            <p>Stitch가 「기도문 생성기」 화면을 디자인 → 안티그래비티가 그 디자인을 코드로 옮김 → 우리는 지시만 합니다.</p>
+          </div>
+        </div>
+
+        <div class="block">
+          <span class="tag">4.3 · API Key</span>
+          <h3>① Stitch API 키 발급받기</h3>
+          <p class="sub">안티그래비티가 내 Stitch 계정에 접근하려면 열쇠(API 키)가 필요합니다.</p>
+          <div class="rows">
+            <div class="row"><span class="idx">01</span>
+              <div>
+                <div class="ttl">Stitch 에 구글 계정으로 로그인</div>
+              </div>
+            </div>
+            <div class="row"><span class="idx">02</span>
+              <div>
+                <div class="ttl">오른쪽 위 프로필 사진 클릭</div>
+              </div>
+            </div>
+            <div class="row"><span class="idx">03</span>
+              <div>
+                <div class="ttl">드롭다운에서 「Stitch 설정」 선택</div>
+              </div>
+            </div>
+            <div class="row"><span class="idx">04</span>
+              <div>
+                <div class="ttl">API Keys 항목으로 이동 후 키 생성 버튼 클릭</div>
+              </div>
+            </div>
+            <div class="row"><span class="idx">05</span>
+              <div>
+                <div class="ttl">생성된 키를 즉시 복사해 안전한 곳에 보관</div>
+                <div class="desc">창을 닫으면 다시 볼 수 없습니다. 메모장에 잠시 붙여 두세요</div>
+              </div>
+            </div>
+          </div>
+          <div class="grid g2" style="margin-top:12px">
+            <div class="cmp">
+              <span class="tag">API 키를 다루는 원칙</span>
+              <ul>
+                <li>카카오톡 · 메일로 보내지 않기</li>
+                <li>화면 공유 · 녹화 중 노출 주의</li>
+                <li>노출됐다면 즉시 삭제 후 재발급</li>
+              </ul>
+            </div>
+            <div class="cmp">
+              <span class="tag">먼저 디자인을 하나 만들어 두면 좋습니다</span>
+              <p style="margin:0;color:var(--sub);font-size:13.5px">Stitch 화면에서 아무 디자인이나 하나 만들어 두면, 연결 확인 단계에서 목록이 비어
+                보이지 않아 확인이 쉽습니다.</p>
+            </div>
+          </div>
+          <p class="sub" style="margin-top:8px"><span class="tag">출처</span> Google Codelabs — Design-to-Code with
+            Antigravity and Stitch MCP</p>
+        </div>
+
+        <div class="block">
+          <span class="tag">4.3 · Connect</span>
+          <h3>② 안티그래비티에 Stitch 연결하기</h3>
+          <p class="sub">에이전트 매니저의 MCP 서버 목록에서 클릭 몇 번이면 끝납니다.</p>
+          <div class="grid g4">
+            <div class="card"><span class="num">01</span>
+              <h4>매니저 열기</h4>
+              <p><kbd>⌘ + E</kbd> / <kbd>Ctrl + E</kbd> 에이전트 매니저로 이동</p>
+            </div>
+            <div class="card"><span class="num">02</span>
+              <h4>MCP 서버</h4>
+              <p>우측 패널 상단 … 클릭 → MCP Servers 선택</p>
+            </div>
+            <div class="card"><span class="num">03</span>
+              <h4>Stitch 설치</h4>
+              <p>목록에서 Stitch 검색 → Install 클릭</p>
+            </div>
+            <div class="card"><span class="num">04</span>
+              <h4>키 붙여넣기</h4>
+              <p>앞에서 복사한 API 키 입력</p>
+            </div>
+          </div>
+          <h3 style="margin-top:18px;font-size:16px">③ 연결이 잘 됐는지 확인하기</h3>
+          <div class="prompt-head" style="margin-top:8px">
+            <span class="tag tag-accent">▸ 에이전트에게 물어보기</span>
+            <button class="copy" data-copy>Copy</button>
+          </div>
+          <pre class="code wrap">List my Stitch projects.
 (또는 한국어로) 내 Stitch 프로젝트 목록을 보여줘.</pre>
-      <div class="note accent">
-        <p>내 Stitch 프로젝트 이름이 목록으로 나오면 연결 성공입니다.</p>
-      </div>
-      <p class="sub">목록이 비어 있다고 나오면 연결은 됐지만 디자인이 없는 것입니다. Stitch에서 디자인을 하나 만들어 보세요.</p>
-    </div>
+          <div class="note accent">
+            <p>내 Stitch 프로젝트 이름이 목록으로 나오면 연결 성공입니다.</p>
+          </div>
+          <p class="sub">목록이 비어 있다고 나오면 연결은 됐지만 디자인이 없는 것입니다. Stitch에서 디자인을 하나 만들어 보세요.</p>
+        </div>
 
-    <div class="block">
-      <span class="tag">4.4 · Reference</span>
-      <h3>참고 — 직접 설정 파일을 여는 방법</h3>
-      <p class="sub">목록에 없는 MCP 서버를 붙이거나, 설정을 확인하고 싶을 때만 보면 됩니다.</p>
-      <div class="grid g2">
-        <div class="cmp">
-          <span class="tag">설정 파일 위치</span>
-          <ul>
-            <li>전역 — <code class="i">~/.gemini/config/mcp_config.json</code></li>
-            <li>프로젝트 — <code class="i">&lt;프로젝트&gt;/.agents/mcp_config.json</code></li>
-          </ul>
-        </div>
-        <div class="cmp">
-          <span class="tag">여는 방법</span>
-          <ul>
-            <li>… 클릭 → MCP Servers</li>
-            <li>Manage MCP Servers 클릭</li>
-            <li>View raw config 클릭 → 파일이 열립니다</li>
-          </ul>
-        </div>
-      </div>
-      <div class="prompt-head" style="margin-top:12px"><span class="tag">설정 파일의 형태</span></div>
-      <pre class="code">{
+        <div class="block">
+          <span class="tag">4.4 · Reference</span>
+          <h3>참고 — 직접 설정 파일을 여는 방법</h3>
+          <p class="sub">목록에 없는 MCP 서버를 붙이거나, 설정을 확인하고 싶을 때만 보면 됩니다.</p>
+          <div class="grid g2">
+            <div class="cmp">
+              <span class="tag">설정 파일 위치</span>
+              <ul>
+                <li>전역 — <code class="i">~/.gemini/config/mcp_config.json</code></li>
+                <li>프로젝트 — <code class="i">&lt;프로젝트&gt;/.agents/mcp_config.json</code></li>
+              </ul>
+            </div>
+            <div class="cmp">
+              <span class="tag">여는 방법</span>
+              <ul>
+                <li>… 클릭 → MCP Servers</li>
+                <li>Manage MCP Servers 클릭</li>
+                <li>View raw config 클릭 → 파일이 열립니다</li>
+              </ul>
+            </div>
+          </div>
+          <div class="prompt-head" style="margin-top:12px"><span class="tag">설정 파일의 형태</span></div>
+          <pre class="code">{
   "mcpServers": {
     "my-remote-server": {
       "serverUrl": "https://api.example.com/mcp/",
@@ -966,343 +1957,599 @@ Tailwind CSS 사용 시, 임의의 값(arbitrary values)보다는 설정된 테�
     }
   }
 }</pre>
-      <div class="note">
-        <span class="tag">직접 고치지 말고</span>
-        <p>“이 MCP 설정 파일에 OO 서버를 추가해줘” 라고 에이전트에게 시키는 편이 훨씬 안전합니다.</p>
-      </div>
-    </div>
-    <a class="top-link" href="#top">↑ 맨 위로</a>
-  </section>
-
-  <!-- ================= CH 5 ================= -->
-  <section id="ch5">
-    <div class="sec-head">
-      <span class="chip chip-solid">05</span>
-      <h2>Google AI Studio API 키 연동</h2>
-    </div>
-    <p class="lede">내가 만든 앱이 Gemini에게 말을 걸 수 있게 만드는 열쇠입니다.</p>
-    <div class="rows block">
-      <div class="row"><span class="idx">5.1</span><div><div class="ttl">AI Studio 와 Gemini API 의 관계</div></div></div>
-      <div class="row"><span class="idx">5.2</span><div><div class="ttl">API 키 발급 4단계</div></div></div>
-      <div class="row"><span class="idx">5.3</span><div><div class="ttl">어떤 모델을 골라야 하는가</div></div></div>
-      <div class="row"><span class="idx">5.4</span><div><div class="ttl">API 키 보안 3원칙 — 가장 중요한 부분</div></div></div>
-    </div>
-
-    <div class="block">
-      <span class="tag">5.1 · Concept</span>
-      <h3>헷갈리기 쉬운 부분부터 정리</h3>
-      <p class="sub">안티그래비티 속의 Gemini 와, 내 앱이 쓰는 Gemini 는 서로 다른 통로입니다.</p>
-      <div class="grid g2">
-        <div class="cmp">
-          <span class="tag">안티그래비티의 Gemini · 나를 도와 개발해 주는 AI</span>
-          <ul>
-            <li>구글 로그인만 하면 바로 사용</li>
-            <li>별도의 API 키가 필요 없음</li>
-            <li>코드 작성 · 파일 수정을 담당</li>
-          </ul>
+          <div class="note">
+            <span class="tag">직접 고치지 말고</span>
+            <p>“이 MCP 설정 파일에 OO 서버를 추가해줘” 라고 에이전트에게 시키는 편이 훨씬 안전합니다.</p>
+          </div>
         </div>
-        <div class="cmp pos">
-          <span class="tag tag-accent">내 앱 속의 Gemini · 기도문을 써 주는 AI</span>
-          <ul>
-            <li>내가 만든 웹앱이 직접 호출</li>
-            <li>반드시 API 키가 필요</li>
-            <li>사용자가 버튼을 누를 때마다 호출됨</li>
-          </ul>
+        <a class="top-link" href="#top">↑ 맨 위로</a>
+      </section>
+
+      <!-- ================= CH 5 ================= -->
+      <section id="ch5">
+        <div class="sec-head">
+          <span class="chip chip-solid">05</span>
+          <h2>Google AI Studio API 키 연동</h2>
         </div>
-      </div>
-      <div class="note" style="margin-top:12px">
-        <span class="tag">Google AI Studio 란</span>
-        <p>Gemini 를 웹에서 직접 테스트해 보고, 내 프로그램에서 쓸 API 키를 발급받는 구글의 공식 사이트입니다.</p>
-      </div>
-    </div>
-
-    <div class="block">
-      <span class="tag">5.2 · Issue Key</span>
-      <h3>API 키 발급 — 4단계</h3>
-      <p class="sub">2분이면 끝납니다.</p>
-      <div class="grid g4">
-        <div class="card"><span class="num">01</span><h4>사이트 접속</h4><p>aistudio.google.com/apikey</p></div>
-        <div class="card"><span class="num">02</span><h4>로그인 · 약관 동의</h4><p>구글 계정 로그인, 기본 프로젝트 자동 생성</p></div>
-        <div class="card"><span class="num">03</span><h4>Create API key</h4><p>버튼을 눌러 새 키 생성</p></div>
-        <div class="card"><span class="num">04</span><h4>즉시 복사</h4><p>메모장 등에 붙여넣어 안전하게 보관</p></div>
-      </div>
-      <div class="grid g2" style="margin-top:12px">
-        <div class="cmp">
-          <span class="tag">요금은 어떻게 되나요</span>
-          <ul>
-            <li>무료 등급으로 시작할 수 있습니다</li>
-            <li>무료 등급에는 분 · 일 단위 호출 한도가 있습니다</li>
-            <li>한도를 넘기려면 구글 클라우드 프로젝트에 결제 수단을 연결합니다</li>
-          </ul>
+        <p class="lede">내가 만든 앱이 Gemini에게 말을 걸 수 있게 만드는 열쇠입니다.</p>
+        <div class="rows block">
+          <div class="row"><span class="idx">5.1</span>
+            <div>
+              <div class="ttl">AI Studio 와 Gemini API 의 관계</div>
+            </div>
+          </div>
+          <div class="row"><span class="idx">5.2</span>
+            <div>
+              <div class="ttl">API 키 발급 4단계</div>
+            </div>
+          </div>
+          <div class="row"><span class="idx">5.3</span>
+            <div>
+              <div class="ttl">어떤 모델을 골라야 하는가</div>
+            </div>
+          </div>
+          <div class="row"><span class="idx">5.4</span>
+            <div>
+              <div class="ttl">API 키 보안 3원칙 — 가장 중요한 부분</div>
+            </div>
+          </div>
         </div>
-        <div class="cmp">
-          <span class="tag">교육 · 실습에서는</span>
-          <p style="margin:0;color:var(--sub);font-size:13.5px">무료 등급만으로 충분합니다. 다만 여러 명이 같은 키를 돌려 쓰면 금방 한도에 걸리니, 각자 자기 계정으로 발급받는 것을 권합니다.</p>
+
+        <div class="block">
+          <span class="tag">5.1 · Concept</span>
+          <h3>헷갈리기 쉬운 부분부터 정리</h3>
+          <p class="sub">안티그래비티 속의 Gemini 와, 내 앱이 쓰는 Gemini 는 서로 다른 통로입니다.</p>
+          <div class="grid g2">
+            <div class="cmp">
+              <span class="tag">안티그래비티의 Gemini · 나를 도와 개발해 주는 AI</span>
+              <ul>
+                <li>구글 로그인만 하면 바로 사용</li>
+                <li>별도의 API 키가 필요 없음</li>
+                <li>코드 작성 · 파일 수정을 담당</li>
+              </ul>
+            </div>
+            <div class="cmp pos">
+              <span class="tag tag-accent">내 앱 속의 Gemini · 기도문을 써 주는 AI</span>
+              <ul>
+                <li>내가 만든 웹앱이 직접 호출</li>
+                <li>반드시 API 키가 필요</li>
+                <li>사용자가 버튼을 누를 때마다 호출됨</li>
+              </ul>
+            </div>
+          </div>
+          <div class="note" style="margin-top:12px">
+            <span class="tag">Google AI Studio 란</span>
+            <p>Gemini 를 웹에서 직접 테스트해 보고, 내 프로그램에서 쓸 API 키를 발급받는 구글의 공식 사이트입니다.</p>
+          </div>
         </div>
-      </div>
-      <p class="sub" style="margin-top:8px"><span class="tag">출처</span> Google AI for Developers — Using Gemini API keys</p>
-    </div>
 
-    <div class="block">
-      <span class="tag">5.3 · Model</span>
-      <h3>어떤 모델을 고를까</h3>
-      <p class="sub">모델 이름은 코드에 한 줄로 적습니다. 바꾸기도 쉽습니다.</p>
-      <div class="tablewrap">
-        <table>
-          <thead><tr><th>모델 이름</th><th>성격</th><th>이럴 때</th></tr></thead>
-          <tbody>
-            <tr><th><code>gemini-3.5-flash-lite</code></th><td>가장 빠르고 저렴</td><td>짧은 글 생성 · 이번 실습에 적합</td></tr>
-            <tr><th><code>gemini-3.5-flash</code></th><td>속도와 품질의 균형</td><td>문장의 품질을 조금 더 올리고 싶을 때</td></tr>
-            <tr><th><code>gemini-3.8-flash</code></th><td>가장 똑똑한 Flash 계열</td><td>긴 작업 · 복잡한 자동화</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="note accent">
-        <span class="tag tag-accent">이번 실습 권장</span>
-        <p><code class="i">gemini-3.5-flash-lite</code> — 기도문처럼 짧은 글은 빠르고 저렴한 모델로 충분합니다.</p>
-      </div>
-      <p class="sub">모델 이름은 계속 새로 나옵니다. 확실하지 않을 땐 에이전트에게 “지금 쓸 수 있는 최신 모델로 바꿔줘” 라고 하세요.<br>
-      <span class="tag">출처</span> ai.google.dev/gemini-api/docs/models (2026년 9월 기준)</p>
-    </div>
+        <div class="block">
+          <span class="tag">5.2 · Issue Key</span>
+          <h3>API 키 발급 — 4단계</h3>
+          <p class="sub">2분이면 끝납니다.</p>
+          <div class="grid g4">
+            <div class="card"><span class="num">01</span>
+              <h4>사이트 접속</h4>
+              <p>aistudio.google.com/apikey</p>
+            </div>
+            <div class="card"><span class="num">02</span>
+              <h4>로그인 · 약관 동의</h4>
+              <p>구글 계정 로그인, 기본 프로젝트 자동 생성</p>
+            </div>
+            <div class="card"><span class="num">03</span>
+              <h4>Create API key</h4>
+              <p>버튼을 눌러 새 키 생성</p>
+            </div>
+            <div class="card"><span class="num">04</span>
+              <h4>즉시 복사</h4>
+              <p>메모장 등에 붙여넣어 안전하게 보관</p>
+            </div>
+          </div>
+          <div class="grid g2" style="margin-top:12px">
+            <div class="cmp">
+              <span class="tag">요금은 어떻게 되나요</span>
+              <ul>
+                <li>무료 등급으로 시작할 수 있습니다</li>
+                <li>무료 등급에는 분 · 일 단위 호출 한도가 있습니다</li>
+                <li>한도를 넘기려면 구글 클라우드 프로젝트에 결제 수단을 연결합니다</li>
+              </ul>
+            </div>
+            <div class="cmp">
+              <span class="tag">교육 · 실습에서는</span>
+              <p style="margin:0;color:var(--sub);font-size:13.5px">무료 등급만으로 충분합니다. 다만 여러 명이 같은 키를 돌려 쓰면 금방 한도에 걸리니, 각자
+                자기 계정으로 발급받는 것을 권합니다.</p>
+            </div>
+          </div>
+          <p class="sub" style="margin-top:8px"><span class="tag">출처</span> Google AI for Developers — Using Gemini API
+            keys</p>
+        </div>
 
-    <div class="block">
-      <span class="tag">5.4 · Security</span>
-      <h3>API 키 보안 3원칙</h3>
-      <p class="sub">이 장에서 가장 중요한 부분입니다. 키가 새면 요금이 나에게 청구됩니다.</p>
-      <div class="rows">
-        <div class="row"><span class="idx">01</span><div><div class="ttl">브라우저에서 돌아가는 코드에 키를 넣지 않는다</div><div class="desc">화면 쪽(프런트엔드) 코드는 누구나 열어 볼 수 있습니다. 공식 문서도 “키가 추출될 수 있다” 고 명시합니다</div></div></div>
-        <div class="row"><span class="idx">02</span><div><div class="ttl">키는 .env 파일에 두고, .gitignore 에 등록한다</div><div class="desc">.env 는 비밀을 적어 두는 파일, .gitignore 는 “이 파일은 공유하지 말라” 는 목록입니다</div></div></div>
-        <div class="row"><span class="idx">03</span><div><div class="ttl">실제 호출은 서버(백엔드)에서 한다</div><div class="desc">화면은 내 서버에 요청하고, 내 서버가 키를 써서 Gemini 를 부릅니다. 이 구조를 프록시라고 부릅니다</div></div></div>
-      </div>
-      <div class="note accent" style="margin-top:12px">
-        <span class="tag tag-accent">구조 한눈에</span>
-        <p>화면(브라우저) → 내 서버 → Gemini API &nbsp;&nbsp;·&nbsp;&nbsp; 키는 가운데 「내 서버」 안에만 존재합니다.</p>
-      </div>
-      <p class="sub">6장 실습의 프롬프트에는 이 구조가 이미 반영되어 있습니다. 그대로 붙여넣기만 하면 됩니다.</p>
-    </div>
-    <a class="top-link" href="#top">↑ 맨 위로</a>
-  </section>
+        <div class="block">
+          <span class="tag">5.3 · Model</span>
+          <h3>어떤 모델을 고를까</h3>
+          <p class="sub">모델 이름은 코드에 한 줄로 적습니다. 바꾸기도 쉽습니다.</p>
+          <div class="tablewrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>모델 이름</th>
+                  <th>성격</th>
+                  <th>이럴 때</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th><code>gemini-3.5-flash-lite</code></th>
+                  <td>가장 빠르고 저렴</td>
+                  <td>짧은 글 생성 · 이번 실습에 적합</td>
+                </tr>
+                <tr>
+                  <th><code>gemini-3.5-flash</code></th>
+                  <td>속도와 품질의 균형</td>
+                  <td>문장의 품질을 조금 더 올리고 싶을 때</td>
+                </tr>
+                <tr>
+                  <th><code>gemini-3.8-flash</code></th>
+                  <td>가장 똑똑한 Flash 계열</td>
+                  <td>긴 작업 · 복잡한 자동화</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="note accent">
+            <span class="tag tag-accent">이번 실습 권장</span>
+            <p><code class="i">gemini-3.5-flash-lite</code> — 기도문처럼 짧은 글은 빠르고 저렴한 모델로 충분합니다.</p>
+          </div>
+          <p class="sub">모델 이름은 계속 새로 나옵니다. 확실하지 않을 땐 에이전트에게 “지금 쓸 수 있는 최신 모델로 바꿔줘” 라고 하세요.<br>
+            <span class="tag">출처</span> ai.google.dev/gemini-api/docs/models (2026년 9월 기준)
+          </p>
+        </div>
 
-  <!-- ================= CH 6 ================= -->
-  <section id="ch6">
-    <div class="sec-head">
-      <span class="chip chip-solid">06</span>
-      <h2>실습 — 기도문 생성 웹 프로그램 만들기</h2>
-    </div>
-    <p class="lede">앞의 5개 장에서 준비한 것을 전부 합칩니다. STEP 1~9.</p>
-    <div class="rows block">
-      <div class="row"><span class="idx">IN</span><div><div class="ttl">입력 · 현재 상황 + 기도 제목</div><div class="desc">출력 · 완성된 기도문</div></div></div>
-      <div class="row"><span class="idx">HOW</span><div><div class="ttl">Stitch 로 화면을 디자인하고, Gemini API 로 글을 생성</div></div></div>
-      <div class="row"><span class="idx">YOU</span><div><div class="ttl">여러분이 할 일은 프롬프트를 순서대로 붙여넣는 것</div><div class="desc">각 STEP 마다 「확인 포인트」로 잘 됐는지 점검</div></div></div>
-    </div>
+        <div class="block">
+          <span class="tag">5.4 · Security</span>
+          <h3>API 키 보안 3원칙</h3>
+          <p class="sub">이 장에서 가장 중요한 부분입니다. 키가 새면 요금이 나에게 청구됩니다.</p>
+          <div class="rows">
+            <div class="row"><span class="idx">01</span>
+              <div>
+                <div class="ttl">브라우저에서 돌아가는 코드에 키를 넣지 않는다</div>
+                <div class="desc">화면 쪽(프런트엔드) 코드는 누구나 열어 볼 수 있습니다. 공식 문서도 “키가 추출될 수 있다” 고 명시합니다</div>
+              </div>
+            </div>
+            <div class="row"><span class="idx">02</span>
+              <div>
+                <div class="ttl">키는 .env 파일에 두고, .gitignore 에 등록한다</div>
+                <div class="desc">.env 는 비밀을 적어 두는 파일, .gitignore 는 “이 파일은 공유하지 말라” 는 목록입니다</div>
+              </div>
+            </div>
+            <div class="row"><span class="idx">03</span>
+              <div>
+                <div class="ttl">실제 호출은 서버(백엔드)에서 한다</div>
+                <div class="desc">화면은 내 서버에 요청하고, 내 서버가 키를 써서 Gemini 를 부릅니다. 이 구조를 프록시라고 부릅니다</div>
+              </div>
+            </div>
+          </div>
+          <div class="note accent" style="margin-top:12px">
+            <span class="tag tag-accent">구조 한눈에</span>
+            <p>화면(브라우저) → 내 서버 → Gemini API &nbsp;&nbsp;·&nbsp;&nbsp; 키는 가운데 「내 서버」 안에만 존재합니다.</p>
+          </div>
+          <p class="sub">6장 실습의 프롬프트에는 이 구조가 이미 반영되어 있습니다. 그대로 붙여넣기만 하면 됩니다.</p>
+        </div>
+        <a class="top-link" href="#top">↑ 맨 위로</a>
+      </section>
 
-    <div class="block">
-      <span class="tag">6.1 · Product</span>
-      <h3>무엇을 만드나</h3>
-      <p class="sub">한 페이지짜리 웹 프로그램입니다.</p>
-      <div class="rows">
-        <div class="row with-note"><span class="idx">제목</span><div><div class="ttl">오늘의 기도</div></div><span class="side-note">Title</span></div>
-        <div class="row with-note"><span class="idx">입력 1</span><div><div class="ttl">현재 상황 (여러 줄)</div></div><span class="side-note">Textarea</span></div>
-        <div class="row with-note"><span class="idx">입력 2</span><div><div class="ttl">기도 제목 (여러 줄)</div></div><span class="side-note">Textarea</span></div>
-        <div class="row with-note"><span class="idx">버튼</span><div><div class="ttl">기도문 만들기</div></div><span class="side-note">Primary</span></div>
-        <div class="row with-note"><span class="idx">결과</span><div><div class="ttl">생성된 기도문 카드</div></div><span class="side-note">Card</span></div>
-        <div class="row with-note"><span class="idx">버튼</span><div><div class="ttl">복사하기</div></div><span class="side-note">Secondary</span></div>
-      </div>
-      <h4 style="margin:16px 0 8px;font-size:15px">동작 흐름</h4>
-      <div class="grid g4">
-        <div class="card"><span class="num">01</span><h4>입력</h4><p>사용자가 상황과 기도 제목을 입력</p></div>
-        <div class="card"><span class="num">02</span><h4>전달</h4><p>버튼을 누르면 내 서버로 전달 — API 키는 서버 안에만 있습니다</p></div>
-        <div class="card"><span class="num">03</span><h4>생성</h4><p>서버가 Gemini API 를 호출해 정해둔 형식으로 기도문 작성 요청</p></div>
-        <div class="card"><span class="num">04</span><h4>표시</h4><p>완성된 기도문을 화면에 표시, 복사 버튼으로 바로 활용</p></div>
-      </div>
-      <div class="note" style="margin-top:12px">
-        <p>기도문은 개인의 신앙과 관련된 글입니다. AI가 만든 초안은 참고용으로 쓰고, 마지막은 스스로 다듬어 사용하세요.</p>
-      </div>
-    </div>
+      <!-- ================= CH 6 ================= -->
+      <section id="ch6">
+        <div class="sec-head">
+          <span class="chip chip-solid">06</span>
+          <h2>실습 — 기도문 생성 웹 프로그램 만들기</h2>
+        </div>
+        <p class="lede">앞의 5개 장에서 준비한 것을 전부 합칩니다. STEP 1~9.</p>
+        <div class="rows block">
+          <div class="row"><span class="idx">IN</span>
+            <div>
+              <div class="ttl">입력 · 현재 상황 + 기도 제목</div>
+              <div class="desc">출력 · 완성된 기도문</div>
+            </div>
+          </div>
+          <div class="row"><span class="idx">HOW</span>
+            <div>
+              <div class="ttl">Stitch 로 화면을 디자인하고, Gemini API 로 글을 생성</div>
+            </div>
+          </div>
+          <div class="row"><span class="idx">YOU</span>
+            <div>
+              <div class="ttl">여러분이 할 일은 프롬프트를 순서대로 붙여넣는 것</div>
+              <div class="desc">각 STEP 마다 「확인 포인트」로 잘 됐는지 점검</div>
+            </div>
+          </div>
+        </div>
 
-    <div class="block">
-      <span class="tag">6.2 · Checklist</span>
-      <h3>시작 전 최종 점검</h3>
-      <p class="sub">5개가 모두 준비되었는지 확인하세요. 하나라도 빠지면 중간에 막힙니다.</p>
-      <div class="rows">
-        <div class="row with-note"><span class="idx">01</span><div><div class="ttl">안티그래비티가 설치되어 있고 로그인되어 있다</div></div><span class="side-note">2장</span></div>
-        <div class="row with-note"><span class="idx">02</span><div><div class="ttl">prayer-app 프로젝트(폴더)가 만들어져 있다</div></div><span class="side-note">2장</span></div>
-        <div class="row with-note"><span class="idx">03</span><div><div class="ttl">GEMINI.md 전역 규칙을 작성했다</div></div><span class="side-note">실습 2-1</span></div>
-        <div class="row with-note"><span class="idx">04</span><div><div class="ttl">/grill-me 와 /prd-writer 스킬이 설치되어 있다</div></div><span class="side-note">3장</span></div>
-        <div class="row with-note"><span class="idx">05</span><div><div class="ttl">Stitch MCP 가 연결되어 있고, Gemini API 키를 가지고 있다</div></div><span class="side-note">4·5장</span></div>
-      </div>
-      <p class="sub" style="margin-top:10px">체크가 안 된 항목이 있으면 해당 장으로 돌아가 먼저 채우고 오세요.</p>
-    </div>
+        <div class="block">
+          <span class="tag">6.1 · Product</span>
+          <h3>무엇을 만드나</h3>
+          <p class="sub">한 페이지짜리 웹 프로그램입니다.</p>
+          <div class="rows">
+            <div class="row with-note"><span class="idx">제목</span>
+              <div>
+                <div class="ttl">오늘의 기도</div>
+              </div><span class="side-note">Title</span>
+            </div>
+            <div class="row with-note"><span class="idx">입력 1</span>
+              <div>
+                <div class="ttl">현재 상황 (여러 줄)</div>
+              </div><span class="side-note">Textarea</span>
+            </div>
+            <div class="row with-note"><span class="idx">입력 2</span>
+              <div>
+                <div class="ttl">기도 제목 (여러 줄)</div>
+              </div><span class="side-note">Textarea</span>
+            </div>
+            <div class="row with-note"><span class="idx">버튼</span>
+              <div>
+                <div class="ttl">기도문 만들기</div>
+              </div><span class="side-note">Primary</span>
+            </div>
+            <div class="row with-note"><span class="idx">결과</span>
+              <div>
+                <div class="ttl">생성된 기도문 카드</div>
+              </div><span class="side-note">Card</span>
+            </div>
+            <div class="row with-note"><span class="idx">버튼</span>
+              <div>
+                <div class="ttl">복사하기</div>
+              </div><span class="side-note">Secondary</span>
+            </div>
+          </div>
+          <h4 style="margin:16px 0 8px;font-size:15px">동작 흐름</h4>
+          <div class="grid g4">
+            <div class="card"><span class="num">01</span>
+              <h4>입력</h4>
+              <p>사용자가 상황과 기도 제목을 입력</p>
+            </div>
+            <div class="card"><span class="num">02</span>
+              <h4>전달</h4>
+              <p>버튼을 누르면 내 서버로 전달 — API 키는 서버 안에만 있습니다</p>
+            </div>
+            <div class="card"><span class="num">03</span>
+              <h4>생성</h4>
+              <p>서버가 Gemini API 를 호출해 정해둔 형식으로 기도문 작성 요청</p>
+            </div>
+            <div class="card"><span class="num">04</span>
+              <h4>표시</h4>
+              <p>완성된 기도문을 화면에 표시, 복사 버튼으로 바로 활용</p>
+            </div>
+          </div>
+          <div class="note" style="margin-top:12px">
+            <p>기도문은 개인의 신앙과 관련된 글입니다. AI가 만든 초안은 참고용으로 쓰고, 마지막은 스스로 다듬어 사용하세요.</p>
+          </div>
+        </div>
 
-    <div class="step">
-      <div class="hd"><span class="chip chip-accent">STEP 1</span><h3>Skill을 사용해서 PRD 작성</h3></div>
-      <p class="goal"><b>목표</b> — prd-writer 스킬로 요구사항 정의서를 항목별로 정리합니다.</p>
-      <div class="prompt-head">
-        <span class="tag tag-accent">▸ 에이전트 입력창에 그대로 붙여넣기</span>
-        <button class="copy" data-copy>Copy</button>
-      </div>
-      <pre class="code wrap">/prd-writer "현재 상황"과 "기도 제목"을 입력하면 기도문을 자동으로 만들어 주는 웹 페이지를 만들려고 해.
+        <div class="block">
+          <span class="tag">6.2 · Checklist</span>
+          <h3>시작 전 최종 점검</h3>
+          <p class="sub">5개가 모두 준비되었는지 확인하세요. 하나라도 빠지면 중간에 막힙니다.</p>
+          <div class="rows">
+            <div class="row with-note"><span class="idx">01</span>
+              <div>
+                <div class="ttl">안티그래비티가 설치되어 있고 로그인되어 있다</div>
+              </div><span class="side-note">2장</span>
+            </div>
+            <div class="row with-note"><span class="idx">02</span>
+              <div>
+                <div class="ttl">prayer-app 프로젝트(폴더)가 만들어져 있다</div>
+              </div><span class="side-note">2장</span>
+            </div>
+            <div class="row with-note"><span class="idx">03</span>
+              <div>
+                <div class="ttl">GEMINI.md 전역 규칙을 작성했다</div>
+              </div><span class="side-note">실습 2-1</span>
+            </div>
+            <div class="row with-note"><span class="idx">04</span>
+              <div>
+                <div class="ttl">/grill-me 와 /prd-writer 스킬이 설치되어 있다</div>
+              </div><span class="side-note">3장</span>
+            </div>
+            <div class="row with-note"><span class="idx">05</span>
+              <div>
+                <div class="ttl">Stitch MCP 가 연결되어 있고, Gemini API 키를 가지고 있다</div>
+              </div><span class="side-note">4·5장</span>
+            </div>
+          </div>
+          <p class="sub" style="margin-top:10px">체크가 안 된 항목이 있으면 해당 장으로 돌아가 먼저 채우고 오세요.</p>
+        </div>
+
+        <div class="step">
+          <div class="hd"><span class="chip chip-accent">STEP 1</span>
+            <h3>Skill을 사용해서 PRD 작성</h3>
+          </div>
+          <p class="goal"><b>목표</b> — prd-writer 스킬로 요구사항 정의서를 항목별로 정리합니다.</p>
+          <div class="prompt-head">
+            <span class="tag tag-accent">▸ 에이전트 입력창에 그대로 붙여넣기</span>
+            <button class="copy" data-copy>Copy</button>
+          </div>
+          <pre class="code wrap">/prd-writer "현재 상황"과 "기도 제목"을 입력하면 기도문을 자동으로 만들어 주는 웹 페이지를 만들려고 해.
 나는 비개발자이고, 혼자 또는 소그룹에서 쓸 거야.</pre>
-      <figure class="shot"><img src="assets/image8.png" alt="prd-writer 스킬로 PRD 작성을 시작한 화면"><figcaption>PRD 작성 · 항목을 하나씩 질문받으며 진행</figcaption></figure>
-    </div>
+          <figure class="shot"><img src="assets/image8.png" alt="prd-writer 스킬로 PRD 작성을 시작한 화면">
+            <figcaption>PRD 작성 · 항목을 하나씩 질문받으며 진행</figcaption>
+          </figure>
+        </div>
 
-    <div class="step">
-      <div class="hd"><span class="chip chip-accent">STEP 2</span><h3>grill-me 스킬로 요구사항 상세화</h3></div>
-      <p class="goal"><b>목표</b> — 작성한 PRD를 다시 검토하며 빠진 결정사항을 채웁니다.</p>
-      <div class="prompt-head">
-        <span class="tag tag-accent">▸ 에이전트 입력창에 그대로 붙여넣기</span>
-        <button class="copy" data-copy>Copy</button>
-      </div>
-      <pre class="code wrap">/grill-me PRD.md 를 확인해보고 추가 질문을 해줘.</pre>
-      <div class="shots">
-        <figure class="shot"><img src="assets/image9.png" alt="grill-me 스킬로 요구사항을 상세화하는 화면"><figcaption>01 · grill-me 로 추가 질문을 받으며 상세화</figcaption></figure>
-        <figure class="shot"><img src="assets/image10.png" alt="상세화 결과가 PRD.md 에 반영된 화면"><figcaption>02 · 상세화 결과가 PRD.md 에 반영 — API 키 관리 · 공유 기능 · Stitch 연동 등이 추가됨</figcaption></figure>
-      </div>
-    </div>
+        <div class="step">
+          <div class="hd"><span class="chip chip-accent">STEP 2</span>
+            <h3>grill-me 스킬로 요구사항 상세화</h3>
+          </div>
+          <p class="goal"><b>목표</b> — 작성한 PRD를 다시 검토하며 빠진 결정사항을 채웁니다.</p>
+          <div class="prompt-head">
+            <span class="tag tag-accent">▸ 에이전트 입력창에 그대로 붙여넣기</span>
+            <button class="copy" data-copy>Copy</button>
+          </div>
+          <pre class="code wrap">/grill-me PRD.md 를 확인해보고 추가 질문을 해줘.</pre>
+          <div class="shots">
+            <figure class="shot"><img src="assets/image9.png" alt="grill-me 스킬로 요구사항을 상세화하는 화면">
+              <figcaption>01 · grill-me 로 추가 질문을 받으며 상세화</figcaption>
+            </figure>
+            <figure class="shot"><img src="assets/image10.png" alt="상세화 결과가 PRD.md 에 반영된 화면">
+              <figcaption>02 · 상세화 결과가 PRD.md 에 반영 — API 키 관리 · 공유 기능 · Stitch 연동 등이 추가됨</figcaption>
+            </figure>
+          </div>
+        </div>
 
-    <div class="step">
-      <div class="hd"><span class="chip chip-accent">STEP 3</span><h3>Stitch와 연동하여 개발 진행</h3></div>
-      <p class="goal"><b>목표</b> — Stitch MCP로 화면 디자인을 만들고, 그 디자인을 코드로 옮깁니다.</p>
-      <figure class="shot"><img src="assets/image11.png" alt="Stitch MCP 와 연동하여 개발을 진행하는 화면"><figcaption>Stitch MCP 연동 · 디자인 생성부터 구현까지</figcaption></figure>
-    </div>
+        <div class="step">
+          <div class="hd"><span class="chip chip-accent">STEP 3</span>
+            <h3>Stitch와 연동하여 개발 진행</h3>
+          </div>
+          <p class="goal"><b>목표</b> — Stitch MCP로 화면 디자인을 만들고, 그 디자인을 코드로 옮깁니다.</p>
+          <figure class="shot"><img src="assets/image11.png" alt="Stitch MCP 와 연동하여 개발을 진행하는 화면">
+            <figcaption>Stitch MCP 연동 · 디자인 생성부터 구현까지</figcaption>
+          </figure>
+        </div>
 
-    <div class="step">
-      <div class="hd"><span class="chip chip-accent">STEP 4</span><h3>Stitch에 접속하여 확인</h3></div>
-      <p class="goal"><b>목표</b> — 에이전트가 만든 디자인이 Stitch에 실제로 생성되었는지 확인합니다.</p>
-      <figure class="shot"><img src="assets/image12.png" alt="Stitch 웹사이트에서 생성된 디자인을 확인하는 화면"><figcaption>Stitch 에서 생성된 화면 디자인 확인</figcaption></figure>
-    </div>
+        <div class="step">
+          <div class="hd"><span class="chip chip-accent">STEP 4</span>
+            <h3>Stitch에 접속하여 확인</h3>
+          </div>
+          <p class="goal"><b>목표</b> — 에이전트가 만든 디자인이 Stitch에 실제로 생성되었는지 확인합니다.</p>
+          <figure class="shot"><img src="assets/image12.png" alt="Stitch 웹사이트에서 생성된 디자인을 확인하는 화면">
+            <figcaption>Stitch 에서 생성된 화면 디자인 확인</figcaption>
+          </figure>
+        </div>
 
-    <div class="step">
-      <div class="hd"><span class="chip chip-accent">STEP 5</span><h3>AI Studio 에서 API 키 발급</h3></div>
-      <p class="goal"><b>목표</b> — 앱이 Gemini 를 호출할 수 있도록 키를 발급받아 <code class="i">.env</code> 에 넣습니다.</p>
-      <figure class="shot"><img src="assets/image13.png" alt="Google AI Studio 에서 API 키를 발급받는 화면"><figcaption>AI Studio 접속 → Create API key → 즉시 복사</figcaption></figure>
-      <div class="check">
-        <span class="tag">확인 포인트</span>
+        <div class="step">
+          <div class="hd"><span class="chip chip-accent">STEP 5</span>
+            <h3>AI Studio 에서 API 키 발급</h3>
+          </div>
+          <p class="goal"><b>목표</b> — 앱이 Gemini 를 호출할 수 있도록 키를 발급받아 <code class="i">.env</code> 에 넣습니다.</p>
+          <figure class="shot"><img src="assets/image13.png" alt="Google AI Studio 에서 API 키를 발급받는 화면">
+            <figcaption>AI Studio 접속 → Create API key → 즉시 복사</figcaption>
+          </figure>
+          <div class="check">
+            <span class="tag">확인 포인트</span>
+            <ul>
+              <li>키는 <code class="i">.env</code> 에만 두고, <code class="i">.gitignore</code> 에 <code class="i">.env</code>
+                가 들어 있는지 확인하세요. (5장 보안 3원칙)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="hd"><span class="chip chip-accent">STEP 6</span>
+            <h3>Git repository 생성</h3>
+          </div>
+          <p class="goal"><b>목표</b> — 배포를 위해 코드를 올려 둘 저장소를 만듭니다.</p>
+          <figure class="shot"><img src="assets/image14.png" alt="GitHub 저장소를 생성하는 화면">
+            <figcaption>Git repository 생성</figcaption>
+          </figure>
+        </div>
+
+        <div class="step">
+          <div class="hd"><span class="chip chip-accent">STEP 7</span>
+            <h3>개발 완료 및 테스트 후 깃에 배포</h3>
+          </div>
+          <p class="goal"><b>목표</b> — 동작을 확인한 뒤 코드를 저장소에 올립니다.</p>
+          <figure class="shot"><img src="assets/image15.png" alt="개발을 완료하고 테스트한 뒤 깃에 푸시하는 화면">
+            <figcaption>테스트 완료 후 Git 에 push</figcaption>
+          </figure>
+        </div>
+
+        <div class="step">
+          <div class="hd"><span class="chip chip-accent">STEP 8</span>
+            <h3>배포를 위하여 Cloudflare 에 접속</h3>
+          </div>
+          <p class="goal"><b>목표</b> — 무료로 웹에 올릴 수 있는 Cloudflare 대시보드에 들어갑니다.</p>
+          <figure class="shot"><img src="assets/image16.png" alt="Cloudflare 에 접속한 화면">
+            <figcaption>Cloudflare 접속</figcaption>
+          </figure>
+        </div>
+
+        <div class="step">
+          <div class="hd"><span class="chip chip-accent">STEP 9</span>
+            <h3>다음 순서대로 배포한다</h3>
+          </div>
+          <p class="goal"><b>목표</b> — Cloudflare 에서 GitHub 저장소를 연결해 자동 배포를 설정합니다.</p>
+          <div class="shots two">
+            <figure class="shot"><img src="assets/image17.png" alt="Cloudflare 대시보드 홈 화면">
+              <figcaption>01 · 대시보드 → Compute (Workers &amp; Pages)</figcaption>
+            </figure>
+            <figure class="shot"><img src="assets/image18.png" alt="Make something new 화면에서 GitHub 연결 선택">
+              <figcaption>02 · Make something new → Continue with GitHub</figcaption>
+            </figure>
+          </div>
+          <div class="shots two">
+            <figure class="shot"><img src="assets/image19.png" alt="Get started 화면에서 기존 Git 저장소 가져오기 선택">
+              <figcaption>03 · Import an existing Git repository</figcaption>
+            </figure>
+            <figure class="shot"><img src="assets/image20.png" alt="배포할 저장소를 선택하는 화면">
+              <figcaption>04 · 배포할 저장소 선택 → Begin setup</figcaption>
+            </figure>
+          </div>
+          <figure class="shot"><img src="assets/image21.png" alt="프로덕션 브랜치와 빌드 설정을 지정하는 화면">
+            <figcaption>05 · Production branch(main) · Build settings 확인 후 배포</figcaption>
+          </figure>
+          <div class="check">
+            <span class="tag">확인 포인트</span>
+            <ul>
+              <li>빌드 도구를 쓰지 않았다면 Framework preset 은 <code class="i">None</code>, Build command 는 비워 둡니다.</li>
+              <li>배포가 끝나면 발급된 주소로 접속해 기도문이 실제로 생성되는지 확인하세요.</li>
+            </ul>
+          </div>
+        </div>
+        <a class="top-link" href="#top">↑ 맨 위로</a>
+      </section>
+
+      <!-- ================= SUMMARY ================= -->
+      <section id="summary">
+        <div class="sec-head">
+          <span class="chip chip-solid">07</span>
+          <h2>전체 요약 — 한 페이지로 정리</h2>
+        </div>
+        <p class="lede">규칙으로 기준을 세우고, 스킬로 방법을 주고, MCP · API 로 바깥 도구를 연결한 뒤, 프롬프트로 앱을 완성합니다.</p>
+
+        <div class="rows block">
+          <div class="row"><span class="idx">01</span>
+            <div>
+              <div class="ttl">안티그래비티란?</div>
+              <div class="desc">파일 · 터미널 · 브라우저를 직접 다루는 구글의 에이전트 IDE. 규칙(GEMINI.md) · 스킬(SKILL.md) · MCP 세 층을 구분한다</div>
+            </div>
+          </div>
+          <div class="row"><span class="idx">02</span>
+            <div>
+              <div class="ttl">설치 및 기본 설정</div>
+              <div class="desc">antigravity.google/download → 구글 로그인 → 새 프로젝트 → <code
+                  class="i">~/.gemini/GEMINI.md</code> 에 전역 규칙 작성</div>
+            </div>
+          </div>
+          <div class="row"><span class="idx">03</span>
+            <div>
+              <div class="ttl">Skill.sh 스킬 설정</div>
+              <div class="desc"><code class="i">npx skills add …</code> 한 줄로 설치 → 재시작 후 새 대화에서 사용. 전역은 <code
+                  class="i">~/.gemini/</code>, 지역은 <code class="i">.agents/skills/</code> (지역이 우선)</div>
+            </div>
+          </div>
+          <div class="row"><span class="idx">04</span>
+            <div>
+              <div class="ttl">MCP 연결 (Stitch)</div>
+              <div class="desc">Stitch 설정에서 API 키 발급 → 에이전트 매니저 → MCP Servers 에서 Stitch 설치 후 키 입력</div>
+            </div>
+          </div>
+          <div class="row"><span class="idx">05</span>
+            <div>
+              <div class="ttl">Gemini API 키</div>
+              <div class="desc">aistudio.google.com/apikey 에서 발급. 키는 <code class="i">.env</code> + <code
+                  class="i">.gitignore</code>, 호출은 서버에서만</div>
+            </div>
+          </div>
+          <div class="row"><span class="idx">06</span>
+            <div>
+              <div class="ttl">실습 · 기도문 앱</div>
+              <div class="desc">PRD 작성 → grill-me 로 상세화 → Stitch 디자인 · 개발 → API 키 연동 → GitHub 업로드 → Cloudflare 배포</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid g3 block">
+          <div class="card"><span class="num">KEY 01</span>
+            <h4>지시가 곧 코드</h4>
+            <p>코드를 쓰는 대신 에이전트에게 정확하게 지시하고, 결과를 확인합니다</p>
+          </div>
+          <div class="card"><span class="num">KEY 02</span>
+            <h4>한 번 정하면 계속 쓴다</h4>
+            <p>규칙과 스킬을 만들어 두면 매번 같은 품질의 결과가 나옵니다</p>
+          </div>
+          <div class="card"><span class="num">KEY 03</span>
+            <h4>키는 서버 안에만</h4>
+            <p>API 키를 화면 코드나 Git 에 올리지 않는 것이 가장 중요합니다</p>
+          </div>
+        </div>
+
+        <div class="note accent">
+          <span class="tag tag-accent">다음 단계</span>
+          <p>기도문 앱의 프롬프트만 바꾸면 일기 요약기 · 편지 작성기 등 나만의 앱을 같은 흐름으로 만들 수 있습니다.</p>
+        </div>
+        <a class="top-link" href="#top">↑ 맨 위로</a>
+      </section>
+
+      <footer>
+        <span class="tag">References</span>
         <ul>
-          <li>키는 <code class="i">.env</code> 에만 두고, <code class="i">.gitignore</code> 에 <code class="i">.env</code> 가 들어 있는지 확인하세요. (5장 보안 3원칙)</li>
+          <li>Google Antigravity 공식 문서 — antigravity.google/docs</li>
+          <li>Google Codelabs — Design-to-Code with Antigravity and Stitch MCP</li>
+          <li>Google AI for Developers — Using Gemini API keys</li>
+          <li>ai.google.dev/gemini-api/docs/models (2026년 9월 기준)</li>
         </ul>
-      </div>
-    </div>
+        <p style="margin-top:12px">안티그래비티 초보자 교육자료 · 2026</p>
+      </footer>
 
-    <div class="step">
-      <div class="hd"><span class="chip chip-accent">STEP 6</span><h3>Git repository 생성</h3></div>
-      <p class="goal"><b>목표</b> — 배포를 위해 코드를 올려 둘 저장소를 만듭니다.</p>
-      <figure class="shot"><img src="assets/image14.png" alt="GitHub 저장소를 생성하는 화면"><figcaption>Git repository 생성</figcaption></figure>
-    </div>
+    </main>
+  </div>
 
-    <div class="step">
-      <div class="hd"><span class="chip chip-accent">STEP 7</span><h3>개발 완료 및 테스트 후 깃에 배포</h3></div>
-      <p class="goal"><b>목표</b> — 동작을 확인한 뒤 코드를 저장소에 올립니다.</p>
-      <figure class="shot"><img src="assets/image15.png" alt="개발을 완료하고 테스트한 뒤 깃에 푸시하는 화면"><figcaption>테스트 완료 후 Git 에 push</figcaption></figure>
-    </div>
-
-    <div class="step">
-      <div class="hd"><span class="chip chip-accent">STEP 8</span><h3>배포를 위하여 Cloudflare 에 접속</h3></div>
-      <p class="goal"><b>목표</b> — 무료로 웹에 올릴 수 있는 Cloudflare 대시보드에 들어갑니다.</p>
-      <figure class="shot"><img src="assets/image16.png" alt="Cloudflare 에 접속한 화면"><figcaption>Cloudflare 접속</figcaption></figure>
-    </div>
-
-    <div class="step">
-      <div class="hd"><span class="chip chip-accent">STEP 9</span><h3>다음 순서대로 배포한다</h3></div>
-      <p class="goal"><b>목표</b> — Cloudflare 에서 GitHub 저장소를 연결해 자동 배포를 설정합니다.</p>
-      <div class="shots two">
-        <figure class="shot"><img src="assets/image17.png" alt="Cloudflare 대시보드 홈 화면"><figcaption>01 · 대시보드 → Compute (Workers &amp; Pages)</figcaption></figure>
-        <figure class="shot"><img src="assets/image18.png" alt="Make something new 화면에서 GitHub 연결 선택"><figcaption>02 · Make something new → Continue with GitHub</figcaption></figure>
-      </div>
-      <div class="shots two">
-        <figure class="shot"><img src="assets/image19.png" alt="Get started 화면에서 기존 Git 저장소 가져오기 선택"><figcaption>03 · Import an existing Git repository</figcaption></figure>
-        <figure class="shot"><img src="assets/image20.png" alt="배포할 저장소를 선택하는 화면"><figcaption>04 · 배포할 저장소 선택 → Begin setup</figcaption></figure>
-      </div>
-      <figure class="shot"><img src="assets/image21.png" alt="프로덕션 브랜치와 빌드 설정을 지정하는 화면"><figcaption>05 · Production branch(main) · Build settings 확인 후 배포</figcaption></figure>
-      <div class="check">
-        <span class="tag">확인 포인트</span>
-        <ul>
-          <li>빌드 도구를 쓰지 않았다면 Framework preset 은 <code class="i">None</code>, Build command 는 비워 둡니다.</li>
-          <li>배포가 끝나면 발급된 주소로 접속해 기도문이 실제로 생성되는지 확인하세요.</li>
-        </ul>
-      </div>
-    </div>
-    <a class="top-link" href="#top">↑ 맨 위로</a>
-  </section>
-
-  <!-- ================= SUMMARY ================= -->
-  <section id="summary">
-    <div class="sec-head">
-      <span class="chip chip-solid">07</span>
-      <h2>전체 요약 — 한 페이지로 정리</h2>
-    </div>
-    <p class="lede">규칙으로 기준을 세우고, 스킬로 방법을 주고, MCP · API 로 바깥 도구를 연결한 뒤, 프롬프트로 앱을 완성합니다.</p>
-
-    <div class="rows block">
-      <div class="row"><span class="idx">01</span><div><div class="ttl">안티그래비티란?</div><div class="desc">파일 · 터미널 · 브라우저를 직접 다루는 구글의 에이전트 IDE. 규칙(GEMINI.md) · 스킬(SKILL.md) · MCP 세 층을 구분한다</div></div></div>
-      <div class="row"><span class="idx">02</span><div><div class="ttl">설치 및 기본 설정</div><div class="desc">antigravity.google/download → 구글 로그인 → 새 프로젝트 → <code class="i">~/.gemini/GEMINI.md</code> 에 전역 규칙 작성</div></div></div>
-      <div class="row"><span class="idx">03</span><div><div class="ttl">Skill.sh 스킬 설정</div><div class="desc"><code class="i">npx skills add …</code> 한 줄로 설치 → 재시작 후 새 대화에서 사용. 전역은 <code class="i">~/.gemini/</code>, 지역은 <code class="i">.agents/skills/</code> (지역이 우선)</div></div></div>
-      <div class="row"><span class="idx">04</span><div><div class="ttl">MCP 연결 (Stitch)</div><div class="desc">Stitch 설정에서 API 키 발급 → 에이전트 매니저 → MCP Servers 에서 Stitch 설치 후 키 입력</div></div></div>
-      <div class="row"><span class="idx">05</span><div><div class="ttl">Gemini API 키</div><div class="desc">aistudio.google.com/apikey 에서 발급. 키는 <code class="i">.env</code> + <code class="i">.gitignore</code>, 호출은 서버에서만</div></div></div>
-      <div class="row"><span class="idx">06</span><div><div class="ttl">실습 · 기도문 앱</div><div class="desc">PRD 작성 → grill-me 로 상세화 → Stitch 디자인 · 개발 → API 키 연동 → GitHub 업로드 → Cloudflare 배포</div></div></div>
-    </div>
-
-    <div class="grid g3 block">
-      <div class="card"><span class="num">KEY 01</span><h4>지시가 곧 코드</h4><p>코드를 쓰는 대신 에이전트에게 정확하게 지시하고, 결과를 확인합니다</p></div>
-      <div class="card"><span class="num">KEY 02</span><h4>한 번 정하면 계속 쓴다</h4><p>규칙과 스킬을 만들어 두면 매번 같은 품질의 결과가 나옵니다</p></div>
-      <div class="card"><span class="num">KEY 03</span><h4>키는 서버 안에만</h4><p>API 키를 화면 코드나 Git 에 올리지 않는 것이 가장 중요합니다</p></div>
-    </div>
-
-    <div class="note accent">
-      <span class="tag tag-accent">다음 단계</span>
-      <p>기도문 앱의 프롬프트만 바꾸면 일기 요약기 · 편지 작성기 등 나만의 앱을 같은 흐름으로 만들 수 있습니다.</p>
-    </div>
-    <a class="top-link" href="#top">↑ 맨 위로</a>
-  </section>
-
-  <footer>
-    <span class="tag">References</span>
-    <ul>
-      <li>Google Antigravity 공식 문서 — antigravity.google/docs</li>
-      <li>Google Codelabs — Design-to-Code with Antigravity and Stitch MCP</li>
-      <li>Google AI for Developers — Using Gemini API keys</li>
-      <li>ai.google.dev/gemini-api/docs/models (2026년 9월 기준)</li>
-    </ul>
-    <p style="margin-top:12px">안티그래비티 초보자 교육자료 · 2026</p>
-  </footer>
-
-  </main>
-</div>
-
-<script>
-// mobile nav toggle
-var btn=document.getElementById('navbtn'), side=document.getElementById('side');
-function isDesktop(){return window.matchMedia('(min-width:1080px)').matches}
-function sync(){ if(isDesktop()){ side.hidden=false; } else if(btn.getAttribute('aria-expanded')!=='true'){ side.hidden=true; } }
-btn.addEventListener('click',function(){
-  var open=btn.getAttribute('aria-expanded')==='true';
-  btn.setAttribute('aria-expanded',String(!open));
-  side.hidden=open;
-});
-side.addEventListener('click',function(e){
-  if(e.target.closest('a') && !isDesktop()){ btn.setAttribute('aria-expanded','false'); side.hidden=true; }
-});
-window.addEventListener('resize',sync); sync();
-
-// scroll spy
-var links=[].slice.call(document.querySelectorAll('.side a'));
-var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}).filter(Boolean);
-function spy(){
-  var cur=0;
-  secs.forEach(function(s,i){ if(s.getBoundingClientRect().top<=140) cur=i; });
-  links.forEach(function(a,i){ a.classList.toggle('on',i===cur); });
-}
-window.addEventListener('scroll',spy,{passive:true}); spy();
-
-// copy buttons
-document.querySelectorAll('[data-copy]').forEach(function(b){
-  b.addEventListener('click',function(){
-    var pre=b.closest('.prompt-head').nextElementSibling;
-    navigator.clipboard.writeText(pre.innerText).then(function(){
-      var t=b.textContent; b.textContent='Copied'; setTimeout(function(){b.textContent=t;},1400);
+  <script>
+    // mobile nav toggle
+    var btn = document.getElementById('navbtn'), side = document.getElementById('side');
+    function isDesktop() { return window.matchMedia('(min-width:1080px)').matches }
+    function sync() { if (isDesktop()) { side.hidden = false; } else if (btn.getAttribute('aria-expanded') !== 'true') { side.hidden = true; } }
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      side.hidden = open;
     });
-  });
-});
-</script>
+    side.addEventListener('click', function (e) {
+      if (e.target.closest('a') && !isDesktop()) { btn.setAttribute('aria-expanded', 'false'); side.hidden = true; }
+    });
+    window.addEventListener('resize', sync); sync();
+
+    // scroll spy
+    var links = [].slice.call(document.querySelectorAll('.side a'));
+    var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')) }).filter(Boolean);
+    function spy() {
+      var cur = 0;
+      secs.forEach(function (s, i) { if (s.getBoundingClientRect().top <= 140) cur = i; });
+      links.forEach(function (a, i) { a.classList.toggle('on', i === cur); });
+    }
+    window.addEventListener('scroll', spy, { passive: true }); spy();
+
+    // copy buttons
+    document.querySelectorAll('[data-copy]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var pre = b.closest('.prompt-head').nextElementSibling;
+        navigator.clipboard.writeText(pre.innerText).then(function () {
+          var t = b.textContent; b.textContent = 'Copied'; setTimeout(function () { b.textContent = t; }, 1400);
+        });
+      });
+    });
+
+    // hero video in-frame play logic
+    (function () {
+      var frame = document.getElementById('heroMediaFrame');
+      var cover = document.getElementById('heroCover');
+      var video = document.getElementById('heroVideo');
+
+      if (!frame || !cover || !video) return;
+
+      function startPlay() {
+        frame.classList.add('is-playing');
+        var playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(function () {
+            // 자동 재생 차단 시 컨트롤러 노출 상태로 유지
+          });
+        }
+      }
+
+      cover.addEventListener('click', startPlay);
+      cover.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          startPlay();
+        }
+      });
+
+      // 영상 재생 완료 시 커버 상태 복귀
+      video.addEventListener('ended', function () {
+        frame.classList.remove('is-playing');
+      });
+    })();
+  </script>
 </body>
+
 </html>
