@@ -1090,133 +1090,7 @@
         </div>
 
         <div class="block">
-          <span class="tag">1.2 · Agent</span>
-          <h3>에이전트(Agent)란 무엇인가</h3>
-          <p class="sub">한 줄 정의 — 스스로 계획을 세우고 도구를 써서 일을 끝까지 해내는 AI 일꾼</p>
-          <div class="note accent">
-            <p>챗봇은 「말」을 돌려주고, 에이전트는 「결과물」을 돌려줍니다.</p>
-          </div>
-          <div class="grid g3">
-            <div class="card"><span class="num">TOOL 01</span>
-              <h4>파일</h4>
-              <p>폴더를 읽고, 파일을 만들고 고칩니다</p>
-            </div>
-            <div class="card"><span class="num">TOOL 02</span>
-              <h4>터미널</h4>
-              <p>설치 · 실행 명령을 직접 입력합니다</p>
-            </div>
-            <div class="card"><span class="num">TOOL 03</span>
-              <h4>브라우저</h4>
-              <p>만든 화면을 직접 열어보고 캡처합니다</p>
-            </div>
-          </div>
-          <div class="note" style="margin-top:12px">
-            <span class="tag">쉽게 이해하는 비유 · 신입 직원 한 명을 채용한 것과 같습니다</span>
-            <p>회사 규정집을 준다 → <code class="i">GEMINI.md</code> &nbsp;·&nbsp; 업무 매뉴얼을 준다 → <code class="i">Skill</code>
-              &nbsp;·&nbsp; 외부 시스템 열쇠를 준다 → <code class="i">MCP</code></p>
-          </div>
-          <p class="sub">에이전트 · GEMINI.md · Skill · MCP — 이 4가지가 이번 교육에서 배울 전부입니다. 하나씩 채워 넣으면 에이전트의 결과물이 좋아집니다.</p>
-        </div>
-
-        <div class="block">
-          <span class="tag">1.3 · GEMINI.md</span>
-          <h3>GEMINI.md 를 설정해야 하는 이유</h3>
-          <p class="sub">에이전트가 매 대화마다 자동으로 읽는 「우리 프로젝트 규정집」입니다.</p>
-          <div class="grid g2">
-            <div class="cmp neg">
-              <span class="tag">설정하지 않으면</span>
-              <ul>
-                <li>매번 같은 설명을 처음부터 반복</li>
-                <li>물어보지도 않고 낯선 기술을 골라서 씀</li>
-                <li>영어로 길게 설명해 무슨 말인지 모름</li>
-                <li>새 대화를 열면 어제 정한 것을 다 잊음</li>
-                <li>확인도 없이 파일을 지우거나 덮어씀</li>
-              </ul>
-            </div>
-            <div class="cmp pos">
-              <span class="tag tag-accent">설정해두면</span>
-              <ul>
-                <li>말하지 않아도 우리 규칙대로 움직임</li>
-                <li>정해둔 기술 스택만 사용</li>
-                <li>항상 한국어로, 비개발자 눈높이로 설명</li>
-                <li>새 대화에서도 규칙이 그대로 유지</li>
-                <li>위험한 작업 전에 반드시 확인을 받음</li>
-              </ul>
-            </div>
-          </div>
-          <div class="note accent" style="margin-top:12px">
-            <span class="tag tag-accent">한 문장 요약</span>
-            <p>프롬프트는 「이번 한 번만」, GEMINI.md 는 「앞으로 계속」 적용되는 지시입니다.</p>
-          </div>
-        </div>
-
-        <div class="block">
-          <span class="tag">1.3 · Location</span>
-          <h3>규칙 파일은 어디에 두는가</h3>
-          <p class="sub">적용 범위에 따라 두 곳으로 나뉩니다. 둘 다 있으면 프로젝트 규칙이 더 구체적으로 작동합니다.</p>
-          <div class="grid g2">
-            <div class="cmp">
-              <span class="tag">전역 규칙 · 내 컴퓨터 전체</span>
-              <h4><code class="i">~/.gemini/GEMINI.md</code></h4>
-              <p style="margin:6px 0 0;color:var(--sub);font-size:13.5px">모든 프로젝트에 공통으로 적용 (말투, 언어, 기본 태도)</p>
-            </div>
-            <div class="cmp">
-              <span class="tag">프로젝트 규칙 · 이 폴더에서만</span>
-              <h4><code class="i">&lt;프로젝트&gt;/.agents/rules/</code></h4>
-              <p style="margin:6px 0 0;color:var(--sub);font-size:13.5px">이 프로젝트의 기술 스택 · 규칙 (팀과 공유 가능)</p>
-            </div>
-          </div>
-          <p class="sub" style="margin-top:10px">규칙 파일 1개는 12,000자까지 쓸 수 있습니다. 길게 쓰기보다 짧고 분명하게 쓰는 편이 더 잘 지켜집니다.</p>
-        </div>
-
-        <div class="block">
-          <span class="tag">1.4 · Skill</span>
-          <h3>스킬(Skill)이란 무엇인가</h3>
-          <p class="sub">특정 업무를 「어떻게 하는지」 적어둔 작업 매뉴얼 폴더입니다.</p>
-          <div class="grid g2">
-            <div>
-              <div class="prompt-head"><span class="tag">스킬 폴더의 구조</span></div>
-              <pre class="code">my-skill/
-  SKILL.md      ← 필수. 작업 방법을 적은 문서
-  scripts/      ← 선택. 반복 작업용 스크립트
-  examples/     ← 선택. 참고 예시
-  resources/    ← 선택. 템플릿 · 이미지</pre>
-            </div>
-            <div>
-              <div class="prompt-head"><span class="tag">SKILL.md 첫 부분 예시</span></div>
-              <pre class="code">---
-name: brainstorming
-description: 막연한 아이디어를 질문으로
-  구조화된 설계로 바꿀 때 사용
----
-
-# 진행 방법
-1. 사용자에게 목적을 되묻는다 ...</pre>
-            </div>
-          </div>
-          <div class="grid g3" style="margin-top:4px">
-            <div class="card"><span class="num">STEP 01</span>
-              <h4>발견</h4>
-              <p>대화를 시작할 때 어떤 스킬이 있는지 목록만 훑어봅니다</p>
-            </div>
-            <div class="card"><span class="num">STEP 02</span>
-              <h4>활성화</h4>
-              <p>지금 작업에 맞는 스킬을 골라 내용을 전부 읽습니다</p>
-            </div>
-            <div class="card"><span class="num">STEP 03</span>
-              <h4>실행</h4>
-              <p>매뉴얼에 적힌 순서대로 작업을 수행합니다</p>
-            </div>
-          </div>
-          <div class="note" style="margin-top:12px">
-            <span class="tag">알아두면 좋은 점</span>
-            <p>스킬은 열린 표준입니다. 한 번 만든 스킬을 클로드 · 커서 등 다른 AI 도구에서도 그대로 쓸 수 있습니다. 또 반드시 “이 스킬을 써”라고 지시하지 않아도 에이전트가 상황을 보고 알아서
-              고릅니다.</p>
-          </div>
-        </div>
-
-        <div class="block">
-          <span class="tag">1.5 · Summary</span>
+          <span class="tag">1.2 · Summary</span>
           <h3>정리 — 규칙 · 스킬 · MCP는 어떻게 다른가</h3>
           <p class="sub">세 가지를 헷갈리지 않는 것이 1장의 목표입니다.</p>
           <div class="tablewrap">
@@ -1285,6 +1159,26 @@ description: 막연한 아이디어를 질문으로
           <div class="row"><span class="idx">2.3</span>
             <div>
               <div class="ttl">첫 명령 내려보기</div>
+            </div>
+          </div>
+          <div class="row"><span class="idx">2.4</span>
+            <div>
+              <div class="ttl">에이전트(Agent)란 무엇인가 (3대 도구와 비유)</div>
+            </div>
+          </div>
+          <div class="row"><span class="idx">2.5</span>
+            <div>
+              <div class="ttl">GEMINI.md 를 설정해야 하는 이유</div>
+            </div>
+          </div>
+          <div class="row"><span class="idx">2.6</span>
+            <div>
+              <div class="ttl">규칙 파일은 어디에 두는가 (전역 vs 프로젝트)</div>
+            </div>
+          </div>
+          <div class="row"><span class="idx">2.7</span>
+            <div>
+              <div class="ttl">스킬(Skill)이란 무엇인가 (구조와 3단계 동작)</div>
             </div>
           </div>
           <div class="row"><span class="idx">2-1</span>
@@ -1377,6 +1271,132 @@ description: 막연한 아이디어를 질문으로
           <div class="note" style="margin-top:12px">
             <span class="tag">잘 안 될 때</span>
             <p>“왜 실패했는지 한국어로 설명하고 다시 시도해줘” 라고 그대로 답하면 됩니다.</p>
+          </div>
+        </div>
+
+        <div class="block">
+          <span class="tag">2.4 · Agent</span>
+          <h3>에이전트(Agent)란 무엇인가</h3>
+          <p class="sub">한 줄 정의 — 스스로 계획을 세우고 도구를 써서 일을 끝까지 해내는 AI 일꾼</p>
+          <div class="note accent">
+            <p>챗봇은 「말」을 돌려주고, 에이전트는 「결과물」을 돌려줍니다.</p>
+          </div>
+          <div class="grid g3">
+            <div class="card"><span class="num">TOOL 01</span>
+              <h4>파일</h4>
+              <p>폴더를 읽고, 파일을 만들고 고칩니다</p>
+            </div>
+            <div class="card"><span class="num">TOOL 02</span>
+              <h4>터미널</h4>
+              <p>설치 · 실행 명령을 직접 입력합니다</p>
+            </div>
+            <div class="card"><span class="num">TOOL 03</span>
+              <h4>브라우저</h4>
+              <p>만든 화면을 직접 열어보고 캡처합니다</p>
+            </div>
+          </div>
+          <div class="note" style="margin-top:12px">
+            <span class="tag">쉽게 이해하는 비유 · 신입 직원 한 명을 채용한 것과 같습니다</span>
+            <p>회사 규정집을 준다 → <code class="i">GEMINI.md</code> &nbsp;·&nbsp; 업무 매뉴얼을 준다 → <code class="i">Skill</code>
+              &nbsp;·&nbsp; 외부 시스템 열쇠를 준다 → <code class="i">MCP</code></p>
+          </div>
+          <p class="sub">에이전트 · GEMINI.md · Skill · MCP — 이 4가지가 이번 교육에서 배울 전부입니다. 하나씩 채워 넣으면 에이전트의 결과물이 좋아집니다.</p>
+        </div>
+
+        <div class="block">
+          <span class="tag">2.5 · GEMINI.md</span>
+          <h3>GEMINI.md 를 설정해야 하는 이유</h3>
+          <p class="sub">에이전트가 매 대화마다 자동으로 읽는 「우리 프로젝트 규정집」입니다.</p>
+          <div class="grid g2">
+            <div class="cmp neg">
+              <span class="tag">설정하지 않으면</span>
+              <ul>
+                <li>매번 같은 설명을 처음부터 반복</li>
+                <li>물어보지도 않고 낯선 기술을 골라서 씀</li>
+                <li>영어로 길게 설명해 무슨 말인지 모름</li>
+                <li>새 대화를 열면 어제 정한 것을 다 잊음</li>
+                <li>확인도 없이 파일을 지우거나 덮어씀</li>
+              </ul>
+            </div>
+            <div class="cmp pos">
+              <span class="tag tag-accent">설정해두면</span>
+              <ul>
+                <li>말하지 않아도 우리 규칙대로 움직임</li>
+                <li>정해둔 기술 스택만 사용</li>
+                <li>항상 한국어로, 비개발자 눈높이로 설명</li>
+                <li>새 대화에서도 규칙이 그대로 유지</li>
+                <li>위험한 작업 전에 반드시 확인을 받음</li>
+              </ul>
+            </div>
+          </div>
+          <div class="note accent" style="margin-top:12px">
+            <span class="tag tag-accent">한 문장 요약</span>
+            <p>프롬프트는 「이번 한 번만」, GEMINI.md 는 「앞으로 계속」 적용되는 지시입니다.</p>
+          </div>
+        </div>
+
+        <div class="block">
+          <span class="tag">2.6 · Location</span>
+          <h3>규칙 파일은 어디에 두는가</h3>
+          <p class="sub">적용 범위에 따라 두 곳으로 나뉩니다. 둘 다 있으면 프로젝트 규칙이 더 구체적으로 작동합니다.</p>
+          <div class="grid g2">
+            <div class="cmp">
+              <span class="tag">전역 규칙 · 내 컴퓨터 전체</span>
+              <h4><code class="i">~/.gemini/GEMINI.md</code></h4>
+              <p style="margin:6px 0 0;color:var(--sub);font-size:13.5px">모든 프로젝트에 공통으로 적용 (말투, 언어, 기본 태도)</p>
+            </div>
+            <div class="cmp">
+              <span class="tag">프로젝트 규칙 · 이 폴더에서만</span>
+              <h4><code class="i">&lt;프로젝트&gt;/.agents/rules/</code></h4>
+              <p style="margin:6px 0 0;color:var(--sub);font-size:13.5px">이 프로젝트의 기술 스택 · 규칙 (팀과 공유 가능)</p>
+            </div>
+          </div>
+          <p class="sub" style="margin-top:10px">규칙 파일 1개는 12,000자까지 쓸 수 있습니다. 길게 쓰기보다 짧고 분명하게 쓰는 편이 더 잘 지켜집니다.</p>
+        </div>
+
+        <div class="block">
+          <span class="tag">2.7 · Skill</span>
+          <h3>스킬(Skill)이란 무엇인가</h3>
+          <p class="sub">특정 업무를 「어떻게 하는지」 적어둔 작업 매뉴얼 폴더입니다.</p>
+          <div class="grid g2">
+            <div>
+              <div class="prompt-head"><span class="tag">스킬 폴더의 구조</span></div>
+              <pre class="code">my-skill/
+  SKILL.md      ← 필수. 작업 방법을 적은 문서
+  scripts/      ← 선택. 반복 작업용 스크립트
+  examples/     ← 선택. 참고 예시
+  resources/    ← 선택. 템플릿 · 이미지</pre>
+            </div>
+            <div>
+              <div class="prompt-head"><span class="tag">SKILL.md 첫 부분 예시</span></div>
+              <pre class="code">---
+name: brainstorming
+description: 막연한 아이디어를 질문으로
+  구조화된 설계로 바꿀 때 사용
+---
+
+# 진행 방법
+1. 사용자에게 목적을 되묻는다 ...</pre>
+            </div>
+          </div>
+          <div class="grid g3" style="margin-top:4px">
+            <div class="card"><span class="num">STEP 01</span>
+              <h4>발견</h4>
+              <p>대화를 시작할 때 어떤 스킬이 있는지 목록만 훑어봅니다</p>
+            </div>
+            <div class="card"><span class="num">STEP 02</span>
+              <h4>활성화</h4>
+              <p>지금 작업에 맞는 스킬을 골라 내용을 전부 읽습니다</p>
+            </div>
+            <div class="card"><span class="num">STEP 03</span>
+              <h4>실행</h4>
+              <p>매뉴얼에 적힌 순서대로 작업을 수행합니다</p>
+            </div>
+          </div>
+          <div class="note" style="margin-top:12px">
+            <span class="tag">알아두면 좋은 점</span>
+            <p>스킬은 열린 표준입니다. 한 번 만든 스킬을 클로드 · 커서 등 다른 AI 도구에서도 그대로 쓸 수 있습니다. 또 반드시 “이 스킬을 써”라고 지시하지 않아도 에이전트가 상황을 보고 알아서
+              고릅니다.</p>
           </div>
         </div>
 
