@@ -1794,7 +1794,8 @@ description: 막연한 아이디어를 질문으로
           <div class="rows">
             <div class="row"><span class="idx">01</span>
               <div>
-                <div class="ttl">Stitch (<a href="https://stitch.withgoogle.com/" target="_blank" rel="noopener">https://stitch.withgoogle.com/</a>)에 구글 계정으로 로그인</div>
+                <div class="ttl">Stitch (<a href="https://stitch.withgoogle.com/" target="_blank"
+                    rel="noopener">https://stitch.withgoogle.com/</a>)에 구글 계정으로 로그인</div>
               </div>
             </div>
             <div class="row"><span class="idx">02</span>
@@ -1852,8 +1853,7 @@ description: 막연한 아이디어를 질문으로
             <span class="tag tag-accent">▸ 에이전트에게 물어보기</span>
             <button class="copy" data-copy>Copy</button>
           </div>
-          <pre class="code wrap">List my Stitch projects.
-(또는 한국어로) 내 Stitch 프로젝트 목록을 보여줘.</pre>
+          <pre class="code wrap">내 Stitch 프로젝트 목록을 보여줘.</pre>
           <div class="note accent">
             <p>내 Stitch 프로젝트 이름이 목록으로 나오면 연결 성공입니다.</p>
           </div>
@@ -1869,7 +1869,6 @@ description: 막연한 아이디어를 질문으로
               <span class="tag">설정 파일 위치</span>
               <ul>
                 <li>전역 — <code class="i">~/.gemini/config/mcp_config.json</code></li>
-                <li>프로젝트 — <code class="i">&lt;프로젝트&gt;/.agents/mcp_config.json</code></li>
               </ul>
             </div>
             <div class="cmp">
@@ -1916,16 +1915,6 @@ description: 막연한 아이디어를 질문으로
           <div class="row"><span class="idx">5.2</span>
             <div>
               <div class="ttl">API 키 발급 4단계</div>
-            </div>
-          </div>
-          <div class="row"><span class="idx">5.3</span>
-            <div>
-              <div class="ttl">어떤 모델을 골라야 하는가</div>
-            </div>
-          </div>
-          <div class="row"><span class="idx">5.4</span>
-            <div>
-              <div class="ttl">API 키 보안 3원칙 — 가장 중요한 부분</div>
             </div>
           </div>
         </div>
@@ -1997,78 +1986,6 @@ description: 막연한 아이디어를 질문으로
           </div>
           <p class="sub" style="margin-top:8px"><span class="tag">출처</span> Google AI for Developers — Using Gemini API
             keys</p>
-        </div>
-
-        <div class="block">
-          <span class="tag">5.3 · Model</span>
-          <h3>어떤 모델을 고를까</h3>
-          <p class="sub">모델 이름은 코드에 한 줄로 적습니다. 바꾸기도 쉽습니다.</p>
-          <div class="tablewrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>모델 이름</th>
-                  <th>성격</th>
-                  <th>이럴 때</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th><code>gemini-3.5-flash-lite</code></th>
-                  <td>가장 빠르고 저렴</td>
-                  <td>짧은 글 생성 · 이번 실습에 적합</td>
-                </tr>
-                <tr>
-                  <th><code>gemini-3.5-flash</code></th>
-                  <td>속도와 품질의 균형</td>
-                  <td>문장의 품질을 조금 더 올리고 싶을 때</td>
-                </tr>
-                <tr>
-                  <th><code>gemini-3.8-flash</code></th>
-                  <td>가장 똑똑한 Flash 계열</td>
-                  <td>긴 작업 · 복잡한 자동화</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="note accent">
-            <span class="tag tag-accent">이번 실습 권장</span>
-            <p><code class="i">gemini-3.5-flash-lite</code> — 기도문처럼 짧은 글은 빠르고 저렴한 모델로 충분합니다.</p>
-          </div>
-          <p class="sub">모델 이름은 계속 새로 나옵니다. 확실하지 않을 땐 에이전트에게 “지금 쓸 수 있는 최신 모델로 바꿔줘” 라고 하세요.<br>
-            <span class="tag">출처</span> ai.google.dev/gemini-api/docs/models (2026년 9월 기준)
-          </p>
-        </div>
-
-        <div class="block">
-          <span class="tag">5.4 · Security</span>
-          <h3>API 키 보안 3원칙</h3>
-          <p class="sub">이 장에서 가장 중요한 부분입니다. 키가 새면 요금이 나에게 청구됩니다.</p>
-          <div class="rows">
-            <div class="row"><span class="idx">01</span>
-              <div>
-                <div class="ttl">브라우저에서 돌아가는 코드에 키를 넣지 않는다</div>
-                <div class="desc">화면 쪽(프런트엔드) 코드는 누구나 열어 볼 수 있습니다. 공식 문서도 “키가 추출될 수 있다” 고 명시합니다</div>
-              </div>
-            </div>
-            <div class="row"><span class="idx">02</span>
-              <div>
-                <div class="ttl">키는 .env 파일에 두고, .gitignore 에 등록한다</div>
-                <div class="desc">.env 는 비밀을 적어 두는 파일, .gitignore 는 “이 파일은 공유하지 말라” 는 목록입니다</div>
-              </div>
-            </div>
-            <div class="row"><span class="idx">03</span>
-              <div>
-                <div class="ttl">실제 호출은 서버(백엔드)에서 한다</div>
-                <div class="desc">화면은 내 서버에 요청하고, 내 서버가 키를 써서 Gemini 를 부릅니다. 이 구조를 프록시라고 부릅니다</div>
-              </div>
-            </div>
-          </div>
-          <div class="note accent" style="margin-top:12px">
-            <span class="tag tag-accent">구조 한눈에</span>
-            <p>화면(브라우저) → 내 서버 → Gemini API &nbsp;&nbsp;·&nbsp;&nbsp; 키는 가운데 「내 서버」 안에만 존재합니다.</p>
-          </div>
-          <p class="sub">6장 실습의 프롬프트에는 이 구조가 이미 반영되어 있습니다. 그대로 붙여넣기만 하면 됩니다.</p>
         </div>
         <a class="top-link" href="#top">↑ 맨 위로</a>
       </section>
