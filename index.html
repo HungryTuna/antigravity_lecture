@@ -1334,7 +1334,8 @@
           </div>
           <div class="note" style="margin-top:12px">
             <span class="tag">규칙을 주제별로 쪼개서 관리할 때</span>
-            <p>규칙 내용이 길어지면 <code class="i">&lt;프로젝트&gt;/.agents/rules/</code> 폴더를 만들고, 그 안에 여러 개의 마크다운 파일로 나누어 저장하면 에이전트가 전부 읽어들입니다.</p>
+            <p>규칙 내용이 길어지면 <code class="i">&lt;프로젝트&gt;/.agents/rules/</code> 폴더를 만들고, 그 안에 여러 개의 마크다운 파일로 나누어 저장하면
+              에이전트가 전부 읽어들입니다.</p>
             <pre class="code" style="margin-top:8px">&lt;프로젝트&gt;/
 └── .agents/
     └── rules/
@@ -1390,19 +1391,22 @@ Tailwind CSS 사용 시, 임의의 값(arbitrary values)보다는 설정된 테�
             <div class="cmp">
               <span class="tag">신입사원 비유 · 사규 (GEMINI.md / AGENTS.md)</span>
               <h4>기본 근무 수칙</h4>
-              <p style="margin:6px 0 0;color:var(--sub);font-size:13.5px">“한국어로 공손하게 대답해라”, “작업 전엔 계획부터 승인받아라”<br>➔ 신입사원이 출근해서 퇴근할 때까지 <b>항상 지켜야 하는 기본 태도</b>입니다.</p>
+              <p style="margin:6px 0 0;color:var(--sub);font-size:13.5px">“한국어로 공손하게 대답해라”, “작업 전엔 계획부터 승인받아라”<br>➔
+                신입사원이 출근해서 퇴근할 때까지 <b>항상 지켜야 하는 기본 태도</b>입니다.</p>
             </div>
             <div class="cmp pos">
               <span class="tag tag-accent">신입사원 비유 · 스킬 (Skill)</span>
               <h4>실무 비법 노트 (매뉴얼)</h4>
-              <p style="margin:6px 0 0;color:var(--sub);font-size:13.5px">기본 예절만 안다고 “영수증 정산”이나 “제안서 작성”을 척척 할 수는 없습니다.<br>➔ 선배가 건네주는 <b>「특정 업무 전용 실무 비법 노트」</b>가 바로 스킬입니다!</p>
+              <p style="margin:6px 0 0;color:var(--sub);font-size:13.5px">기본 예절만 안다고 “영수증 정산”이나 “제안서 작성”을 척척 할 수는
+                없습니다.<br>➔ 선배가 건네주는 <b>「특정 업무 전용 실무 비법 노트」</b>가 바로 스킬입니다!</p>
             </div>
           </div>
 
           <div class="grid g3" style="margin-top:12px">
             <div class="card"><span class="num">특징 01</span>
               <h4>필요할 때만 쏙 꺼내 읽기</h4>
-              <p>에이전트 머릿속에 모든 지식을 다 넣으면 과부하가 옵니다. 평소엔 목록만 보다가 사용자가 “아이디어 기획해줘”라고 하면 관련 매뉴얼(brainstorming)만 쏙 꺼내 읽습니다.</p>
+              <p>에이전트 머릿속에 모든 지식을 다 넣으면 과부하가 옵니다. 평소엔 목록만 보다가 사용자가 “아이디어 기획해줘”라고 하면 관련 매뉴얼(brainstorming)만 쏙 꺼내 읽습니다.
+              </p>
             </div>
             <div class="card"><span class="num">특징 02</span>
               <h4>도구와 샘플까지 통째로 제공</h4>
@@ -1483,7 +1487,7 @@ description: 막연한 아이디어를 질문으로
           </div>
           <div class="row"><span class="idx">3.4</span>
             <div>
-              <div class="ttl">나만의 스킬 등록하기 (prd-writer) 와 <code class="i">/learn</code> 명령</div>
+              <div class="ttl">나만의 스킬 등록하기 (prd-writer)</div>
             </div>
           </div>
         </div>
@@ -1555,7 +1559,6 @@ description: 막연한 아이디어를 질문으로
             <div class="cmp">
               <span class="tag">전역 설정 · 내 컴퓨터의 모든 프로젝트</span>
               <h4><code class="i">~/.gemini/config/skills/</code></h4>
-              <h4 style="margin-top:4px"><code class="i">~/.gemini/antigravity/skills/</code></h4>
               <ul style="margin-top:8px">
                 <li>어떤 폴더를 열어도 항상 사용 가능</li>
                 <li>혼자 쓰는 범용 스킬에 적합</li>
@@ -1692,41 +1695,6 @@ description: 막연한 아이디어를 질문으로
             <p><code class="i">C:\Users\&lt;사용자&gt;\.gemini\config\skills\prd-writer</code> 폴더에 <code
                 class="i">SKILL.md</code> 가 만들어져 있으면 성공입니다.</p>
           </div>
-        </div>
-
-        <div class="block">
-          <span class="tag">3.4 · Commands</span>
-          <h3><code class="i">/learn</code> 명령어 한눈에 보기</h3>
-          <p class="sub">설치가 끝나면 에이전트 입력창에서 바로 쓸 수 있습니다.</p>
-          <div class="tablewrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>입력</th>
-                  <th>하는 일</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th><code>/learn</code></th>
-                  <td>지금 프로젝트를 보고 어울리는 스킬을 추천</td>
-                </tr>
-                <tr>
-                  <th><code>/learn list</code></th>
-                  <td>설치된 스킬 목록 보기</td>
-                </tr>
-                <tr>
-                  <th><code>/learn update</code></th>
-                  <td>설치된 스킬을 최신으로 갱신</td>
-                </tr>
-                <tr>
-                  <th><code>/learn remove &lt;이름&gt;</code></th>
-                  <td>스킬 삭제</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="sub">설치된 스킬은 이름 앞에 「/」를 붙여 부르거나, 그냥 한국어로 설명만 해도 에이전트가 알아서 골라 씁니다.</p>
         </div>
         <a class="top-link" href="#top">↑ 맨 위로</a>
       </section>
