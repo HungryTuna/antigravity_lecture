@@ -1319,20 +1319,25 @@
         <div class="block">
           <span class="tag">2.6 · Location</span>
           <h3>규칙 파일은 어디에 두는가</h3>
-          <p class="sub">적용 범위에 따라 두 곳으로 나뉩니다. 둘 다 있으면 프로젝트 규칙이 더 구체적으로 작동합니다.</p>
+          <p class="sub">적용 범위에 따라 나뉩니다. 프로젝트 규칙이 전역 규칙보다 항상 우선순위가 높습니다.</p>
           <div class="grid g2">
             <div class="cmp">
               <span class="tag">전역 규칙 · 내 컴퓨터 전체</span>
               <h4><code class="i">~/.gemini/GEMINI.md</code></h4>
-              <p style="margin:6px 0 0;color:var(--sub);font-size:13.5px">모든 프로젝트에 공통으로 적용 (말투, 언어, 기본 태도)</p>
+              <p style="margin:6px 0 0;color:var(--sub);font-size:13.5px">모든 대화/프로젝트에 공통 적용 (기본 말투, 한국어, 계획 모드 필수 등)</p>
             </div>
             <div class="cmp">
-              <span class="tag">프로젝트 규칙 · 이 폴더에서만</span>
-              <h4><code class="i">&lt;프로젝트&gt;/.agents/rules/</code></h4>
-              <p style="margin:6px 0 0;color:var(--sub);font-size:13.5px">이 프로젝트의 기술 스택 · 규칙 (팀과 공유 가능)</p>
+              <span class="tag">프로젝트 규칙 · 가장 권장 (단일 파일)</span>
+              <h4><code class="i">&lt;프로젝트-루트&gt;/AGENTS.md</code></h4>
+              <p style="margin:6px 0 0;color:var(--sub);font-size:13.5px">프로젝트 최상위에 바로 생성 (기술 스택, 코딩 스타일, 팀 공유)</p>
             </div>
           </div>
-          <p class="sub" style="margin-top:10px">규칙 파일 1개는 12,000자까지 쓸 수 있습니다. 길게 쓰기보다 짧고 분명하게 쓰는 편이 더 잘 지켜집니다.</p>
+          <div class="note" style="margin-top:12px">
+            <span class="tag">규칙을 주제별로 쪼개서 관리할 때</span>
+            <p>규칙 내용이 길어지면 <code class="i">&lt;프로젝트&gt;/.agents/rules/</code> 폴더를 만들고, 그 안에 여러 개의 마크다운 파일(예: <code
+                class="i">coding.md</code>, <code class="i">ui.md</code>)로 나누어 저장해도 에이전트가 전부 읽어들입니다.</p>
+          </div>
+          <p class="sub" style="margin-top:10px">규칙 파일은 장황하게 쓰기보다 짧고 분명하게 핵심만 작성할 때 에이전트가 가장 강력하게 준수합니다.</p>
         </div>
 
         <div class="block">
