@@ -1384,8 +1384,37 @@ Tailwind CSS 사용 시, 임의의 값(arbitrary values)보다는 설정된 테�
         <div class="block">
           <span class="tag">2.7 · Skill</span>
           <h3>스킬(Skill)이란 무엇인가</h3>
-          <p class="sub">특정 업무를 「어떻게 하는지」 적어둔 작업 매뉴얼 폴더입니다.</p>
-          <div class="grid g2">
+          <p class="sub">한 줄 정의 — 특정 업무가 주어졌을 때 서랍에서 꺼내보는 「실무 비법 노트(매뉴얼)」</p>
+
+          <div class="grid g2" style="margin-top:14px">
+            <div class="cmp">
+              <span class="tag">신입사원 비유 · 사규 (GEMINI.md / AGENTS.md)</span>
+              <h4>기본 근무 수칙</h4>
+              <p style="margin:6px 0 0;color:var(--sub);font-size:13.5px">“한국어로 공손하게 대답해라”, “작업 전엔 계획부터 승인받아라”<br>➔ 신입사원이 출근해서 퇴근할 때까지 <b>항상 지켜야 하는 기본 태도</b>입니다.</p>
+            </div>
+            <div class="cmp pos">
+              <span class="tag tag-accent">신입사원 비유 · 스킬 (Skill)</span>
+              <h4>실무 비법 노트 (매뉴얼)</h4>
+              <p style="margin:6px 0 0;color:var(--sub);font-size:13.5px">기본 예절만 안다고 “영수증 정산”이나 “제안서 작성”을 척척 할 수는 없습니다.<br>➔ 선배가 건네주는 <b>「특정 업무 전용 실무 비법 노트」</b>가 바로 스킬입니다!</p>
+            </div>
+          </div>
+
+          <div class="grid g3" style="margin-top:12px">
+            <div class="card"><span class="num">특징 01</span>
+              <h4>필요할 때만 쏙 꺼내 읽기</h4>
+              <p>에이전트 머릿속에 모든 지식을 다 넣으면 과부하가 옵니다. 평소엔 목록만 보다가 사용자가 “아이디어 기획해줘”라고 하면 관련 매뉴얼(brainstorming)만 쏙 꺼내 읽습니다.</p>
+            </div>
+            <div class="card"><span class="num">특징 02</span>
+              <h4>도구와 샘플까지 통째로 제공</h4>
+              <p>말만 주는 게 아닙니다. 작업 순서(SKILL.md)에 더해 보조 자동화 도구(scripts/)와 모범 예시(examples/)가 폴더 하나에 한 세트로 묶여 있습니다.</p>
+            </div>
+            <div class="card"><span class="num">특징 03</span>
+              <h4>레고 블록처럼 손쉬운 공유</h4>
+              <p>내가 잘 만든 업무 폴더를 동료에게 넘겨주거나 공개 저장소(skills.sh)에서 다운로드받으면, 내 에이전트가 순식간에 새로운 전문 기술을 습득합니다.</p>
+            </div>
+          </div>
+
+          <div class="grid g2" style="margin-top:16px">
             <div>
               <div class="prompt-head"><span class="tag">스킬 폴더의 구조</span></div>
               <pre class="code">my-skill/
