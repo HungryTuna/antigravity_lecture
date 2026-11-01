@@ -1334,8 +1334,13 @@
           </div>
           <div class="note" style="margin-top:12px">
             <span class="tag">규칙을 주제별로 쪼개서 관리할 때</span>
-            <p>규칙 내용이 길어지면 <code class="i">&lt;프로젝트&gt;/.agents/rules/</code> 폴더를 만들고, 그 안에 여러 개의 마크다운 파일(예: <code
-                class="i">coding.md</code>, <code class="i">ui.md</code>)로 나누어 저장해도 에이전트가 전부 읽어들입니다.</p>
+            <p>규칙 내용이 길어지면 <code class="i">&lt;프로젝트&gt;/.agents/rules/</code> 폴더를 만들고, 그 안에 여러 개의 마크다운 파일로 나누어 저장하면 에이전트가 전부 읽어들입니다.</p>
+            <pre class="code" style="margin-top:8px">&lt;프로젝트&gt;/
+└── .agents/
+    └── rules/
+        ├── workflow.md      # 계획 모드, 작업 순서 규칙
+        ├── coding-style.md  # 언어, 네이밍, 리팩토링 규칙
+        └── ui-tokens.md     # 반응형, Tailwind 설정 규칙</pre>
           </div>
           <p class="sub" style="margin-top:10px">규칙 파일은 장황하게 쓰기보다 짧고 분명하게 핵심만 작성할 때 에이전트가 가장 강력하게 준수합니다.</p>
         </div>
